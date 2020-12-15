@@ -36,7 +36,6 @@ foo = sequence . map (dstr . split fullPath func) =<< dirFilesFullPath
     where strip = (++ "/src/main/java/") . reverse >=< takeWhile (/= '/') . tail
           fullPath s = fmap (++ "/projects_maven/") getCurrentDirectory >>= pure . (++ (strip s))
           dirFilesFullPath = getCurrentDirectory >>= pure . (++ "/projectsPOO_1920/") >>= format >>= return . map (snoc "/")
-          -- dirFilesFullPath = getCurrentDirectory >>= pure . (++ "/mini_projects/") >>= format >>= return . map (snoc "/")
           snoc a s = s ++ a
 
 -- saca package do ficheiro
