@@ -1,0 +1,14 @@
+Modelo/Coordenadas.class
+Modelo/TransportadoraNormal.class
+Modelo/Transportadora.class
+Modelo/Loja.class
+Modelo/TrazAquiModel.class
+View/TrazAquiView.class
+Modelo/Medicamentos.class
+Modelo/Utilizador.class
+Modelo/TransportadoraMulti.class
+Modelo/Encomenda.class
+Main.class
+Modelo/Voluntario.class
+Controller/TrazAquiController.class
+Modelo/LinhaEncomenda.class

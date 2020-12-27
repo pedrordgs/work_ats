@@ -22,4 +22,8 @@ done
 cd projects_maven
 echo ""
 echo "It was impossible to determine the main class of the following projects:"
-grep -RH "<mainClass></mainClass>" * | awk -F / '{print $1}'
+DELETE=$(grep -RH "<mainClass></mainClass>" * | awk -F / '{print $1}')
+echo $DELETE
+echo ""
+echo "$(echo $DELETE | wc -w) projects were deleted"
+rm -rf $DELETE

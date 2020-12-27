@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo "Running sonarqube on background"
+
+# ./sonarqube-8.5.1.38104/bin/linux-x86-64/sonar.sh console &
+
+# sleep 30
+
 for p in projects_maven/*; do
   cd $p
   mvn clean verify sonar:sonar

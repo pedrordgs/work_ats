@@ -1,0 +1,17 @@
+LinhaEncomenda.class
+ComparaEncomendas.class
+Voluntario.class
+EncomendaNaoExistenteException.class
+Transportadora.class
+Utilizador.class
+Localizacao.class
+DataBase.class
+Transporte.class
+Encomenda.class
+Loja.class
+User.class
+PasswordErradaException.class
+Parse.class
+ComparaEncomendasT.class
+Menu.class
+UserNaoExistenteException.class
