@@ -15,13 +15,15 @@ for p in projects_maven/*; do
   cd $p
   MainClass=$(grep -RH "void main[^a-zA-Z]" * | awk -F ":" {'print $1'} | sed 's/src\/main\/java\///;s/\.java//;s/\//./g')
   Project=$(echo $p | awk -F / '{print $2}')
-  sed -i "s/TrazAqui/TrazAqui_$Project/;s/<mainClass>/<mainClass>$MainClass/" pom.xml
-  # mvn compile
-  # mvn package
+  sed -i "s/TrazAqui/$Project/;s/<mainClass>/<mainClass>$MainClass/" pom.xml 2> /dev/null
   cd ../..
 done
 
 cd projects_maven
 echo ""
 echo "It was impossible to determine the main class of the following projects:"
-grep -RH "<mainClass></mainClass>" * | awk -F / '{print $1}'
+DELETE=$(grep -RH "<mainClass></mainClass>" * | awk -F / '{print $1}')
+echo $DELETE
+echo ""
+echo "$(echo $DELETE | wc -w) projects were deleted"
+rm -rf $DELETE
