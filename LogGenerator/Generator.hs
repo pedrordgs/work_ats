@@ -61,7 +61,8 @@ main = do
     stores <- genIded 5 (0,100) genStore
     products <- genIded 300 (0,1000) genProduct
     orders <- genIded 5 (0,10000) $ genOrder (map fst users) (map fst stores) products
-    writeFile "logs.txt" $ fullPrint users volunteers transporters stores orders
+    let accepted = init $ concatMap ((\x -> "Aceite:e" ++ x ++ "\n") . show . fst) orders
+    writeFile "logs.txt" $ fullPrint users volunteers transporters stores orders ++ "\n" ++ accepted
 
 ---------------------------------------------------------- CREATES HASKELL BD FUNCTIONS FROM CSV FILES ---------------------------------------------------
 
