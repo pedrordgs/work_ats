@@ -20,6 +20,10 @@ for p in projects_maven/*; do
 done
 
 cd projects_maven
+LAST_COMMAND=$?
+if [ $LAST_COMMAND -ne 0 ]; then
+  exit
+fi
 echo ""
 echo "It was impossible to determine the main class of the following projects:"
 DELETE=$(grep -RH "<mainClass></mainClass>" * | awk -F / '{print $1}')
