@@ -2,3 +2,4 @@
 target/*
 .classpath
 .project
+docs/node_modules
