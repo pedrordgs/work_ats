@@ -23,7 +23,7 @@ genPrice = Pr <$> genPriceF
 genPriceF = choose (0,100)
 genQuantity = choose (0,10)
 
-genLoc = liftM2 L (choose (-90,90)) (choose (-180,180))
+genLoc = liftM2 L (choose (-90,90)) (choose (-90,90))
 
 genUser = liftM2 U genName genLoc
 
@@ -33,7 +33,7 @@ genTransporter = liftM5 T (elements companies) genLoc genNIF genRadius genPrice
 
 genStore = liftM2 S (elements companies) genLoc
 
-genProduct = P <$> elements produtos
+genProduct = P <$> elements (filter (not . elem ',') produtos)
 
 genPIO prods = liftM3 PIO (elements prods) genPriceF genQuantity
 
@@ -54,15 +54,15 @@ genOrder us ss prods = liftM3 order (elements us) (elements ss) (sized $ flip nu
     order ui si l = O ui si (pio_price l) l
     pio_price = sum . map (uncurry (*) . (price &&& quant))
 
-main = do
-    users <- genIded 5 (0,100) genUser
-    volunteers <- genIded 5 (0,100) genVolunteer
-    transporters <- genIded 5 (0,100) genTransporter
-    stores <- genIded 5 (0,100) genStore
+main name = do
+    users <- genIded 10 (0,100) genUser
+    volunteers <- genIded 10 (0,100) genVolunteer
+    transporters <- genIded 10 (0,100) genTransporter
+    stores <- genIded 10 (0,100) genStore
     products <- genIded 300 (0,1000) genProduct
-    orders <- genIded 5 (0,10000) $ genOrder (map fst users) (map fst stores) products
+    orders <- genIded 10 (0,10000) $ genOrder (map fst users) (map fst stores) products
     let accepted = init $ concatMap ((\x -> "Aceite:e" ++ x ++ "\n") . show . fst) orders
-    writeFile "logs.txt" $ fullPrint users volunteers transporters stores orders ++ "\n" ++ accepted
+    writeFile name $ fullPrint users volunteers transporters stores orders ++ "\n" ++ accepted
 
 ---------------------------------------------------------- CREATES HASKELL BD FUNCTIONS FROM CSV FILES ---------------------------------------------------
 

@@ -79,7 +79,7 @@ instance Eq ProductInOrder where
     _ == _ = False
 
 instance Show ProductInOrder where
-    show (PIO (id, pn) pr q) = ezShowComma ["p" ++ show id, show pn, show q, show pr] 
+    show (PIO (id, pn) pr q) = ezShowComma ["p" ++ show id, show pn, showFFloat (Just 6) q "", showFFloat (Just 1) pr ""] 
 
 -- userID, StoreID, total price, product list
 data Order = O ID ID PriceF [ProductInOrder]
