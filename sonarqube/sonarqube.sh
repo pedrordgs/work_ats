@@ -6,6 +6,8 @@ echo "Running sonarqube on background"
 
 # sleep 30
 
+mkdir -p ../results
+
 for p in ../refactor/projects_refactor/*; do
   cd $p
   mvn clean verify sonar:sonar

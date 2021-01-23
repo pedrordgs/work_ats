@@ -9,8 +9,8 @@ sudo update-alternatives --install "/usr/bin/jar" "jar" $jdk"/bin/jar" 1
 sudo update-alternatives --set "java" $jdk"/bin/java"
 sudo update-alternatives --set "javac" $jdk"/bin/javac"
 #sudo update-alternatives --set "javaws" $jdk/"bin/javaws"
-sudo update-alternatives --set "jar" $jdk"/bin/jar" 
+sudo update-alternatives --set "jar" $jdk"/bin/jar"
 
 echo "switched to "
 java -version
- 
+

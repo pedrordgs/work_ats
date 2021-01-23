@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 public class Parser
 {
   public  void parse(DataBase db) throws  EncomendaJaExisteException{
-   List<String> linhas = lerFicheiro("logs.txt"); //alterar nome do ficheiro
+   List<String> linhas = lerFicheiro("Logs.csv"); //alterar nome do ficheiro
    String[] linhaPartida;
         for (String linha : linhas) {
                 linhaPartida = linha.split(":", 2);

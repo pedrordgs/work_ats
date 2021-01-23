@@ -3,3 +3,5 @@ target/*
 .classpath
 .project
 docs/node_modules
+projects_maven
+refactor/projects_refactor

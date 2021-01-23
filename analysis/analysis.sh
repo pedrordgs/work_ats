@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p ../results/graphs
+mkdir -p ../results/graphs_refactor
 
 Rscript script.r > ../results/metrics_analysis
 
@@ -24,8 +26,33 @@ for p in projects/*; do
   mvn cobertura:cobertura
   mkdir -p ../../../results/tests/$PROJECT
   cp -r target/site/* ../../../results/tests/$PROJECT
-  Run RAPL and write results to file
   cd ../..
 done
+
+../helpers/javaswitcher.sh 11
+
+cd RAPL
+sudo modprobe msr
+make
+
+for p in projects/*; do
+  cd $p
+  mvn package
+  cd ../..
+done
+
+mkdir -p ../../results/RAPL
+
+for l in logs/*; do
+  cp $l logs.txt
+  FILE=$(echo $l | awk -F '/' '{print $2}' | awk -F '.' '{print $1}')
+  sudo ./main 'java -jar projects/2/target/2-1.0.jar' 10 '../../results/RAPL/2_'$FILE
+  sudo ./main 'java -jar projects/67/target/67-1.0.jar' 10 '../../results/RAPL/67_'$FILE
+  sudo ./main 'java -jar projects/83/target/83-1.0.jar' 10 '../../results/RAPL/83_'$FILE
+  rm logs.txt
+done
+
+make clean
+
 
 
