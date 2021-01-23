@@ -4,6 +4,7 @@ import Test.QuickCheck
 import Control.Monad
 import Control.Arrow
 import Cp
+import qualified Data.Map as M
 import Data.List
 import Data.List.Split (splitOn)
 import Data.Char
@@ -54,13 +55,23 @@ genOrder us ss prods = liftM3 order (elements us) (elements ss) (sized $ flip nu
     order ui si l = O ui si (pio_price l) l
     pio_price = sum . map (uncurry (*) . (price &&& quant))
 
-main name = do
-    users <- genIded 10 (0,100) genUser
-    volunteers <- genIded 10 (0,100) genVolunteer
-    transporters <- genIded 10 (0,100) genTransporter
-    stores <- genIded 10 (0,100) genStore
-    products <- genIded 300 (0,1000) genProduct
-    orders <- genIded 10 (0,10000) $ genOrder (map fst users) (map fst stores) products
+dataset_to_genIded :: (Eq a) => Dataset -> String -> Gen a -> IO [Id a]
+dataset_to_genIded d field gen = (\(n, max) -> genIded n (0,max) gen) $ d M.! field 
+
+type Dataset = M.Map String (Int, Int)
+
+small, medium, big :: Dataset
+big = M.fromList [("U",(1000,10000)),("V",(1000,10000)),("T",(350,1000)),("S",(1000,10000)),("P",(650,1000)),("O",(5000,10000))]
+medium = M.fromList [("U",(200,1000)),("V",(200,1000)),("T",(70,1000)),("S",(200,1000)),("P",(200,1000)),("O",(1000,10000))]
+small = M.fromList [("U",(25,100)),("V",(25,100)),("T",(50,200)),("S",(25,100)),("P",(100,500)),("O",(100,1000))]
+
+main name dataset = do
+    users <- dataset_to_genIded dataset "U" genUser
+    volunteers <- dataset_to_genIded dataset "V" genVolunteer
+    transporters <- dataset_to_genIded dataset "T" genTransporter
+    stores <- dataset_to_genIded dataset "S" genStore
+    products <- dataset_to_genIded dataset "P" genProduct
+    orders <-dataset_to_genIded dataset "O" $ genOrder (map fst users) (map fst stores) products
     let accepted = init $ concatMap ((\x -> "Aceite:e" ++ x ++ "\n") . show . fst) orders
     writeFile name $ fullPrint users volunteers transporters stores orders ++ "\n" ++ accepted
 
