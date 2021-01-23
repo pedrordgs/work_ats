@@ -1,0 +1,26 @@
+*_out.dot
+*.class
+
+# Eclipse files
+.classpath
+.project
+.settings
+.checkstyle
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# build directory
+target
+test/bin
+samples/bin
+
+# By product files
+test/org/autorefactor/cfg/*.png
+test-output
+
+# macos invisible files
+.DS_Store
+/.metadata/

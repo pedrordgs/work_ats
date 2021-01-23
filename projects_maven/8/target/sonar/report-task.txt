@@ -1,6 +1,0 @@
-projectKey=org.example:8
-serverUrl=http://localhost:9000
-serverVersion=8.5.1.38104
-dashboardUrl=http://localhost:9000/dashboard?id=org.example%3A8
-ceTaskId=AXafoAQqlD-10pyw9IjG
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXafoAQqlD-10pyw9IjG
