@@ -1,9 +1,11 @@
-import java.util.*;
 import java.lang.*;
-import java.io.*;
 
 class DistanceCalculator
 {
+    private DistanceCalculator(){
+        throw new IllegalStateException();
+    }
+
     /**
      * Método que calcula a distãncia entre 2 pontos
      */

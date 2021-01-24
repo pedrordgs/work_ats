@@ -5,23 +5,23 @@ import java.util.stream.Collectors;
 
 public class EmpresaTransportes extends UtilizadorSistema implements Serializable {
     private final int nif;
-    private final double custo_km;
+    private final double custoKm;
     private final int velocidade;
     private int minutosDeEspera;
     private final String local;
     private final double raioDeAcao;
     private double classificao;
     private int avaliacoes;
-    private ArrayList<Encomenda> registos;
+    private List<Encomenda> registos;
     private boolean transporteMedico;
     private boolean disponivel;
 
 
-    public EmpresaTransportes(String email,String password,String codigo, String nome, int nif, double custo_km, String local,double latitude, double longitude, double raioDeAcao, ArrayList<Encomenda> registos,
+    public EmpresaTransportes(String email,String password,String codigo, String nome, int nif, double custoKM, String local,double latitude, double longitude, double raioDeAcao, ArrayList<Encomenda> registos,
                               boolean transporteMedico, double classificao, int avaliacoes, boolean disponivel, int minutosDeEspera, int velocidade){
         super(email, password, "Transportadora", codigo, nome, latitude, longitude);
         this.nif = nif;
-        this.custo_km = custo_km;
+        this.custoKm = custoKM;
         this.local = local;
         this.raioDeAcao = raioDeAcao;
         this.setRegistos(registos);
@@ -36,7 +36,7 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
     public EmpresaTransportes(EmpresaTransportes a){
         super(a);
         this.nif = a.getNif();
-        this.custo_km = a.getCusto_km();
+        this.custoKm = a.getCustoKm();
         this.local = a.getLocal();
         this.raioDeAcao = a.getRaioDeAcao();
         this.setRegistos(a.getRegistos());
@@ -64,10 +64,6 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
         this.transporteMedico = state;
     }
 
-    public String getCodigo(){
-      return super.getCodigo();
-    }
-
     public int getAvaliacoes() {
         return avaliacoes;
     }
@@ -76,28 +72,16 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
         return classificao;
     }
 
-    public String getNome(){
-      return super.getNome();
-    }
-
     public int getNif(){
       return this.nif;
     }
 
-    public double getCusto_km(){
-      return this.custo_km;
+    public double getCustoKm(){
+      return this.custoKm;
     }
 
     public String getLocal() {
         return local;
-    }
-
-    public double getLatitude() {
-        return super.getLatitude();
-    }
-
-    public double getLongitude() {
-        return super.getLongitude();
     }
 
     public double getRaioDeAcao() {
@@ -112,7 +96,7 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
         this.disponivel = disponivel;
     }
 
-    public ArrayList<Encomenda> getRegistos() {
+    public List<Encomenda> getRegistos() {
         return this.registos.stream().map(Encomenda::clone).collect(Collectors.toCollection(ArrayList::new));
     }
 
@@ -120,15 +104,7 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
         this.minutosDeEspera = minutosDeEspera;
     }
 
-    public void setCodigo(String codigo) {
-        super.setCodigo(codigo);
-    }
-
-    public void setNome(String nome) {
-        super.setNome(nome);
-    }
-
-    public void setRegistos(ArrayList<Encomenda> registos) {
+    public void setRegistos(List<Encomenda> registos) {
         this.registos = new ArrayList<>();
         for(Encomenda e: registos){
             this.registos.add(e.clone());
@@ -145,7 +121,7 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
         EmpresaTransportes e = (EmpresaTransportes) obj;
         return  super.equals(obj) &&
                 this.nif == e.getNif() &&
-                this.custo_km == e.getCusto_km() &&
+                this.custoKm == e.getCustoKm() &&
                 this.local.equals(e.getLocal()) &&
                 this.raioDeAcao == e.getRaioDeAcao() &&
                 this.registos.equals(e.getRegistos()) &&
@@ -161,7 +137,7 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
                 "Nif: " +
                 this.nif + "\n" +
                 "Custo por km: " +
-                this.custo_km + "\n" +
+                this.custoKm + "\n" +
                 "Local: " +
                 this.local + "\n" +
                 "Latitude: " +
@@ -203,7 +179,7 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
         for(Encomenda e: this.registos){
             LocalDateTime date = e.getData();
             if(date.compareTo(d1) >= 0 && date.compareTo(d2) <= 0){
-                lojas.add(e.getCodigo_loja());
+                lojas.add(e.getCodigoLoja());
                 count++;
             }
         }
@@ -229,12 +205,12 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
             if(date.compareTo(d1) >= 0 && date.compareTo(d2) <= 0){
                 unit += e.getPeso() * 0.2;
                 try {
-                    Utilizador userEnc = bd.getUtilizadores().getUsers().get(bd.getUtilizadores().getEmail(e.getCodigo_user())).clone();
-                    Loja lojaEnc = bd.getLojas().getLojas().get(bd.getLojas().getEmail(e.getCodigo_loja())).clone();
+                    Utilizador userEnc = bd.getUtilizadores().getUsers().get(bd.getUtilizadores().getEmail(e.getCodigoUser())).clone();
+                    Loja lojaEnc = bd.getLojas().getLojas().get(bd.getLojas().getEmail(e.getCodigoLoja())).clone();
                     kms += DistanceCalculator.distance(this.getLatitude(), lojaEnc.getLatitude(), this.getLongitude(), lojaEnc.getLongitude());
                     kms += DistanceCalculator.distance(lojaEnc.getLatitude(), userEnc.getLatitude(), lojaEnc.getLongitude(), userEnc.getLongitude());
 
-                    unit += kms * this.getCusto_km();
+                    unit += kms * this.getCustoKm();
 
                 } catch (UserNotFoundException enc){
                     System.out.println("User not found");
@@ -259,15 +235,16 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
         int total = 0;
         for(Encomenda e: this.registos){
             try {
-                Utilizador u = bd.getUtilizadores().getUsers().get(bd.getUtilizadores().getEmail(e.getCodigo_user())).clone();
-                Loja j = bd.getLojas().getLojas().get(bd.getLojas().getEmail(e.getCodigo_loja())).clone();
+                Utilizador u = bd.getUtilizadores().getUsers().get(bd.getUtilizadores().getEmail(e.getCodigoUser())).clone();
+                Loja j = bd.getLojas().getLojas().get(bd.getLojas().getEmail(e.getCodigoLoja())).clone();
 
                 double dist1 = DistanceCalculator.distance(this.getLatitude(), j.getLatitude(), this.getLongitude(), j.getLongitude());
                 double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
                 int kms = (int) (dist1 + dist2);
                 total += kms;
 
-            } catch (UserNotFoundException | LojaNotFoundException ignored){
+            } catch (UserNotFoundException | LojaNotFoundException exc){
+                exc.printStackTrace();
             }
         }
 
@@ -377,7 +354,7 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
     /**
      * Método que devolve um array com todas as encomendas levantadas e prontas a serem entregues
      */
-    public ArrayList<Encomenda> getRota(){
+    public List<Encomenda> getRota(){
        ArrayList<Encomenda> ret = new ArrayList<>();
        for(Encomenda e: this.registos){
             if(e.isLevantada()) {
@@ -425,17 +402,17 @@ public class EmpresaTransportes extends UtilizadorSistema implements Serializabl
         return 60;
     }
 
-    int distanciaEntreLojas(ArrayList<Encomenda> rota, BDGeral bd){
+    int distanciaEntreLojas(List<Encomenda> rota, BDGeral bd){
         int total = 0;
         for(int i = 1; i < rota.size(); i++) {
             Encomenda next = rota.get(i);
             Encomenda ant = rota.get(i - 1);
             try {
-                Loja anterior = bd.getLojas().getLojas().get(bd.getLojas().getEmail(ant.getCodigo_loja())).clone();
-                Loja seguinte = bd.getLojas().getLojas().get(bd.getLojas().getEmail(next.getCodigo_loja())).clone();
+                Loja anterior = bd.getLojas().getLojas().get(bd.getLojas().getEmail(ant.getCodigoLoja())).clone();
+                Loja seguinte = bd.getLojas().getLojas().get(bd.getLojas().getEmail(next.getCodigoLoja())).clone();
                 total += DistanceCalculator.distance(anterior.getLatitude(), seguinte.getLatitude(), anterior.getLongitude(), seguinte.getLongitude());
-            } catch (LojaNotFoundException ignored) {
-
+            } catch (LojaNotFoundException e) {
+                e.printStackTrace();
             }
         }
         return total;

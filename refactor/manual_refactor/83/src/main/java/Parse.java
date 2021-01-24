@@ -138,14 +138,14 @@ public class Parse {
         String nome = campos[1];
         double latitude = Double.parseDouble(campos[2]);
         double longitude = Double.parseDouble(campos[3]);
-        double raio_acao = Double.parseDouble(campos[4]);
+        double raioAcao = Double.parseDouble(campos[4]);
         String email = codigo + "@gmail.com";
         String password = "12345";
         Random random = new Random();
         int low = 50;
         int high = 90;
         int velocidade = random.nextInt(high-low) + low;
-        return new Voluntario(email, password, nome, codigo, true, latitude, longitude, LocalDate.now(), raio_acao, new ArrayList<>(), 0, 0, false, velocidade, 0);
+        return new Voluntario(email, password, nome, codigo, true, latitude, longitude, LocalDate.now(), raioAcao, new ArrayList<>(), 0, 0, false, velocidade, 0);
     }
 
     /**
@@ -160,14 +160,14 @@ public class Parse {
         double longitude = Double.parseDouble(campos[3]);
         int nif = Integer.parseInt(campos[4]);
         double raioDeAcao = Double.parseDouble(campos[5]);
-        double custo_km = Double.parseDouble(campos[6]);
+        double custoKm = Double.parseDouble(campos[6]);
         String email = codigo + "@gmail.com";
         String password = "12345";
         Random random = new Random();
         int low = 90;
         int high = 120;
         int velocidade = random.nextInt(high-low) + low;
-        return new EmpresaTransportes(email, password, codigo, nome, nif, custo_km, " ", latitude, longitude, raioDeAcao, new ArrayList<>(), true, 0, 0, true, 0, velocidade);
+        return new EmpresaTransportes(email, password, codigo, nome, nif, custoKm, " ", latitude, longitude, raioDeAcao, new ArrayList<>(), true, 0, 0, true, 0, velocidade);
     }
 
     /**
@@ -179,10 +179,10 @@ public class Parse {
         Map<String, LinhaEncomenda> produtos = new HashMap<>();
         String[] campos = input.split(",");
         String codigo = campos[0];
-        String codigo_user = campos[1];
-        String codigo_loja = campos[2];
-        String aux1 = codigo_user + "@gmail.com";
-        String aux2 = codigo_loja + "@gmail.com";
+        String codigoUser = campos[1];
+        String codigoLoja = campos[2];
+        String aux1 = codigoUser + "@gmail.com";
+        String aux2 = codigoLoja + "@gmail.com";
         String comprador = this.baseGeral.getUtilizadores().getUsers().get(aux1).getNome();
         String vendedor = this.baseGeral.getLojas().getLojas().get(aux2).getNome();
         double peso = Double.parseDouble(campos[3]);
@@ -194,7 +194,7 @@ public class Parse {
             produtos.put(le.getDescricao(), le.clone());
             baseGeral.addProduto(le);
         }
-        return new Encomenda(codigo, codigo_user, codigo_loja, peso, comprador, vendedor, produtos, med, LocalDateTime.now(), false, false, true);
+        return new Encomenda(codigo, codigoUser, codigoLoja, peso, comprador, vendedor, produtos, med, LocalDateTime.now(), false, false, true);
     }
 
     /**
@@ -218,7 +218,7 @@ public class Parse {
     public void addEncomendas(List<Encomenda> encomendas) {
         for (Encomenda e : encomendas) {
             for (Loja j : this.baseGeral.getLojas().getLojas().values()) {
-                if (e.getCodigo_loja().equals(j.getCodigo())) {
+                if (e.getCodigoLoja().equals(j.getCodigo())) {
                     this.baseGeral.updateLoja(e, j);
                 }
             }
@@ -232,7 +232,7 @@ public class Parse {
     public void addEncomendasCliente(List<Encomenda> encomendas) {
         for (Encomenda e : encomendas) {
             for (Utilizador u : this.baseGeral.getUtilizadores().getUsers().values()) {
-                if (e.getCodigo_user().equals(u.getCodigo())) {
+                if (e.getCodigoUser().equals(u.getCodigo())) {
                     this.baseGeral.updateUser(e, u);
                 }
             }
@@ -254,23 +254,23 @@ public class Parse {
     public void addEncomendasVoluntariosETransportes(List<Encomenda> encomendas) {
         for (Encomenda e : encomendas) {
             if (!e.isEncomendaMedica()) {
-                String codigo_loja = e.getCodigo_loja();
-                Loja j = this.baseGeral.getLojas().getLojas().get(codigo_loja + "@gmail.com").clone();
+                String codigoLoja = e.getCodigoLoja();
+                Loja j = this.baseGeral.getLojas().getLojas().get(codigoLoja + "@gmail.com").clone();
                 try{
-                Utilizador u = this.baseGeral.getUtilizadores().getUsers().get(this.baseGeral.getUtilizadores().getEmail(e.getCodigo_user())).clone();
+                Utilizador u = this.baseGeral.getUtilizadores().getUsers().get(this.baseGeral.getUtilizadores().getEmail(e.getCodigoUser())).clone();
                 List<Voluntario> disponiveis = this.baseGeral.getVoluntarios().voluntariosDisponiveis(j, u);
                 List<EmpresaTransportes> disponiveisTrans = this.baseGeral.getTransportes().transDisponiveis(j, u);
                 if (disponiveis.size() == 1) {
                     Voluntario v = disponiveis.get(0).clone();
                     v.addEncomenda(e);
                     this.baseGeral.updateVoluntario2(v);
-                } else if (disponiveis.size() == 0 && disponiveisTrans.size() > 1) {
+                } else if (disponiveis.isEmpty() && disponiveisTrans.size() > 1) {
                     Random random = new Random();
                     int choice = random.nextInt(disponiveisTrans.size() - 1);
                     EmpresaTransportes et = disponiveisTrans.get(choice).clone();
                     et.addEncomenda(e);
                     this.baseGeral.updateTransportes2(et);
-                } else if (disponiveis.size() == 0 && disponiveisTrans.size() == 1) {
+                } else if (disponiveis.isEmpty() && disponiveisTrans.size() == 1) {
                     EmpresaTransportes et = disponiveisTrans.get(0).clone();
                     et.addEncomenda(e);
                     this.baseGeral.updateTransportes2(et);
@@ -281,28 +281,28 @@ public class Parse {
                     v.addEncomenda(e);
                     this.baseGeral.updateVoluntario2(v);
                 }
-            } catch (UserNotFoundException ignored){
-
+            } catch (UserNotFoundException exc){
+                    exc.printStackTrace();
                 }
             }
             else {
-                String codigo_loja = e.getCodigo_loja();
+                String codigoLoja = e.getCodigoLoja();
                 try {
-                    Utilizador u = this.baseGeral.getUtilizadores().getUsers().get(this.baseGeral.getUtilizadores().getEmail(e.getCodigo_user())).clone();
-                    Loja j = this.baseGeral.getLojas().getLojas().get(codigo_loja + "@gmail.com").clone();
+                    Utilizador u = this.baseGeral.getUtilizadores().getUsers().get(this.baseGeral.getUtilizadores().getEmail(e.getCodigoUser())).clone();
+                    Loja j = this.baseGeral.getLojas().getLojas().get(codigoLoja + "@gmail.com").clone();
                     List<Voluntario> disponiveis = this.baseGeral.getVoluntarios().voluntariosDisponiveisMed(j, u);
                     List<EmpresaTransportes> disponiveisTrans = this.baseGeral.getTransportes().transDisponiveisMedParse(j, u);
                     if (disponiveis.size() == 1) {
                         Voluntario v = disponiveis.get(0).clone();
                         v.addEncomenda(e);
                         this.baseGeral.updateVoluntario2(v);
-                    } else if (disponiveis.size() == 0 && disponiveisTrans.size() > 1) {
+                    } else if (disponiveis.isEmpty() && disponiveisTrans.size() > 1) {
                         Random random = new Random();
                         int choice = random.nextInt(disponiveisTrans.size() - 1);
                         EmpresaTransportes et = disponiveisTrans.get(choice).clone();
                         et.addEncomenda(e);
                         this.baseGeral.updateTransportes2(et);
-                    } else if (disponiveis.size() == 0 && disponiveisTrans.size() == 1) {
+                    } else if (disponiveis.isEmpty() && disponiveisTrans.size() == 1) {
                         EmpresaTransportes et = disponiveisTrans.get(0).clone();
                         et.addEncomenda(e);
                         this.baseGeral.updateTransportes2(et);
@@ -313,8 +313,8 @@ public class Parse {
                         v.addEncomenda(e);
                         this.baseGeral.updateVoluntario2(v);
                     }
-                } catch (UserNotFoundException ignored){
-
+                } catch (UserNotFoundException exc){
+                    exc.printStackTrace();
                 }
             }
         }

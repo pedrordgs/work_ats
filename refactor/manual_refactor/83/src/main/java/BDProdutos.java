@@ -32,9 +32,9 @@ import java.util.stream.Collectors;
          */
         public Map<String, LinhaEncomenda> getProdMedicos(Map<String, LinhaEncomenda> produtos){
             Map<String, LinhaEncomenda> aux = new TreeMap<>();
-            for(String s: produtos.keySet()){
-                if(s.equals("Desinfetante") || s.equals("Alcool") || s.equals("Saco de lixo 50l") || s.equals("Saco de lixo 30l")){
-                    aux.put(s, produtos.get(s).clone());
+            for(Map.Entry<String, LinhaEncomenda> e : produtos.entrySet()){
+                if(e.getKey().equals("Desinfetante") || e.getKey().equals("Alcool") || e.getKey().equals("Saco de lixo 50l") || e.getKey().equals("Saco de lixo 30l")){
+                    aux.put(e.getKey(), e.getValue().clone());
                 }
             }
             return aux;
@@ -89,9 +89,9 @@ import java.util.stream.Collectors;
         public String listProdutosNormais(){
             StringBuilder sb = new StringBuilder();
             Map<String, LinhaEncomenda> normais = new HashMap<>();
-            for(String s: this.produtos.keySet()){
-                if(!s.equals("Desinfetante") && !s.equals("Alcool") && !s.equals("Saco de lixo 50l") && !s.equals("Saco de lixo 30l")){
-                    normais.put(s, this.produtos.get(s));
+            for(Map.Entry<String, LinhaEncomenda> e : this.produtos.entrySet()){
+                if(!e.getKey().equals("Desinfetante") && !e.getKey().equals("Alcool") && !e.getKey().equals("Saco de lixo 50l") && !e.getKey().equals("Saco de lixo 30l")){
+                    normais.put(e.getKey(), e.getValue().clone());
                 }
             }
             sb.append("LISTA DE PRODUTOS\n");

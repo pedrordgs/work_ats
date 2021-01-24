@@ -1,52 +1,37 @@
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Loja extends UtilizadorSistema implements Serializable {
-    private final double tempo_espera;
+    private final double tempoEspera;
     private int nrPessoasEmFila;
-    private ArrayList<Encomenda> encomendas_recebidas;
+    private List<Encomenda> encomendasRecebidas;
 
-    public Loja (String email, String password, String codigo, String nome, double tempo_espera, double latitude, double longitude, ArrayList<Encomenda> encomendas_recebidas, int nrPessoasEmFila){
+    public Loja (String email, String password, String codigo, String nome, double tempoEspera, double latitude, double longitude, ArrayList<Encomenda> encomendasRecebidas, int nrPessoasEmFila){
         super(email, password, "Loja", codigo, nome, latitude, longitude);
-        this.tempo_espera = tempo_espera;
+        this.tempoEspera = tempoEspera;
         this.nrPessoasEmFila = nrPessoasEmFila;
-        setEncomendas_recebidas(encomendas_recebidas);
+        setEncomendasRecebidas(encomendasRecebidas);
     }
 
     public Loja (Loja loja){
         super(loja);
-        this.tempo_espera = loja.getTempo_espera();
+        this.tempoEspera = loja.getTempoEspera();
         this.nrPessoasEmFila = loja.getNrPessoasEmFila();
-        setEncomendas_recebidas(loja.getEncomendas_recebidas());
+        setEncomendasRecebidas(loja.getEncomendasRecebidas());
     }
 
-    public String getCodigo(){
-        return super.getCodigo();
-    }
-
-    public String getNome() {
-        return super.getNome();
-    }
-
-    public double getTempo_espera() {
-        return tempo_espera;
+    public double getTempoEspera() {
+        return tempoEspera;
     }
 
     public int getNrPessoasEmFila() {
         return nrPessoasEmFila;
     }
 
-    public double getLatitude() {
-        return super.getLatitude();
-    }
-
-    public double getLongitude() {
-        return super.getLatitude();
-    }
-
-    public ArrayList<Encomenda> getEncomendas_recebidas(){
+    public List<Encomenda> getEncomendasRecebidas(){
         ArrayList<Encomenda> aux = new ArrayList<>();
-        for(Encomenda s: this.encomendas_recebidas){
+        for(Encomenda s: this.encomendasRecebidas){
             aux.add(s.clone());
         }
         return aux;
@@ -56,26 +41,10 @@ public class Loja extends UtilizadorSistema implements Serializable {
         this.nrPessoasEmFila = nrPessoasEmFila;
     }
 
-    public void setCodigo(String codigo){
-      super.setCodigo(codigo);
-    }
-
-    public void setNome(String nome) {
-        super.setNome(nome);
-    }
-
-    public void setLatitude(double latitude) {
-        super.setLatitude(latitude);
-    }
-
-    public void setLongitude(double longitude) {
-        super.setLongitude(longitude);
-    }
-
-    public void setEncomendas_recebidas(ArrayList<Encomenda> encomendas_recebidas) {
-        this.encomendas_recebidas = new ArrayList<>();
-        for(Encomenda s: encomendas_recebidas){
-            this.encomendas_recebidas.add(s.clone());
+    public void setEncomendasRecebidas(List<Encomenda> encomendasRecebidas) {
+        this.encomendasRecebidas = new ArrayList<>();
+        for(Encomenda s: encomendasRecebidas){
+            this.encomendasRecebidas.add(s.clone());
         }
     }
 
@@ -86,21 +55,21 @@ public class Loja extends UtilizadorSistema implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Loja Loja = (Loja) o;
+        Loja loja = (Loja) o;
         return  super.equals(o) &&
-                this.tempo_espera == Loja.getTempo_espera() &&
-                this.encomendas_recebidas.equals(Loja.encomendas_recebidas);
+                this.tempoEspera == loja.getTempoEspera() &&
+                this.encomendasRecebidas.equals(loja.encomendasRecebidas);
     }
 
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Loja: ").append("\n");
+        final StringBuilder sb = new StringBuilder("Loja: ").append("\n");
         sb.append("Código da loja: ").append(getCodigo()).append('\n');
         sb.append("Nome da loja: ").append(getNome()).append('\n');
-        sb.append("Tempo de espera: ").append(this.tempo_espera).append('\n');
+        sb.append("Tempo de espera: ").append(this.tempoEspera).append('\n');
         sb.append("Latitude: ").append(getLatitude()).append('\n');
         sb.append("Longitude: ").append(getLongitude()).append('\n');
         sb.append("Lista de encomendas recebidas: ");
-        this.encomendas_recebidas.forEach(e -> sb.append(e.toString()).append("\n"));
+        this.encomendasRecebidas.forEach(e -> sb.append(e.toString()).append("\n"));
         sb.append(super.toString());
         return sb.toString();
     }
@@ -109,21 +78,21 @@ public class Loja extends UtilizadorSistema implements Serializable {
      * Método que adiciona uma nova encomenda a uma loja
      */
     public void addEncomenda(Encomenda e){
-        this.encomendas_recebidas.add(e.clone());
+        this.encomendasRecebidas.add(e.clone());
     }
 
     /**
      * Método que remove uma encomenda do stock
      */
     public void removeEncomenda(Encomenda e){
-        this.encomendas_recebidas.remove(e);
+        this.encomendasRecebidas.remove(e);
     }
 
     /**
      * Método que devolve uma encomenda com o código cod
      */
     public Encomenda getEnc(String cod) throws EncomendaNotFoundException{
-        for(Encomenda e: this.encomendas_recebidas){
+        for(Encomenda e: this.encomendasRecebidas){
             if(cod.equals(e.getCodigo())) return e.clone();
         }
         throw new EncomendaNotFoundException();
@@ -135,7 +104,7 @@ public class Loja extends UtilizadorSistema implements Serializable {
     public String getEncNotReady(){
         StringBuilder sb = new StringBuilder();
         int count = 0;
-        for(Encomenda e: this.encomendas_recebidas){
+        for(Encomenda e: this.encomendasRecebidas){
             if(!e.isPreparada()){
                 sb.append(e);
                 count++;
@@ -150,12 +119,12 @@ public class Loja extends UtilizadorSistema implements Serializable {
         ArrayList<Encomenda> aux = new ArrayList<>();
         enc.setPreparada(true);
         aux.add(enc);
-        for(Encomenda e: this.encomendas_recebidas){
+        for(Encomenda e: this.encomendasRecebidas){
             if(!e.getCodigo().equals(enc.getCodigo())){
                 aux.add(e);
             }
         }
-        setEncomendas_recebidas(aux);
+        setEncomendasRecebidas(aux);
     }
 
 }

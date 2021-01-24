@@ -2,7 +2,7 @@ import java.io.IOException;
 
 public class Main{
 
-    public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException{
+    public static void main(String[] args) throws IOException {
         TrazAquiView view = new TrazAquiView();
         TrazAquiController controller = new TrazAquiController();
         controller.setView(view);

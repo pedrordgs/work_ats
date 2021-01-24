@@ -9,7 +9,7 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
     private final int velocidade;
     private int minutosDeEspera;
     private final LocalDate horaDeRegisto;
-    private final double raio_acao;
+    private final double raioAcao;
     private double classificacao;
     private int avaliacoes;
     private List<Encomenda> historico;
@@ -18,8 +18,8 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
     public Voluntario(Voluntario a){
         super(a);
         this.disponivel = a.getDisponibilidade();
-        this.horaDeRegisto = a.getInicio_transporte();
-        this.raio_acao = a.getRaio_acao();
+        this.horaDeRegisto = a.getInicioTransporte();
+        this.raioAcao = a.getRaioAcao();
         this.classificacao = a.getClassificacao();
         this.avaliacoes = a.getAvaliacoes();
         this.setHistorico(a.getHistorico());
@@ -34,7 +34,7 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
         super(email, password, "Voluntario", b, a, d, e);
         this.disponivel = c;
         this.horaDeRegisto = f;
-        this.raio_acao = g;
+        this.raioAcao = g;
         this.classificacao = classificacao;
         this.avaliacoes = avaliacoes;
         this.setHistorico(h);
@@ -60,34 +60,19 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
     }
 
     //Métodos de obtenção de variáveis
-    public String getNome(){
-      return super.getNome();
-    }
-
     public double getClassificacao() {
         return classificacao;
-    }
-    public String getCodigo(){
-      return super.getCodigo();
     }
 
     public boolean getDisponibilidade(){
         return this.disponivel;
     }
 
-    public double getLatitude(){
-        return super.getLatitude();
+    public double getRaioAcao(){
+        return this.raioAcao;
     }
 
-    public double getLongitude(){
-        return super.getLongitude();
-    }
-
-    public double getRaio_acao(){
-        return this.raio_acao;
-    }
-
-    public LocalDate getInicio_transporte(){
+    public LocalDate getInicioTransporte(){
         return this.horaDeRegisto;
     }
 
@@ -102,28 +87,12 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
     }
 
     //Método de definição de variáveis
-    public void setNome(String a){
-      super.setNome(a);
-    }
-
     public void setMinutosDeEspera(int minutosDeEspera) {
         this.minutosDeEspera = minutosDeEspera;
     }
 
-    public void setCodigo(String a){
-      super.setCodigo(a);
-    }
-
     public void setDisponibilidade(boolean a){
         this.disponivel = a;
-    }
-
-    public void setLatitude(double a){
-       super.setLatitude(a);
-    }
-
-    public void setLongitude(double a){
-        super.setLongitude(a);
     }
 
     public void setHistorico(List<Encomenda> a){
@@ -143,8 +112,8 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
         Voluntario v = (Voluntario) o;
         return super.equals(o)
         && this.disponivel ==  v.getDisponibilidade()
-        && this.horaDeRegisto.equals(v.getInicio_transporte())
-        && this.raio_acao == v.getRaio_acao()
+        && this.horaDeRegisto.equals(v.getInicioTransporte())
+        && this.raioAcao == v.getRaioAcao()
         && this.historico.equals(v.getHistorico());
     }
 
@@ -163,7 +132,7 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
                 "Hora de registo: " +
                 this.horaDeRegisto + "\n" +
                 "Raio de ação: " +
-                this.raio_acao + "\n" +
+                this.raioAcao + "\n" +
                 "Registos de encomendas: " +
                 this.historico.toString();
     }
@@ -293,7 +262,7 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
         for(Encomenda e: this.historico){
             LocalDateTime date = e.getData();
             if(date.compareTo(d1) >= 0 && date.compareTo(d2) <= 0){
-                lojas.add(e.getCodigo_loja());
+                lojas.add(e.getCodigoLoja());
                 count++;
             }
         }

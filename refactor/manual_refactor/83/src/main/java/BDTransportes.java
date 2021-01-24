@@ -111,8 +111,8 @@ public class BDTransportes implements Serializable {
      */
     public String printTransportes(){
         StringBuilder sb = new StringBuilder();
-        for(String s: this.transportes.keySet()){
-            sb.append(this.transportes.get(s).clone().getCodigo()).append(" ---> ").append(this.transportes.get(s).clone().getNome()).append(" || RATE --> ").append(this.transportes.get(s).clone().getClassificao()).append("\n");
+        for(EmpresaTransportes et : this.transportes.values()){
+            sb.append(et.getCodigo()).append(" ---> ").append(et.getNome()).append(" || RATE --> ").append(et.getClassificao()).append("\n");
         }
         return sb.toString();
     }
@@ -122,8 +122,8 @@ public class BDTransportes implements Serializable {
      * @throws TransporteNotFoundException caso nao exista transporte
      */
     public String getEmail(String cod) throws TransporteNotFoundException{
-        for(String s: this.transportes.keySet()){
-            if(this.transportes.get(s).clone().getCodigo().equals(cod)) return this.transportes.get(s).getEmail();
+        for(EmpresaTransportes e : transportes.values()){
+            if(e.getCodigo().equals(cod)) return e.getEmail();
         }
         throw new TransporteNotFoundException();
     }
@@ -142,12 +142,11 @@ public class BDTransportes implements Serializable {
     public String printEmpresas(Utilizador u, Loja j, double peso) {
         StringBuilder sb = new StringBuilder();
         int count = 0;
-        for (String s : this.transportes.keySet()) {
-            EmpresaTransportes et = this.transportes.get(s).clone();
+        for(EmpresaTransportes et : transportes.values()){
             double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
             double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
             if(dist1 <= et.getRaioDeAcao() && dist2 <= et.getRaioDeAcao() && et.isDisponivel()){
-                double custo = dist1 * et.getCusto_km() + dist2 *et.getCusto_km() + (peso * 0.2);
+                double custo = dist1 * et.getCustoKm() + dist2 *et.getCustoKm() + (peso * 0.2);
                 sb.append(et.getCodigo()).append(" ---> ").append(et.getNome()).append(" || RATE --> ").append(et.getClassificao()).append(" || CUSTO: ").append(custo).append("\n");
                 count++;
             }
@@ -159,12 +158,11 @@ public class BDTransportes implements Serializable {
     public String printEmpresasMed(Utilizador u, Loja j, double peso) {
         StringBuilder sb = new StringBuilder();
         int count = 0;
-        for (String s : this.transportes.keySet()) {
-            EmpresaTransportes et = this.transportes.get(s).clone();
+        for(EmpresaTransportes et : transportes.values()){
             double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
             double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
             if(dist1 <= et.getRaioDeAcao() && dist2 <= et.getRaioDeAcao() && et.aceitoTransporteMedicamentos() && et.isDisponivel()){
-                double custo = dist1 * et.getCusto_km() + dist2 *et.getCusto_km() + (peso * 0.2);
+                double custo = dist1 * et.getCustoKm() + dist2 *et.getCustoKm() + (peso * 0.2);
                 sb.append(et.getCodigo()).append(" ---> ").append(et.getNome()).append(" || RATE --> ").append(et.getClassificao()).append(" || CUSTO: ").append(custo).append("\n");
                 count++;
             }
@@ -179,8 +177,7 @@ public class BDTransportes implements Serializable {
 
     public List<EmpresaTransportes> transDisponiveis(Loja j, Utilizador u) {
         List<EmpresaTransportes> ret = new ArrayList<>();
-        for (String s : this.transportes.keySet()) {
-            EmpresaTransportes et = this.transportes.get(s).clone();
+        for(EmpresaTransportes et : transportes.values()){
             double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
             double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
             if (dist1 <= et.getRaioDeAcao() && dist2 <= et.getRaioDeAcao() && et.isDisponivel()) {
@@ -192,8 +189,7 @@ public class BDTransportes implements Serializable {
 
     public List<EmpresaTransportes> transDisponiveisMedParse(Loja j , Utilizador u) {
         List<EmpresaTransportes> ret = new ArrayList<>();
-        for (String s : this.transportes.keySet()) {
-            EmpresaTransportes et = this.transportes.get(s).clone();
+        for(EmpresaTransportes et : transportes.values()){
             double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
             double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
             if (dist1 <= et.getRaioDeAcao() && dist2 <= et.getRaioDeAcao() && et.aceitoTransporteMedicamentos() && et.isDisponivel()){
@@ -204,9 +200,7 @@ public class BDTransportes implements Serializable {
     }
 
     public EmpresaTransportes encontraEnc(String enc) throws EncomendaNotFoundException{
-        EmpresaTransportes aux;
-        for(String s: this.transportes.keySet()){
-            aux = this.transportes.get(s).clone();
+        for(EmpresaTransportes aux : transportes.values()){
             if(aux.existe(enc)) return aux;
         }
         throw new EncomendaNotFoundException();

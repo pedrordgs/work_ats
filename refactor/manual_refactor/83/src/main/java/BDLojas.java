@@ -156,10 +156,9 @@ public class BDLojas implements Serializable {
     public String listLojasUser(Utilizador u){
         StringBuilder sb = new StringBuilder();
         sb.append("LISTA DE LOJAS\n");
-        for(String s: this.lojas.keySet()){
-            Loja j = this.lojas.get(s).clone();
-            double dist = DistanceCalculator.distance(u.getLatitude(), j.getLatitude(), u.getLongitude(), j.getLongitude());
-            sb.append(this.lojas.get(s).getCodigo()).append(" --> ").append(this.lojas.get(s).getNome()).append(" ----> DIST:  ").append(dist).append(" KMS").append("\n");
+        for(Loja l : this.lojas.values()){
+            double dist = DistanceCalculator.distance(u.getLatitude(), l.getLatitude(), u.getLongitude(), l.getLongitude());
+            sb.append(l.getCodigo()).append(" --> ").append(l.getNome()).append(" ----> DIST:  ").append(dist).append(" KMS").append("\n");
         }
         return sb.toString();
     }
@@ -172,8 +171,8 @@ public class BDLojas implements Serializable {
      */
 
     public String getEmail(String cod) throws LojaNotFoundException{
-        for(String s: this.lojas.keySet()){
-            if(this.lojas.get(s).clone().getCodigo().equals(cod)) return this.lojas.get(s).getEmail();
+        for(Loja l : this.lojas.values()){
+            if(l.getCodigo().equals(cod)) return l.getEmail();
         }
         throw new LojaNotFoundException();
     }

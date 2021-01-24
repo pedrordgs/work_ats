@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 
 public class Encomenda implements Serializable{
     private String codigo;
-    private final String codigo_user;
-    private final String codigo_loja;
+    private final String codigoUser;
+    private final String codigoLoja;
     private final double peso;
     private final String comprador;
     private final String vendedor;
@@ -21,8 +21,8 @@ public class Encomenda implements Serializable{
 
     public Encomenda(){
         this.codigo = " ";
-        this.codigo_user = " ";
-        this.codigo_loja = " ";
+        this.codigoUser = " ";
+        this.codigoLoja = " ";
         this.peso = 0.0;
         this.comprador = " ";
         this.vendedor = " ";
@@ -34,11 +34,11 @@ public class Encomenda implements Serializable{
         this.encomendaMedica = true;
     }
 
-    public  Encomenda(String codigo, String codigo_user, String codigo_loja, double peso, String comprador, String vendedor, Map<String, LinhaEncomenda> produtos,
+    public  Encomenda(String codigo, String codigoUser, String codigoLoja, double peso, String comprador, String vendedor, Map<String, LinhaEncomenda> produtos,
                       boolean encomendaMedica, LocalDateTime data, boolean entregue, boolean levantada, boolean preparada){
         this.codigo = codigo;
-        this.codigo_user = codigo_user;
-        this.codigo_loja = codigo_loja;
+        this.codigoUser = codigoUser;
+        this.codigoLoja = codigoLoja;
         this.peso = peso;
         this.comprador = comprador;
         this.vendedor = vendedor;
@@ -52,8 +52,8 @@ public class Encomenda implements Serializable{
 
     public  Encomenda(Encomenda e){
         this.codigo = e.getCodigo();
-        this.codigo_user = e.getCodigo_user();
-        this.codigo_loja = e.getCodigo_loja();
+        this.codigoUser = e.getCodigoUser();
+        this.codigoLoja = e.getCodigoLoja();
         this.peso = e.getPeso();
         this.comprador = e.getComprador();
         this.vendedor =  e.getVendedor();
@@ -85,12 +85,12 @@ public class Encomenda implements Serializable{
       return this.codigo;
     }
 
-    public String getCodigo_user(){
-      return this.codigo_user;
+    public String getCodigoUser(){
+      return this.codigoUser;
     }
 
-    public String getCodigo_loja(){
-      return this.codigo_loja;
+    public String getCodigoLoja(){
+      return this.codigoLoja;
     }
 
     public double getPeso() {
@@ -147,8 +147,8 @@ public class Encomenda implements Serializable{
         if(obj == null || obj.getClass() != this.getClass()) return false;
         Encomenda e = (Encomenda) obj;
         return  this.codigo.equals(e.getCodigo()) &&
-                this.codigo_user.equals(e.getCodigo_user()) &&
-                this.codigo_loja.equals(e.getCodigo_loja()) &&
+                this.codigoUser.equals(e.getCodigoUser()) &&
+                this.codigoLoja.equals(e.getCodigoLoja()) &&
                 e.getPeso() == this.getPeso() &&
                 this.comprador.equals(e.getComprador()) &&
                 this.vendedor.equals(e.getVendedor()) &&
@@ -161,9 +161,9 @@ public class Encomenda implements Serializable{
                 "Código: " +
                 this.codigo + "\n" +
                 "Código do utilizador: " +
-                this.codigo_user + "\n" +
+                this.codigoUser + "\n" +
                 "Código da loja: " +
-                this.codigo_loja + "\n" +
+                this.codigoLoja + "\n" +
                 "Peso: " +
                 this.peso + "\n" +
                 "Comprador: " +

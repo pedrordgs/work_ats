@@ -319,9 +319,8 @@ public class BDGeral implements Serializable, BDGeralInterface {
      */
     public Set<Pair> top10Encomendas(){
         Set<Pair> result = new TreeSet<>(new ComparaQuantidadePair());
-        for(String voluntario: this.voluntarios.getVoluntarios().keySet()){
+        for(Voluntario v : this.voluntarios.getVoluntarios().values()){
             Pair aux = new Pair();
-            Voluntario v = this.voluntarios.getVoluntarios().get(voluntario).clone();
             aux.setFst(v.getNome());
             aux.setSecond(v.getHistorico().size());
             if(aux.getSnd() != 0) {
@@ -329,17 +328,16 @@ public class BDGeral implements Serializable, BDGeralInterface {
             }
         }
 
-        for(String empresa: this.transportes.getTransportes().keySet()){
+        for(EmpresaTransportes e : this.transportes.getTransportes().values()){
             Pair aux = new Pair();
-            EmpresaTransportes et = this.transportes.getTransportes().get(empresa).clone();
-            aux.setFst(et.getNome());
-            aux.setSecond(et.getRegistos().size());
+            aux.setFst(e.getNome());
+            aux.setSecond(e.getRegistos().size());
             if(aux.getSnd() != 0) {
                 result.add(aux);
             }
         }
 
-        return result   ;
+        return result;
     }
 
     /**
@@ -349,9 +347,8 @@ public class BDGeral implements Serializable, BDGeralInterface {
     public Set<Pair> top10KmsPercorridos (){
         Set<Pair> result = new TreeSet<>(new ComparaQuantidadePair());
 
-        for(String empresa: this.transportes.getTransportes().keySet()){
+        for(EmpresaTransportes et :  this.transportes.getTransportes().values()) {
             Pair aux = new Pair();
-            EmpresaTransportes et = this.transportes.getTransportes().get(empresa).clone();
             aux.setFst(et.getNome());
             aux.setSecond(et.getKms(this));
             if(aux.getSnd() != 0) {

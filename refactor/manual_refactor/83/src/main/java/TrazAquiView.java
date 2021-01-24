@@ -1,7 +1,6 @@
 import java.io.Serializable;
 
 public class TrazAquiView implements Serializable {
-    public TrazAquiView(){}
 
     /**
      * Método que imprime o menu inicial
@@ -148,15 +147,15 @@ public class TrazAquiView implements Serializable {
         System.out.println("Insira a sua longitude: ");
     }
 
-    public void raio_acao() {
+    public void raioAcao() {
         System.out.println("Insira o seu raio de ação: ");
     }
 
-    public void tempo_espera() {
+    public void tempoEspera() {
         System.out.println("Insira o tempo de espera em fila: ");
     }
 
-    public void custo_km() {
+    public void custoKm() {
         System.out.println("Insira o custo por km: ");
     }
 
@@ -168,7 +167,7 @@ public class TrazAquiView implements Serializable {
         System.out.println("Insira o seu NIF: ");
     }
 
-    public void encomendas_medicas() {
+    public void encomendasMedicas() {
         System.out.println("Aceita transportar encomendas médicas? (True/False) ");
     }
 

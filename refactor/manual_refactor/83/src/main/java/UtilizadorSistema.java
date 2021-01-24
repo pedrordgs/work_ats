@@ -3,15 +3,15 @@ import java.io.Serializable;
 public abstract class  UtilizadorSistema implements Serializable {
     private String email;
     private String password;
-    private String typeUser;
+    private final String typeUser;
     private String codigo;
-    private String nome;
-    private double latitude;
+    private final String nome;
+    private final double latitude;
     private double longitude;
 
 
     //Construtores
-    public UtilizadorSistema(){
+    protected UtilizadorSistema(){
         this.email = "";
         this.password = "";
         this.typeUser = "";
@@ -22,7 +22,7 @@ public abstract class  UtilizadorSistema implements Serializable {
 
     }
 
-    public  UtilizadorSistema(String email, String password, String typeUser, String codigo, String nome, double latitude, double longitude){
+    protected UtilizadorSistema(String email, String password, String typeUser, String codigo, String nome, double latitude, double longitude){
         this.email = email;
         this.password = password;
         this.typeUser = typeUser;
@@ -33,7 +33,7 @@ public abstract class  UtilizadorSistema implements Serializable {
 
     }
 
-    public UtilizadorSistema(UtilizadorSistema a){
+    protected UtilizadorSistema(UtilizadorSistema a){
         this.email = a.getEmail();
         this.password = a.getPassword();
         this.typeUser = a.getTypeUser();
@@ -83,20 +83,12 @@ public abstract class  UtilizadorSistema implements Serializable {
         this.email = email;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
     }
 
     public abstract UtilizadorSistema clone();

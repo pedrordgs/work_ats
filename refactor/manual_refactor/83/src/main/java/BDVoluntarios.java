@@ -98,8 +98,8 @@ public class BDVoluntarios implements Serializable {
      */
     public String printVoluntario(){
         StringBuilder sb = new StringBuilder();
-        for(String s: this.voluntarios.keySet()){
-            sb.append(this.voluntarios.get(s).clone().getCodigo()).append(" ---> ").append(this.voluntarios.get(s).clone().getNome()).append(" || RATE --> ").append(this.voluntarios.get(s).clone().getClassificacao()).append("\n");
+        for(Voluntario v : this.voluntarios.values()){
+            sb.append(v.getCodigo()).append(" ---> ").append(v.getNome()).append(" || RATE --> ").append(v.getClassificacao()).append("\n");
         }
         return sb.toString();
     }
@@ -109,11 +109,10 @@ public class BDVoluntarios implements Serializable {
      */
     public List<Voluntario> voluntariosDisponiveis(Loja j, Utilizador u) {
         List<Voluntario> ret = new ArrayList<>();
-        for (String s : this.voluntarios.keySet()) {
-            Voluntario v = this.voluntarios.get(s).clone();
+        for(Voluntario v : this.voluntarios.values()){
             double dist1 = DistanceCalculator.distance(j.getLatitude(), v.getLatitude(), j.getLongitude(), v.getLongitude());
             double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
-            if (dist1 <= v.getRaio_acao() && dist2 <= v.getRaio_acao() && v.getDisponibilidade()) {
+            if (dist1 <= v.getRaioAcao() && dist2 <= v.getRaioAcao() && v.getDisponibilidade()) {
                 ret.add(v.clone());
             }
         }
@@ -122,11 +121,10 @@ public class BDVoluntarios implements Serializable {
 
     public List<Voluntario> voluntariosDisponiveisMed(Loja j , Utilizador u) {
         List<Voluntario> ret = new ArrayList<>();
-        for (String s : this.voluntarios.keySet()) {
-            Voluntario v = this.voluntarios.get(s).clone();
+        for(Voluntario v : this.voluntarios.values()){
             double dist1 = DistanceCalculator.distance(j.getLatitude(), v.getLatitude(), j.getLongitude(), v.getLongitude());
             double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
-            if (dist1 <= v.getRaio_acao() && dist2 <= v.getRaio_acao() && v.getDisponibilidade() && v.aceitoTransporteMedicamentos()) {
+            if (dist1 <= v.getRaioAcao() && dist2 <= v.getRaioAcao() && v.getDisponibilidade() && v.aceitoTransporteMedicamentos()) {
                 ret.add(v.clone());
             }
         }
@@ -137,8 +135,8 @@ public class BDVoluntarios implements Serializable {
      * Método que devolve o email de um voluntário
      */
     public String getEmail(String cod) throws VoluntarioNotFoundException{
-        for(String s: this.voluntarios.keySet()){
-            if(this.voluntarios.get(s).clone().getCodigo().equals(cod)) return this.voluntarios.get(s).clone().getEmail();
+        for(Voluntario v : this.voluntarios.values()){
+            if(v.getCodigo().equals(cod)) return v.getEmail();
         }
         throw new VoluntarioNotFoundException();
     }
@@ -163,9 +161,7 @@ public class BDVoluntarios implements Serializable {
      * Método que devolve o voluntário que tem a encomenda com o código enc
      */
     public Voluntario encontraEnc(String enc) throws EncomendaNotFoundException{
-        Voluntario aux;
-        for(String s: this.voluntarios.keySet()){
-            aux = this.voluntarios.get(s).clone();
+        for(Voluntario aux : this.voluntarios.values()){
             if(aux.existe(enc)) return aux;
         }
         throw new EncomendaNotFoundException();
@@ -175,9 +171,7 @@ public class BDVoluntarios implements Serializable {
      * Método que diz se a encomenda existe na BDVoluntários
      */
     public boolean existeEnc(String enc){
-        Voluntario aux;
-        for(String s: this.voluntarios.keySet()){
-            aux = this.voluntarios.get(s).clone();
+        for(Voluntario aux : this.voluntarios.values()){
             if(aux.existe(enc)) return true;
         }
         return false;

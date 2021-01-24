@@ -108,8 +108,8 @@ public class BDUtilizador implements Serializable {
     }
 
     public String getEmail(String cod) throws UserNotFoundException{
-        for(String s: this.users.keySet()){
-            if(this.users.get(s).clone().getCodigo().equals(cod)) return this.users.get(s).getEmail();
+        for(Utilizador u : users.values()){
+            if(u.getCodigo().equals(cod)) return u.getEmail();
         }
         throw new UserNotFoundException();
     }

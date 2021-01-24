@@ -3,17 +3,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utilizador extends UtilizadorSistema implements Serializable {
-      private List<Encomenda> encomendas_realizadas;
+      private List<Encomenda> encomendasRealizadas;
 
     //Construtores
       public Utilizador(){
           super();
-          this.encomendas_realizadas = new ArrayList<>();
+          this.encomendasRealizadas = new ArrayList<>();
       }
 
-      public Utilizador(String email, String password, String codigo, String nome, double latitude, double longitude, ArrayList<Encomenda> encomendas_realizadas){
+      public Utilizador(String email, String password, String codigo, String nome, double latitude, double longitude, List<Encomenda> encomendasRealizadas){
           super(email,password,"Utilizador", codigo, nome, latitude, longitude);
-          setEncomendas(encomendas_realizadas);
+          setEncomendas(encomendasRealizadas);
       }
 
       public Utilizador(Utilizador user){
@@ -21,51 +21,17 @@ public class Utilizador extends UtilizadorSistema implements Serializable {
           setEncomendas(user.getEncomendas());
       }
 
-      //Getters
-      public String getCodigo(){
-        return super.getCodigo();
-      }
-
-      public String getNome(){
-         return  super.getNome();
-      }
-
-      public double getLatitude(){
-          return super.getLatitude();
-      }
-
-      public double getLongitude(){
-          return super.getLongitude();
-      }
-
-      public ArrayList<Encomenda> getEncomendas(){
+      public List<Encomenda> getEncomendas(){
           ArrayList<Encomenda> res = new ArrayList<>();
-          for(Encomenda e: this.encomendas_realizadas)
+          for(Encomenda e: this.encomendasRealizadas)
               res.add(e.clone());
           return res;
       }
 
-    //Setters
-      public void setCodigo(String codigo){
-          super.setCodigo(codigo);
-      }
-
-      public void setNome(String nome){
-          super.setNome(nome);
-      }
-
-      public void setLatitude(double latitude){
-          super.setLatitude(latitude);
-      }
-
-      public void setLongitude(double longitude){
-          super.setLongitude(longitude);
-      }
-
-      public void setEncomendas(ArrayList<Encomenda> enc){
-          this.encomendas_realizadas = new ArrayList<>();
+      public void setEncomendas(List<Encomenda> enc){
+          this.encomendasRealizadas = new ArrayList<>();
           for(Encomenda e: enc)
-              this.encomendas_realizadas.add(e.clone());
+              this.encomendasRealizadas.add(e.clone());
       }
 
     //Clone
@@ -91,20 +57,20 @@ public class Utilizador extends UtilizadorSistema implements Serializable {
      */
       public String printEncomendasRecebidas(){
           StringBuilder sb = new StringBuilder();
-          if(this.encomendas_realizadas.stream().noneMatch(Encomenda::isEntregue)) sb.append("Não existem encomendas recebidas\n");
+          if(this.encomendasRealizadas.stream().noneMatch(Encomenda::isEntregue)) sb.append("Não existem encomendas recebidas\n");
           else {
               System.out.println("ENCOMENDAS REALIZADAS PELO USER: ");
-              this.encomendas_realizadas.stream().filter(Encomenda::isEntregue).forEach(e -> sb.append(e.toString()));
+              this.encomendasRealizadas.stream().filter(Encomenda::isEntregue).forEach(e -> sb.append(e.toString()));
           }
           return sb.toString();
       }
 
     public String printEncomendasPorEntregar(){
         StringBuilder sb = new StringBuilder();
-        if(this.encomendas_realizadas.stream().allMatch(Encomenda::isEntregue)) sb.append("Não existem encomendas por entregar\n");
+        if(this.encomendasRealizadas.stream().allMatch(Encomenda::isEntregue)) sb.append("Não existem encomendas por entregar\n");
         else {
             System.out.println("ENCOMENDAS REALIZADAS PELO USER: ");
-            this.encomendas_realizadas.stream().filter(e -> !e.isEntregue()).forEach(e -> sb.append(e.toString()));
+            this.encomendasRealizadas.stream().filter(e -> !e.isEntregue()).forEach(e -> sb.append(e.toString()));
         }
         return sb.toString();
     }
@@ -113,14 +79,14 @@ public class Utilizador extends UtilizadorSistema implements Serializable {
      * Método que adiciona uma encoemenda
      */
       public void addEncomenda(Encomenda e){
-          this.encomendas_realizadas.add(e.clone());
+          this.encomendasRealizadas.add(e.clone());
       }
 
     public void updateEncomendaLoja(Encomenda enc){
         ArrayList<Encomenda> aux = new ArrayList<>();
         enc.setLevantada(true);
         aux.add(enc);
-        for(Encomenda e: this.encomendas_realizadas){
+        for(Encomenda e: this.encomendasRealizadas){
             if(!e.getCodigo().equals(enc.getCodigo())){
                 aux.add(e);
             }
@@ -132,7 +98,7 @@ public class Utilizador extends UtilizadorSistema implements Serializable {
         ArrayList<Encomenda> aux = new ArrayList<>();
         enc.setPreparada(true);
         aux.add(enc);
-        for(Encomenda e: this.encomendas_realizadas){
+        for(Encomenda e: this.encomendasRealizadas){
             if(!e.getCodigo().equals(enc.getCodigo())){
                 aux.add(e);
             }
@@ -147,7 +113,7 @@ public class Utilizador extends UtilizadorSistema implements Serializable {
         ArrayList<Encomenda> aux = new ArrayList<>();
         enc.setEntregue(true);
         aux.add(enc);
-        for(Encomenda e: this.encomendas_realizadas){
+        for(Encomenda e: this.encomendasRealizadas){
             if(!e.getCodigo().equals(enc.getCodigo())){
                 aux.add(e);
             }
@@ -159,7 +125,7 @@ public class Utilizador extends UtilizadorSistema implements Serializable {
      * Método que devolve uma encomenda com o código cod
      */
     public Encomenda devolveEncomenda(String cod) throws EncomendaNotFoundException{
-        for(Encomenda e: this.encomendas_realizadas){
+        for(Encomenda e: this.encomendasRealizadas){
             if(e.getCodigo().equals(cod)) return e.clone();
         }
         throw new EncomendaNotFoundException();
