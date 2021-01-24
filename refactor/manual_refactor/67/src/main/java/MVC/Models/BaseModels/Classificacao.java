@@ -60,7 +60,7 @@ public class Classificacao implements Serializable{
      */
     public double getNota(){
         if(this.numNotas==0) return 0;
-        return (this.somaNotas/this.numNotas);
+        return this.somaNotas/(float)this.numNotas;
     }
 
     /**

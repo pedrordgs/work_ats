@@ -14,30 +14,6 @@ public class TransportadoraMed extends Transportadora implements Serializable {
     private boolean transMedicamentos;
 
     /**
-     * Construtor de TransportadoraMed por defeito.
-     */
-    public TransportadoraMed()  {
-        super();
-        this.transMedicamentos = false;
-    }
-
-    /**
-     * Construtor de TransportadoraMed parametrizado.
-     * @param c Código da TransportadoraMed.
-     * @param n Nome da TransportadoraMed.
-     * @param x Coordenada X da Localização da TransportadoraMed.
-     * @param y Coordenada Y da Localização da TransportadoraMed.
-     * @param nif NIF da TransportadoraMed.
-     * @param r Raio de Entrega da TransportadoraMed.
-     * @param p Preço Por Km da TransportadoraMed.
-     * @param tM Boolean que define se a TransportadoraMed realiza Transporte de Medicamentos.
-     */
-    public TransportadoraMed(String c, String n, double x, double y, String nif, double r, double p, boolean tM){
-        super(c,n,x,y,nif,r,p);
-        this.transMedicamentos = tM;
-    }
-
-    /**
      * Construtor de TransportadoraMed parametrizado.
      * @param c Código da TransportadoraMed.
      * @param n Nome da TransportadoraMed.
@@ -69,14 +45,6 @@ public class TransportadoraMed extends Transportadora implements Serializable {
      */
     public boolean aceitaTransporteMedicamentos() {
         return this.transMedicamentos;
-    }
-
-    /**
-     * Método que define se uma TransportadoraMed realiza Transporte de Medicamentos.
-     * @param state Boolean que define se a TransportadoraMed realiza Transporte de Medicamentos.
-     */
-    public void aceitaMedicamentos(boolean state){
-        this.transMedicamentos = state;
     }
 
     /**

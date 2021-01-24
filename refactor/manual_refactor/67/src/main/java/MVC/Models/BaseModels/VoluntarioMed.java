@@ -14,15 +14,6 @@ public class VoluntarioMed extends Voluntario implements Serializable {
     private boolean transMedicamentos;
 
     /**
-     * Construtor de VoluntarioMed por defeito.
-     */
-    public VoluntarioMed(){
-        super();
-        this.transMedicamentos = false;
-
-    }
-
-    /**
      * Construtor de VoluntarioMed Parametrizado.
      * @param c Código do VoluntarioMed.
      * @param n Nome do VoluntarioMed.
@@ -51,14 +42,6 @@ public class VoluntarioMed extends Voluntario implements Serializable {
      */
     public boolean aceitoTrasnporteMedicamentos(){
         return this.transMedicamentos;
-    }
-
-    /**
-     * Método que define se um VoluntarioMed realiza Transporte de Medicamentos.
-     * @param state Boolean que define se o VoluntarioMed realiza Transporte de Medicamentos.
-     */
-    public void aceitaMedicamentos(boolean state){
-        this.transMedicamentos = state;
     }
 
     /**

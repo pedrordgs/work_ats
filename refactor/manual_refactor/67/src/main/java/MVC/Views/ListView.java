@@ -10,11 +10,11 @@ public class ListView<T> implements IView {
     private List<T> l;
 
     public ListView(){
-        this.l = new ArrayList<T>();
+        this.l = new ArrayList<>();
     }
 
     public ListView(Collection<T> c){
-        this.l = new ArrayList<T>(c);
+        this.l = new ArrayList<>(c);
     }
 
     public void setList(List<T> l) {

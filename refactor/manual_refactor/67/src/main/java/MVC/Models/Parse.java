@@ -30,14 +30,12 @@ public class Parse {
     public void parse(Utilizadores us, Voluntarios vs, Transportadoras ts, Lojas ls, Encomendas es, List<String> eas){
         List<String> linhas = lerFicheiro("dados/logs.txt"); //alterar nome do ficheiro
         String[] linhaPartida;
-        //List<Produto> produtos = new ArrayList<>();
         for (String linha : linhas) {
                 linhaPartida = linha.split(":", 2);
                 switch(linhaPartida[0]){
                     
                 case "Utilizador":
                         Utilizador u = parseUtilizador(linhaPartida[1]); // criar um Utilizador
-                        //System.out.println(u.toString()); //enviar para o ecran apenas para teste
                         us.addUtilizador(u);
                         break;
                         
@@ -59,7 +57,6 @@ public class Parse {
                         Encomenda e = parseEncomenda(linhaPartida[1]);
                         String codLoja = e.getCodLoja();
                         for(LinhaEncomenda le : e.getLinhas()){
-                            //produtos.add(new Produto(le.getReferencia(),le.getDescricao(),(le.getPreco()/le.getQuantidade())));
                             ls.addProdutoLoja(new Produto(le.getCodigo(),le.getNome(),(le.getPreco()/le.getQuantidade())),codLoja);
                         }
                         es.addEncomenda(e);
@@ -74,7 +71,6 @@ public class Parse {
                 }
 
         }
-        //ls.addProdutosTodasLojas(produtos);
     }
 
     /**

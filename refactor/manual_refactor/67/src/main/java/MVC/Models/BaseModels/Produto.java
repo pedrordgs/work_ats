@@ -9,16 +9,6 @@ public class Produto implements Serializable {
     private boolean medicamento;
 
     /**
-     * Construtor de Produto por defeito.
-     */
-    public Produto(){
-        this.cod = "";
-        this.nome = "";
-        this.precoPorQuant = 0;
-        this.medicamento = false;
-    }
-
-    /**
      * Construtor de Produto parametrizado.
      * @param c Código do Produto.
      * @param n Descrição do Produto.
@@ -29,20 +19,6 @@ public class Produto implements Serializable {
         this.nome = n;
         this.precoPorQuant = p;
         this.medicamento = false;
-    }
-
-    /**
-     * Construtor de Produto parametrizado.
-     * @param c Código do Produto.
-     * @param n Descrição do Produto.
-     * @param p Preço por Quantidade do Produto.
-     * @param b True caso seja uma encomenda médica, false caso contrário.
-     */
-    public Produto(String c, String n, double p, boolean b){
-        this.cod = c;
-        this.nome = n;
-        this.precoPorQuant = p;
-        this.medicamento = b;
     }
 
     /**
@@ -62,14 +38,6 @@ public class Produto implements Serializable {
      */
     public String getCod() {
         return cod;
-    }
-
-    /**
-     * Método que define o Código do Produto.
-     * @param cod Código do Produto.
-     */
-    public void setCod(String cod) {
-        this.cod = cod;
     }
 
     /**
@@ -94,14 +62,6 @@ public class Produto implements Serializable {
      */
     public double getPrecoPorQuant() {
         return precoPorQuant;
-    }
-
-    /**
-     * Método que define o Preço por Quantidade do Produto.
-     * @param precoPorQuant Preço por Quantidade do Produto.
-     */
-    public void setPrecoPorQuant(double precoPorQuant) {
-        this.precoPorQuant = precoPorQuant;
     }
 
     /**

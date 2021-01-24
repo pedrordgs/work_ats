@@ -98,14 +98,6 @@ public class Voluntario extends User implements Serializable {
     }
 
     /**
-     * Método que define a Velocidade Média de um Voluntario.
-     * @param velocidadeMed Velocidade Média.
-     */
-    public void setVelocidadeMed(double velocidadeMed) {
-        this.velocidadeMed = velocidadeMed;
-    }
-
-    /**
      * Método que defina se um Voluntario se encontra livre para realizar Entregas.
      * @param estaLivre True para livre, falso caso contrário
      */

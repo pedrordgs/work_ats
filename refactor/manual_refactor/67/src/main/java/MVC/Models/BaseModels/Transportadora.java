@@ -14,7 +14,6 @@ public class Transportadora extends User implements Serializable {
     private String nif;
     private double raio;
     private double precoKm;
-    //preco por kg not necessary i think
     private boolean estaLivre;
     private Classificacao classificacao;
     private double velocidadeMed;
@@ -192,27 +191,11 @@ public class Transportadora extends User implements Serializable {
     }
 
     /**
-     * Método que define a Velocidade Média da Transportadora.
-     * @param velocidadeMed Velocidade Média da Transportadora.
-     */
-    public void setVelocidadeMed(double velocidadeMed) {
-        this.velocidadeMed = velocidadeMed;
-    }
-
-    /**
      * Método que devolve o número de Kms feitos pela Transportadora.
      * @return Número de Kms Total.
      */
     public double getKmsTotal() {
         return this.kmsTotal;
-    }
-
-    /**
-     * Método que define o número de Kms feitos pela Transportadora.
-     * @param kmsTotal Número de Kms Total.
-     */
-    public void setKmsTotal(double kmsTotal) {
-        this.kmsTotal = kmsTotal;
     }
 
     /**

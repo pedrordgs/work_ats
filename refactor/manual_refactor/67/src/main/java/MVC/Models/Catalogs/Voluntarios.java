@@ -29,14 +29,6 @@ public class Voluntarios implements Serializable {
     }
 
     /**
-     * Construtor de Voluntarios Parametrizado.
-     * @param data Catálogo de Voluntario.
-     */
-    public Voluntarios(Map<String, Voluntario> data){
-        setDataVoluntarios(data);
-    }
-
-    /**
      * Construtor de Voluntarios de Cópia.
      * @param d Voluntarios a copiar.
      */
@@ -50,7 +42,7 @@ public class Voluntarios implements Serializable {
      */
     public void setDataVoluntarios(Map<String, Voluntario> data){
         this.dataVoluntarios = new HashMap<>();
-        data.entrySet().forEach(e -> this.dataVoluntarios.put(e.getKey(), e.getValue().clone()));
+        data.forEach((key, value) -> this.dataVoluntarios.put(key, value.clone()));
     }
 
     /**
@@ -96,10 +88,9 @@ public class Voluntarios implements Serializable {
             return e;
         }
         Voluntario v = aux.first();
-        //v.addEncomenda(e.getCodEnc());
         double km = v.getGPS().distancia(g);
         e.setDistancia(km);
-        double time = (km/v.getVelocidadeMed())+duracaoLoja; // horas
+        double time = (km/v.getVelocidadeMed())+duracaoLoja;
         e.setDuracao(time);
         e.setCodEntregador(v.getCod());
         return e;
@@ -111,14 +102,6 @@ public class Voluntarios implements Serializable {
      */
     public void addVoluntario(Voluntario v){
         this.dataVoluntarios.put(v.getCod(), v.clone());
-    }
-
-    /**
-     * Método que remove um Voluntario do Catálogo de Voluntario.
-     * @param cod Código do Voluntario.
-     */
-    public void removeVoluntario(String cod){
-        this.dataVoluntarios.remove(cod);
     }
 
     /**
