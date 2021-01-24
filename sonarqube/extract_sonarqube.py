@@ -27,7 +27,7 @@ with open(f"../results/{filename}.csv", 'w', newline='') as file:
                                                                      fields="metrics,periods",
                                                                      metricKeys="code_smells,bugs,duplicated_lines_density,duplicated_blocks,sqale_index, complexity")
 
-        if delete:
+        if delete == 'yes':
             sonar.projects.delete_project(project=p['key'])
 
         # create project p dictionary with name and measures

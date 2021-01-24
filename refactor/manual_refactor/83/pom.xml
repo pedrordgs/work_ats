@@ -11,6 +11,9 @@
 <properties>
   <maven.compiler.source>11</maven.compiler.source>
   <maven.compiler.target>11</maven.compiler.target>
+  <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
+  <sonar.issue.ignore.multicriteria.e1.ruleKey>java:S106</sonar.issue.ignore.multicriteria.e1.ruleKey>
+  <sonar.issue.ignore.multicriteria.e1.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e1.resourceKey>
 </properties>
 
 <build>
@@ -23,7 +26,7 @@
         <target>11</target>
         <archive>
           <manifest>
-            <mainClass>RAPL_Main</mainClass>
+            <mainClass>Main</mainClass>
           </manifest>
         </archive>
       </configuration>

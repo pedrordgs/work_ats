@@ -7,6 +7,7 @@ UserNaoExisteException.class
 EncomendaNaoExisteException.class
 Utilizador.class
 Empresa.class
+RAPL_Main.class
 DataBase.class
 Main.class
 Transporte.class

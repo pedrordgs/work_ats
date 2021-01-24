@@ -8,26 +8,49 @@ cd structuring
 ./structuring.sh
 cd ..
 
-echo "========================================="
-echo "========= Starting Autorefactor ========="
-echo "========================================="
 
-cd refactor
-./autorefactor.sh
-cd ..
+if [ $# -ne 0 ] && [ $1 == "refactor" ]; then
+  echo "========================================="
+  echo "========= Starting Autorefactor ========="
+  echo "========================================="
 
-echo "=========================================="
-echo "=========== Starting Sonarqube ==========="
-echo "=========================================="
+  cd refactor
+  ./autorefactor.sh
+  cd ..
 
-cd sonarqube
-./sonarqube.sh
-cd ..
+  echo "=========================================="
+  echo "=========== Starting Sonarqube ==========="
+  echo "=========================================="
 
-echo "========================================="
-echo "=========== Starting Analysis ==========="
-echo "========================================="
+  cd sonarqube
+  ./sonarqube.sh $1
+  cd ..
 
-cd analysis
-./analysis.sh
-cd ..
+  echo "========================================="
+  echo "=========== Starting Analysis ==========="
+  echo "========================================="
+
+  cd analysis
+  ./analysis.sh $1
+  cd ..
+else
+  echo "Skipping auto refactor"
+
+  echo "=========================================="
+  echo "=========== Starting Sonarqube ==========="
+  echo "=========================================="
+
+  cd sonarqube
+  ./sonarqube.sh
+  cd ..
+
+  echo "========================================="
+  echo "=========== Starting Analysis ==========="
+  echo "========================================="
+
+  cd analysis
+  ./analysis.sh
+  cd ..
+fi
+
+

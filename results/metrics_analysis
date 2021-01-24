@@ -1,24 +1,17 @@
-----------------------------------------------------------
-|                                                        |
-|                     NO REFACTORING                     |
-|                                                        |
-----------------------------------------------------------
-
-
 BUGS
 Max:  74 - Projeto: 39 
 Min:  0 - Projeto: 5 
 Mean: 18.04225 
 
 CODE SMELLS
-Max:  815 - Projeto: 83 
-Min:  150 - Projeto: 67 
-Mean: 354.0563 
+Max:  453 - Projeto: 98 
+Min:  101 - Projeto: 63 
+Mean: 203.2817 
 
 TECHNICAL DEBT
-Max:  17 - Projeto: 23 
-Min:  2.8 - Projeto: 88 
-Mean: 7.607042 
+Max:  11.3 - Projeto: 78 
+Min:  2.3 - Projeto: 13 15 63 
+Mean: 4.467606 
 
 DUPLICATED BLOCKS
 Max:  100 - Projeto: 78 
@@ -26,25 +19,18 @@ Min:  0 - Projeto: 3 53 57 63 76
 Mean: 14.12676 
 
 DUPLICATED LINES OF CODE
-Max:  21.9 - Projeto: 13 
+Max:  21.8 - Projeto: 13 
 Min:  0 - Projeto: 3 53 57 63 76 
-Mean: 5.366197 
+Mean: 5.360563 
 
 CYCLOMATIC COMPLEXITY
 Max:  1158 - Projeto: 78 
 Min:  169 - Projeto: 13 
 Mean: 626.1972 
 
-THE BEST PROJECT WAS 13 
+THE BEST PROJECT WAS 78 
 
-THE WORST PROJECT WAS 78 
-
-----------------------------------------------------------
-|                                                        |
-|                    AFTER REFACTORING                   |
-|                                                        |
-----------------------------------------------------------
-
+THE WORST PROJECT WAS 13 
 
 BUGS
 Max:  74 - Projeto: 39 
@@ -76,7 +62,7 @@ Max:  1158 - Projeto: 78
 Min:  169 - Projeto: 13 
 Mean: 626.169 
 
-THE BEST PROJECT WAS 13 
+THE BEST PROJECT WAS 78 
 
-THE WORST PROJECT WAS 78 
+THE WORST PROJECT WAS 13 
 

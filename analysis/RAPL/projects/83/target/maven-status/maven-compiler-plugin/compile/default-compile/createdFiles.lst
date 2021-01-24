@@ -21,6 +21,7 @@ TrazAquiController.class
 ProductNotFoundException.class
 Utilizador.class
 BDUtilizador.class
+RAPL_Main.class
 TrazAquiView.class
 Encomenda.class
 Loja.class
