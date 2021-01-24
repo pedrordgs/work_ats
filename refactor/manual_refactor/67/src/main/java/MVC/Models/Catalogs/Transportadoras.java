@@ -26,22 +26,6 @@ public class Transportadoras implements Serializable {
     }
 
     /**
-     * Construtor de Transportadoras parametrizado.
-     * @param tr Catálogo de Transportadoras.
-     */
-    public Transportadoras(Map<String, Transportadora> tr){
-        setTransportadoras(tr);
-    }
-
-    /**
-     * Construtor de Transportadoras por Cópia.
-     * @param t Transportadoras a copiar.
-     */
-    public Transportadoras(Transportadoras t){
-        this.setTransportadoras(t.getTransportadoras());
-    }
-
-    /**
      * Método que devolve o Catálogo de Transportadora.
      * @return Catálogo de Transportadora.
      */
@@ -83,10 +67,9 @@ public class Transportadoras implements Serializable {
             return e;
         }
         Transportadora t = aux.first();
-        //t.addEncomenda(e.getCodEnc());
         double km = t.getGPS().distancia(g);
         e.setDistancia(km);
-        double time = (km/t.getVelocidadeMed())+duracaoLoja; // horas
+        double time = (km/t.getVelocidadeMed())+duracaoLoja;
         if(time>3)
             e.setPreco((km*t.getPrecoKm())*1.2);
         else
@@ -106,15 +89,6 @@ public class Transportadoras implements Serializable {
     }
 
     /**
-     * Método que define o Catálogo de Transportadoras.
-     * @param cat Catálogo de Transportadoras.
-     */
-    public void setTransportadoras(Map<String, Transportadora> cat) {
-        this.transportadoras = new HashMap<>();
-        cat.entrySet().forEach(e -> this.transportadoras.put(e.getKey(), e.getValue().clone()));
-    }
-
-    /**
      * Método toString.
      * @return String com os dados das Transportadoras.
      */
@@ -131,14 +105,6 @@ public class Transportadoras implements Serializable {
      */
     public void addTransportadora(Transportadora l){
         this.transportadoras.put(l.getCod(), l.clone());
-    }
-
-    /**
-     * Método que remove uma Transportadora do Catálogo de Transportadora.
-     * @param code Código da Transportadora a remover.
-     */
-    public void removeTransportadora(String code){
-        this.transportadoras.remove(code);
     }
 
     /**

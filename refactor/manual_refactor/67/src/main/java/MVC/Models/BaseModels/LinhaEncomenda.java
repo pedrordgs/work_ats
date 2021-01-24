@@ -15,16 +15,6 @@ public class LinhaEncomenda implements Serializable {
     private double preco;
 
     /**
-     * Construtor LinhaEncomenda por defeito.
-     */
-    public LinhaEncomenda() {
-        this.codigo = "";
-        this.nome = "";
-        this.quantidade = 0;
-        this.preco = 0;
-    }
-
-    /**
      * Construtor LinhaEncomenda parametrizado.
      * @param codigo Código do Produto.
      * @param nome Descrição do Produto.
@@ -67,7 +57,7 @@ public class LinhaEncomenda implements Serializable {
 
     /**
      * Método que devolve a Descrição do Produto da LinhaEncomenda.
-     * @return
+     * @return nome
      */
     public String getNome() {
         return this.nome;
@@ -90,36 +80,11 @@ public class LinhaEncomenda implements Serializable {
     }
 
     /**
-     * Método que define o Preço do Produto da LinhaEncomenda.
-     * @param preco Preço do Produto.
-     */
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
-    /**
      * Método que devolve a Quantidade de Produto da LinhaEncomenda.
      * @return Quantidade de Produto.
      */
     public double getQuantidade() {
         return this.quantidade;
-    }
-
-    /**
-     * Método que define a Quantidade de Produto da LinhaEncomenda.
-     * @param quantidade Quantidade de Produto.
-     */
-    public void setQuantidade(double quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    /**
-     * Método que Calcula o Valor Total da LinhaEncomenda.
-     * @return Valor da LinhaEncomenda.
-     */
-    public double calculaValorLinhaEnc(){
-        double valor = this.quantidade * this.preco;
-        return valor;
     }
 
     /**
@@ -129,13 +94,6 @@ public class LinhaEncomenda implements Serializable {
     public LinhaEncomenda clone() {
         return new LinhaEncomenda(this);
     }
-
-    /*public boolean equals(Object o) {
-        if(o==this) return true;
-        if(o==null || o.getClass() != this.getClass()) return false;
-        LinhaEncomenda le = (LinhaEncomenda) o;
-        return le.getCodigo().equals(this.codigo);
-    }*/
 
     /**
      * Método toString.

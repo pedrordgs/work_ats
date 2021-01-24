@@ -131,9 +131,7 @@ public class Encomenda implements Serializable {
      */
     public void setLinhas(List<LinhaEncomenda> linhas){
         this.linhas = new ArrayList<>();
-        for (LinhaEncomenda ls : linhas) {
-            this.linhas.add(ls);
-        }
+        this.linhas.addAll(linhas);
     }
 
     /**
@@ -230,53 +228,6 @@ public class Encomenda implements Serializable {
      */
     public void setCodEntregador(String ent){
         this.codEntregador = ent;
-    }
-
-    /**
-     * Método que calcula o Valor Total da Encomenda.
-     * @return Valor Total.
-     */
-    public double calculaValorTotal(){
-        double valor = 0;
-        for (LinhaEncomenda l : this.linhas) {
-            valor += l.calculaValorLinhaEnc();
-        }
-        return valor;
-    }
-
-    /**
-     * Método que calcula o número Total de Produtos presentes na Encomenda.
-     * @return Número de Produtos.
-     */
-    public int numeroTotalProdutos(){
-        int total = 0;
-        for (LinhaEncomenda l : this.linhas) {
-            total += l.getQuantidade();
-        }
-        return total;
-    }
-
-    /**
-     * Verifica se um determinado Produto se encontra numa Encomenda.
-     * @param refProduto Código do Produto.
-     * @return True caso esteja na encomenda, false caso contrário.
-     */
-    public boolean existeProdutoEncomenda(String refProduto){
-        boolean b = false;
-        for (LinhaEncomenda l : this.linhas){
-            if (refProduto.equals(l.getCodigo())){
-                b = true;
-            }
-        }
-        return b;
-    }
-
-    /**
-     * Método que adiciona uma LinhaEncomenda à encomenda.
-     * @param linha LinhaEncomenda a adicionar.
-     */
-    public void adicionaLinha(LinhaEncomenda linha){
-        this.linhas.add(linha.clone());
     }
 
     /**

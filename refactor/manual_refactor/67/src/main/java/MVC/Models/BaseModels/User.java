@@ -45,20 +45,6 @@ public abstract class User implements Serializable {
     }
 
     /**
-     * Construtor de User parametrizado.
-     * @param c Código do User.
-     * @param n Nome do User.
-     * @param g GPS do User.
-     */
-    public User(String c, String n, GPS g){
-        this.cod = c;
-        this.name = n;
-        this.pass = c;
-        this.gps = g.clone();
-        this.codencomendas = new ArrayList<>();
-    }
-
-    /**
      * Construtor de User de Cópia.
      * @param u User a copiar.
      */
@@ -111,22 +97,6 @@ public abstract class User implements Serializable {
     }
 
     /**
-     * Método que define o Código do User.
-     * @param cod Código do User.
-     */
-    public void setCod(String cod) {
-        this.cod = cod;
-    }
-
-    /**
-     * Método que define a Password de Login do User.
-     * @param pass Password do User.
-     */
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
-    /**
      * Método que define o Nome do User.
      * @param name Nome do User.
      */
@@ -135,47 +105,11 @@ public abstract class User implements Serializable {
     }
 
     /**
-     * Método que define o GPS do User.
-     * @param gps GPS do User.
-     */
-    public void setGps(GPS gps) {
-        this.gps = gps.clone();
-    }
-
-    /**
-     * Método que define o GPS do User.
-     * @param x Coordenada X do User.
-     * @param y Coordenada Y do User.
-     */
-    public void setGps(double x, double y) {
-        this.gps.setX(x);
-        this.gps.setY(y);
-    }
-
-    /**
      * Método que adiciona o Código de uma Encomenda ao User.
      * @param s Código da Encomenda.
      */
     public void addEncomenda(String s){
         this.codencomendas.add(s);
-    }
-
-    /**
-     * Método que verifica se a String inserida é a Password do User.
-     * @param s Password.
-     * @return True caso seja, false caso contrário.
-     */
-    public boolean isSenha(String s){
-        return this.pass.equals(s);
-    }
-
-    /**
-     * Método que determina a distância entre dois Users.
-     * @param u User.
-     * @return Distância resultante.
-     */
-    public double distanciaUser(User u){
-        return this.gps.distancia(u.gps);
     }
 
     /**

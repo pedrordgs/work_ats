@@ -1,15 +1,14 @@
 package MVC.Models;
 
-import MVC.Models.BaseModels.*;
-import MVC.Models.Catalogs.*;
 import MVC.Comparators.MaisKmsComparator;
 import MVC.Comparators.NumeroVendasComparator;
 import MVC.Exceptions.InvalidInputException;
 import MVC.Exceptions.NaoExisteException;
+import MVC.Models.BaseModels.*;
+import MVC.Models.Catalogs.*;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Model implements Serializable {
     private Encomendas encomendas;
@@ -208,20 +207,16 @@ public class Model implements Serializable {
      * @return True caso seja válido, false caso contrário.
      */
     public boolean loginValido(String cod, String senha){
-        if(cod.charAt(0) == 'u'){
-            if(this.utilizadores.existeUtilizador(cod))
+        if(cod.charAt(0) == 'u' && this.utilizadores.existeUtilizador(cod)){
                 return this.utilizadores.getUtilizador(cod).getPass().equals(senha);
         }
-        if(cod.charAt(0) == 'v'){
-            if(this.voluntarios.existeVoluntario(cod))
+        if(cod.charAt(0) == 'v' && this.voluntarios.existeVoluntario(cod)){
                 return this.voluntarios.getVoluntario(cod).getPass().equals(senha);
         }
-        if(cod.charAt(0) == 't'){
-            if(this.transportadoras.existeTransportadora(cod))
+        if(cod.charAt(0) == 't' && this.transportadoras.existeTransportadora(cod)){
                 return this.transportadoras.getTransportadora(cod).getPass().equals(senha);
         }
-        if(cod.charAt(0) == 'l'){
-            if(this.lojas.existeLoja(cod))
+        if(cod.charAt(0) == 'l' && this.lojas.existeLoja(cod)){
                 return this.lojas.getLoja(cod).getPass().equals(senha);
         }
         return false;
@@ -464,7 +459,7 @@ public class Model implements Serializable {
      */
     public boolean addProduto(String codL,String prod,double preco,boolean isMedic){
         Loja l = this.lojas.getLoja(codL);
-        String cod = "";
+        String cod;
         boolean r = false;
         for (int i=1;i<100 && !r;i++){
             cod = "p"+i;
@@ -487,7 +482,7 @@ public class Model implements Serializable {
         Map<String,Utilizador> us = this.utilizadores.getDataUtilizadores();
         s.addAll(us.values());
         int max = Math.min(10,s.size());
-        return s.stream().collect(Collectors.toList()).subList(0,max);
+        return new ArrayList<>(s).subList(0,max);
     }
 
     /**
@@ -499,7 +494,7 @@ public class Model implements Serializable {
         Map<String,Transportadora> ts = this.transportadoras.getTransportadoras();
         s.addAll(ts.values());
         int max = Math.min(10,s.size());
-        return s.stream().collect(Collectors.toList()).subList(0,max);
+        return new ArrayList<>(s).subList(0,max);
     }
 
     /**

@@ -105,16 +105,16 @@ public class Controller {
 
     private void login(){
         this.view = new MessageView();
-        String user;
+        String utilizador;
         String senha;
         String op = "";
         boolean val;
         do{
             this.view.show("Username: ");
-            user = Input.lerString().toLowerCase();
+            utilizador = Input.lerString().toLowerCase();
             this.view.show("Senha: ");
             senha = Input.lerString().toLowerCase();
-            val = model.loginValido(user,senha);
+            val = model.loginValido(utilizador,senha);
             if(!val) {
                 this.view.show("Username/Senha Errado");
                 this.view.show("Deseja voltar para o menu principal?");
@@ -126,19 +126,20 @@ public class Controller {
             }
         }while(!val && !op.equals("1"));
         if(val) {
-            this.user = user;
+            this.user = utilizador;
             switch (this.user.charAt(0)) {
                 case 'u':
                     this.menuUtilizador();
                     break;
                 case 'v':
-                    this.menuEntregador();
-                    break;
                 case 't':
                     this.menuEntregador();
                     break;
                 case 'l':
                     this.menuLoja();
+                    break;
+                default:
+                    System.exit(-1);
                     break;
             }
         }
@@ -195,7 +196,7 @@ public class Controller {
                 this.view.show("Código inexistente");
         }while(!valido);
         l = this.model.getEncomendasEntregador(ent);
-        if(l.size()==0)
+        if(l.isEmpty())
             this.view.show("O Entregador ainda nao fez nenhuma entrega!");
         else {
             ((ListView) this.view).setList(l);
@@ -279,7 +280,7 @@ public class Controller {
         boolean valido;
         do {
             List<Encomenda> l = this.model.getListaEncomendasPorAceitar(this.user);
-            if(l.size()==0) {
+            if(l.isEmpty()) {
                 this.view.show("Nao existem encomendas por aceitar!");
                 op1 = "0";
             }
@@ -312,7 +313,7 @@ public class Controller {
                                     } catch(NaoExisteException e){
                                         new MessageView().show("Erro! Nao existe encomenda: " + e.getMessage());
                                     }
-
+                                    break;
                                 case "0":
                                     try {
                                         valido = this.model.utilizadorAceitaEncomenda(this.user, enc, false);
@@ -324,7 +325,7 @@ public class Controller {
                                     } catch (NaoExisteException e){
                                         new MessageView().show("Erro! Nao existe encomenda: " + e.getMessage());
                                     }
-
+                                    break;
                                 default:
                                     this.view.show("Opcao Invalida!!!");
                             }
@@ -348,7 +349,7 @@ public class Controller {
         boolean valido;
         do {
             List<Encomenda> l = this.model.getListaEncomendasPorClassificar(this.user);
-            if(l.size()==0) {
+            if(l.isEmpty()) {
                 this.view.show("Nao existem encomendas por classificar!");
                 op1 = "0";
             }
@@ -377,11 +378,10 @@ public class Controller {
                                 } else
                                     this.view.show("Classificacao invalida! A classificacao tem de ser entre 1 e 5!");
                             } while (nota < 1 || nota > 5);
-                            break;
                         } catch (NaoExisteException e){
                             new MessageView().show("Erro: Não existe Encomenda com o código " + e.getMessage());
                         }
-
+                        break;
                     case "0":
                         break;
                     default:
@@ -397,7 +397,7 @@ public class Controller {
         String op;
         do {
             List<Encomenda> l = this.model.getListaEncomendasClassificadas(this.user);
-            if(l.size()==0) {
+            if(l.isEmpty()) {
                 this.view.show("Nao existem encomendas classificadas!");
                 op = "0";
             }
@@ -425,6 +425,7 @@ public class Controller {
                         break;
                     case "2":
                         this.factTotal();
+                        break;
                     case "0":
                         break;
                     default:

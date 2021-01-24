@@ -73,16 +73,6 @@ public class GPS implements Serializable {
     }
 
     /**
-     * Método que define as Coordenadas do GPS.
-     * @param a Coordenada X.
-     * @param b Coordenda Y.
-     */
-    public void setXY(double a,double b){
-        this.x = a;
-        this.y = b;
-    }
-
-    /**
      * Método equals.
      * @param o Object a comparar.
      * @return True caso sejam iguais, false caso contrário.
@@ -102,18 +92,6 @@ public class GPS implements Serializable {
     public double distancia(GPS g){
         return Math.sqrt(Math.pow(g.x-this.x,2)+Math.pow(g.y-this.y,2));
     }
-
-    /*public double distanciaKm(GPS g){
-        double raioTerra = 6371; // em Km
-        GPS g1 = this.toKms();
-        GPS g2 = g.toKms();
-        double deltaLat = (g1.getX()-g2.getX());
-        double deltaLon = (g1.getY()-g2.getY());
-        double a = ((Math.sin(deltaLat/2) * Math.sin(deltaLat/2))+ Math.cos(g1.getX()))
-                *Math.cos(g2.getX())*(Math.sin(deltaLon/2) * Math.sin(deltaLon/2));
-        double c = 2*Math.atan(Math.sqrt(a)/Math.sqrt(1-a));
-        return raioTerra*c;
-    }*/
 
     /**
      * Método toString.

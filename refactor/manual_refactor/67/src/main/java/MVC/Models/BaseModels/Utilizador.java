@@ -16,17 +16,6 @@ public class Utilizador extends User implements Serializable {
     private List<String> porClassificar;
     private int numeroEncomendas;
 
-    // aceita encomenda
-    /**
-     * Construtor de Utilizador por defeito.
-     */
-    public Utilizador() {
-        super();
-        this.porAceitar = new ArrayList<>();
-        this.porClassificar = new ArrayList<>();
-        this.numeroEncomendas = 0;
-    }
-
     /**
      * Construtor de Utilizador parametrizado.
      * @param c Código do Utilizador.
@@ -70,7 +59,7 @@ public class Utilizador extends User implements Serializable {
 
     /**
      * Método que retorna uma Cópia da Lista de Códigos de encomendas que ainda não classificou.
-     * @return
+     * @return Lista
      */
     public List<String> getPorClassificar() {
         return new ArrayList<>(this.porClassificar);
@@ -95,29 +84,16 @@ public class Utilizador extends User implements Serializable {
     }
 
     /**
-     * Método que cria uma Encomenda.
-     * @param codEncomenda Código da Encomenda.
-     * @param loja Código da Loja.
-     * @param peso Peso do Produto.
-     * @param le Contéudo da Encomenda.
-     * @return
-     */
-    public Encomenda criaEncomenda(String codEncomenda,String loja,double peso,List<LinhaEncomenda> le){
-        this.addKeyPorAceitar(codEncomenda);
-        return new Encomenda(codEncomenda,this.getCod(),loja,peso,le);
-    }
-
-    /**
      * Método em que o Utilizador aceita uma Encomenda.
      * Caso Aceita a encomenda, é adicionada à Lista de encomendas por Classificar.
      * @param cod Código de uma Encomenda.
      * @param b True caso aceite a encomenda, false caso contrário.
      */
     public void aceitaEncomenda(String cod,boolean b){
-            this.porAceitar.remove(cod);
+        this.porAceitar.remove(cod);
         if(b)
             this.numeroEncomendas++;
-            this.addKeyPorClassificar(cod);
+        this.addKeyPorClassificar(cod);
     }
 
     /**
@@ -136,14 +112,6 @@ public class Utilizador extends User implements Serializable {
      */
     public int getNumeroEncomendas(){
         return this.numeroEncomendas;
-    }
-
-    /**
-     * Método que define o Número de encomendas realizadas pelo Utilizador.
-     * @param numE Número de encomendas.
-     */
-    public void setNumeroEncomendas(int numE){
-        this.numeroEncomendas = numE;
     }
 
     /**

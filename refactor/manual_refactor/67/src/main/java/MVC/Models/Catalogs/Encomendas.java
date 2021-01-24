@@ -22,22 +22,6 @@ public class Encomendas implements Serializable {
     }
 
     /**
-     * Construtor Encomendas parametrizado.
-     * @param enc Catálogo de Encomendas.
-     */
-    public Encomendas(Map<String, Encomenda> enc){
-        setEncomendas(enc);
-    }
-
-    /**
-     * Construtor Encomendas por cópia.
-     * @param e Encomendas a copiar.
-     */
-    public Encomendas(Encomendas e){
-        this.setEncomendas(e.getEncomendas());
-    }
-
-    /**
      * Método que devolve o Catálogo de Encomendas.
      * @return Catálogo de Encomendas.
      */
@@ -54,7 +38,7 @@ public class Encomendas implements Serializable {
      */
     public void setEncomendas(Map<String, Encomenda> cat) {
         this.encomendas = new HashMap<>();
-        cat.entrySet().forEach(e -> this.encomendas.put(e.getKey(), e.getValue().clone()));
+        cat.forEach((key, value) -> this.encomendas.put(key, value.clone()));
     }
 
     /**
@@ -89,10 +73,9 @@ public class Encomendas implements Serializable {
     /**
      * Método que remove uma Encomenda ao Catálogo e devolve-a.
      * @param code Código de Encomenda a remover.
-     * @return Encomenda removida.
      */
-    public Encomenda removeEncomenda(String code){
-        return this.encomendas.remove(code);
+    public void removeEncomenda(String code){
+        this.encomendas.remove(code);
     }
 
     /**

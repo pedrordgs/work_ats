@@ -2,6 +2,7 @@ package MVC.Models.BaseModels;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.concurrent.locks.Lock;
 
 /**
  * Class para um User do tipo Loja e onde as funcionalidades
@@ -12,15 +13,7 @@ import java.util.*;
  */
 public class Loja extends User implements Serializable {
 
-    Map<String,Produto> produtos;
-
-    /**
-     * Construtor de Loja por defeito.
-     */
-    public Loja() {
-        super();
-        this.produtos = new HashMap<>();
-    }
+    transient Map<String,Produto> produtos;
 
     /**
      * Construtor de Loja parametrizado.
@@ -120,9 +113,16 @@ public class Loja extends User implements Serializable {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        Collection<Produto> values = this.produtos.values();
-        sb.append("Loja{\n").append(super.toString())/*.append(values)*/.append("\n}");
+        sb.append("Loja{\n").append(super.toString()).append("\n}");
         return sb.toString();
+    }
+
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        Loja l = (Loja) o;
+        return l.getCod().equals(this.getCod());
     }
 
     /**

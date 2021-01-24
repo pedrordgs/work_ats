@@ -24,42 +24,6 @@ public class Lojas implements Serializable {
     }
 
     /**
-     * Construtor de Lojas parametrizado.
-     * @param lj Catálogo de Loja.
-     */
-    public Lojas(Map<String, Loja> lj){
-        setLojas(lj);
-    }
-
-    /**
-     * Construtor de Lojas de Cópia.
-     * @param l Loja a copiar.
-     */
-    public Lojas(Lojas l){
-        this.setLojas(l.getLojas());
-    }
-
-    /**
-     * Método que retorna o Catálogo de Loja.
-     * @return Catálogo de Loja.
-     */
-    public Map<String, Loja> getLojas() {
-        Map<String, Loja> aux = new HashMap<>();
-        for(Map.Entry<String, Loja> e : this.lojas.entrySet())
-            aux.put(e.getKey(), e.getValue().clone());
-        return aux;
-    }
-
-    /**
-     * Método que define o Catálogo de Loja.
-     * @param cat Catálogo de Loja.
-     */
-    public void setLojas(Map<String, Loja> cat) {
-        this.lojas = new HashMap<>();
-        cat.entrySet().forEach(e -> this.lojas.put(e.getKey(), e.getValue().clone()));
-    }
-
-    /**
      * Método toString.
      * @return String com os dados do Lojas.
      */
@@ -80,33 +44,6 @@ public class Lojas implements Serializable {
     }
 
     /**
-     * Método que adiciona Produtos a uma Loja.
-     * @param p Produtos a adicionar.
-     * @param cod Código da Loja.
-     */
-    public void addProdutosLoja(Collection<Produto> p, String cod){
-        this.lojas.get(cod).addProdutos(p);
-    }
-
-    /**
-     * Método que adiciona um Produto a todas as lojas existentes no Catálogo de Loja.
-     * @param p Produto a adicionar.
-     */
-    public void addProdutoTodasLojas(Produto p){
-        for (Loja l : this.lojas.values())
-            l.addProduto(p);
-    }
-
-    /**
-     * Método que adiciona Produtos a todas as lojas existentes no Catálogo de Loja.
-     * @param p Produtos a adicionar.
-     */
-    public void addProdutosTodasLojas(Collection<Produto> p){
-        for (Loja l : this.lojas.values())
-            l.addProdutos(p);
-    }
-
-    /**
      * Método que retorna uma Lista que contém todas as Lojas
      * @return Lista de Lojas.
      */
@@ -122,14 +59,6 @@ public class Lojas implements Serializable {
      */
     public void addLoja(Loja l){
         this.lojas.put(l.getCod(), l.clone());
-    }
-
-    /**
-     * Método que remova uma Loja do Catálogo de Loja.
-     * @param code Código da Loja.
-     */
-    public void removeLoja(String code){
-        this.lojas.remove(code);
     }
 
     /**

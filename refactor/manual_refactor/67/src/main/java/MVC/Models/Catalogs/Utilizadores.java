@@ -24,14 +24,6 @@ public class Utilizadores implements Serializable {
     }
 
     /**
-     * Construtor de Utilizadores parametrizado.
-     * @param data Catálogo de Utilizador.
-     */
-    public Utilizadores(Map<String,Utilizador> data){
-        setDataUtilizadores(data);
-    }
-
-    /**
      * Construtor de Utilizadores por Cópia.
      * @param d Utilizadores a copiar.
      */
@@ -45,7 +37,7 @@ public class Utilizadores implements Serializable {
      */
     public void setDataUtilizadores(Map<String,Utilizador> data){
         this.dataUtilizadores = new HashMap<>();
-        data.entrySet().forEach(e -> this.dataUtilizadores.put(e.getKey(), e.getValue().clone()));
+        data.forEach((key, value) -> this.dataUtilizadores.put(key, value.clone()));
     }
 
     /**
@@ -68,14 +60,6 @@ public class Utilizadores implements Serializable {
     }
 
     /**
-     * Remove um Utilizador do Catálogo de Utilizador.
-     * @param cod Código do Utilizador a remover.
-     */
-    public void removeUtilizador(String cod){
-        this.dataUtilizadores.remove(cod);
-    }
-
-    /**
      * Verificar se existe um Utilizador no Catálogo de
      * @param cod Código de Utilizador.
      * @return True caso exista, false caso contrário.
@@ -87,7 +71,7 @@ public class Utilizadores implements Serializable {
     /**
      * Método que retorna um Utilizador com um determinado Código.
      * @param cod Código de Utilizador.
-     * @return
+     * @return Utilizador
      */
     public Utilizador getUtilizador(String cod){
         return this.dataUtilizadores.get(cod);

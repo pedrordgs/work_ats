@@ -7,6 +7,10 @@ import java.util.InputMismatchException;
 
 public class Input {
 
+    private Input() {
+        throw new IllegalStateException("Utility class");
+    }
+
     /**
      * Métodos de Classe
      */
@@ -26,7 +30,6 @@ public class Input {
                 input.nextLine();
             }
         }
-        //input.close();
         return txt;
     }
 
@@ -46,7 +49,6 @@ public class Input {
                 input.nextLine();
             }
         }
-        //input.close();
         return i;
     }
 
@@ -65,7 +67,6 @@ public class Input {
                 input.nextLine();
             }
         }
-        //input.close();
         return d;
     }
 
@@ -84,45 +85,7 @@ public class Input {
                 input.nextLine();
             }
         }
-        //input.close();
         return f;
     }
 
-    public static boolean lerBoolean() {
-        Scanner input = new Scanner(in);
-        boolean ok = false;
-        boolean b = false;
-        while(!ok) {
-            try {
-                b = input.nextBoolean();
-                ok = true;
-            }
-            catch(InputMismatchException e)
-            { out.println("Booleano Invalido");
-                out.print("Novo valor: ");
-                input.nextLine();
-            }
-        }
-        //input.close();
-        return b;
-    }
-
-    public static short lerShort() {
-        Scanner input = new Scanner(in);
-        boolean ok = false;
-        short s = 0;
-        while(!ok) {
-            try {
-                s = input.nextShort();
-                ok = true;
-            }
-            catch(InputMismatchException e)
-            { out.println("Short Invalido");
-                out.print("Novo valor: ");
-                input.nextLine();
-            }
-        }
-        //input.close();
-        return s;
-    }
 }
