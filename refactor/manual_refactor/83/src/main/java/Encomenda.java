@@ -6,12 +6,12 @@ import java.util.stream.Collectors;
 
 public class Encomenda implements Serializable{
     private String codigo;
-    private String codigo_user;
-    private String codigo_loja;
-    private double peso;
-    private String comprador;
-    private String vendedor;
-    private LocalDateTime data;
+    private final String codigo_user;
+    private final String codigo_loja;
+    private final double peso;
+    private final String comprador;
+    private final String vendedor;
+    private final LocalDateTime data;
     private boolean preparada;
     private boolean entregue;
     private boolean levantada;
@@ -110,7 +110,7 @@ public class Encomenda implements Serializable{
     }
 
     public Map<String, LinhaEncomenda> getProdutos(){
-        return this.produtos.entrySet().stream().collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue().clone()));
+        return this.produtos.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().clone()));
     }
 
     public void setLevantada(boolean levantada) {
@@ -129,33 +129,9 @@ public class Encomenda implements Serializable{
       this.codigo = codigo;
     }
 
-    public void setCodigo_user(String codigo_user){
-      this.codigo_user = codigo_user;
-    }
-
-    public void setCodigo_loja(String codigo_loja){
-      this.codigo_loja = codigo_loja;
-    }
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-
-    public void setComprador(String comprador) {
-        this.comprador = comprador;
-    }
-
-    public void setVendedor(String vendedor) {
-        this.vendedor = vendedor;
-    }
-
-    public void setData(LocalDateTime data) {
-        this.data = data;
-    }
-
     public void setProdutos(Map<String, LinhaEncomenda> produtos) {
         this.produtos = new HashMap<>();
-        produtos.entrySet().forEach(p -> this.produtos.put(p.getKey(), p.getValue().clone()));
+        produtos.forEach((key, value) -> this.produtos.put(key, value.clone()));
     }
 
     public void setEncomendaMedica(boolean encomendaMedica) {
@@ -181,26 +157,23 @@ public class Encomenda implements Serializable{
     }
 
     public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n").append("Encomenda: ").append("\n");
-        sb.append("Código: ");
-        sb.append(this.codigo + "\n");
-        sb.append("Código do utilizador: ");
-        sb.append(this.codigo_user + "\n");
-        sb.append("Código da loja: ");
-        sb.append(this.codigo_loja + "\n");
-        sb.append("Peso: ");
-        sb.append(this.peso + "\n");
-        sb.append("Comprador: ");
-        sb.append(this.comprador + "\n");
-        sb.append("Vendedor: ");
-        sb.append(this.vendedor+"\n");
-        sb.append("Data de emissão da encomenda: ");
-        sb.append(this.data+"\n");
-        sb.append("Produtos: ").append("\n");
-        sb.append(this.produtos).append("\n");
-
-        return sb.toString();
+        return "\n" + "Encomenda: " + "\n" +
+                "Código: " +
+                this.codigo + "\n" +
+                "Código do utilizador: " +
+                this.codigo_user + "\n" +
+                "Código da loja: " +
+                this.codigo_loja + "\n" +
+                "Peso: " +
+                this.peso + "\n" +
+                "Comprador: " +
+                this.comprador + "\n" +
+                "Vendedor: " +
+                this.vendedor + "\n" +
+                "Data de emissão da encomenda: " +
+                this.data + "\n" +
+                "Produtos: " + "\n" +
+                this.produtos + "\n";
     }
 
 

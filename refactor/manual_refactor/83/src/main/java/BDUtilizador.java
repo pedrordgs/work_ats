@@ -1,8 +1,5 @@
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class BDUtilizador implements Serializable {
@@ -14,32 +11,27 @@ public class BDUtilizador implements Serializable {
         this.codigos = new TreeSet<>();
     }
 
-    public BDUtilizador(Map<String, Utilizador> user, Set<String> codigos) {
-        setUsers(user);
-        setCodigos(codigos);
-    }
-
     public BDUtilizador(BDUtilizador r) {
         setUsers(r.getUsers());
         setCodigos(r.getCodigos());
     }
 
     public Map<String, Utilizador> getUsers() {
-        return this.users.entrySet().stream().collect(Collectors.toMap(r -> r.getKey(), r -> r.getValue().clone()));
+        return this.users.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, r -> r.getValue().clone()));
     }
 
     public Set<String> getCodigos() {
-        return this.codigos.stream().collect(Collectors.toSet());
+        return new HashSet<>(this.codigos);
     }
 
     public void setCodigos(Set<String> codigos) {
         this.codigos = new TreeSet<>();
-        for(String s: codigos) this.codigos.add(s);
+        this.codigos.addAll(codigos);
     }
 
     public void setUsers(Map<String, Utilizador> users) {
         this.users = new HashMap<>();
-        users.entrySet().forEach(e -> this.users.put(e.getKey(), e.getValue().clone()));
+        users.forEach((key, value) -> this.users.put(key, value.clone()));
     }
 
 
@@ -48,11 +40,8 @@ public class BDUtilizador implements Serializable {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Total de utilizadores: ").append("\n");
-        sb.append(this.users);
-
-        return sb.toString();
+        return "Total de utilizadores: " + "\n" +
+                this.users;
     }
 
     public boolean equals(Object obj) {
@@ -64,26 +53,21 @@ public class BDUtilizador implements Serializable {
 
     /**
      * Método que verifica se um email já está registado
-     * @param email
-     * @return
      */
     public boolean existeEmail(String email){
-        return this.users.keySet().contains(email);
+        return this.users.containsKey(email);
     }
 
     /**
      * Método que verifica se um utiizador existe
-     * @param v
-     * @return
      */
 
     public boolean existe(Utilizador v){
-        return this.users.keySet().contains(v.getEmail());
+        return this.users.containsKey(v.getEmail());
     }
 
     /**
      * Método que adiciona um utilizador
-     * @param u
      */
     public void add(Utilizador u) {
         this.users.put(u.getEmail(), u.clone());
@@ -92,8 +76,6 @@ public class BDUtilizador implements Serializable {
 
     /**
      * Método que verifica se um código de utilizador existe
-     * @param s
-     * @return
      */
     public boolean existeCodigo(String s){
         return this.codigos.contains(s);
@@ -101,8 +83,6 @@ public class BDUtilizador implements Serializable {
 
     /**
      * Método que adiciona uma encomenda a um utilizador
-     * @param e
-     * @param u
      */
     public void updateUser(Encomenda e, Utilizador u){
         u.addEncomenda(e);
@@ -111,9 +91,6 @@ public class BDUtilizador implements Serializable {
 
     /**
      * Método que efetua o login de um utilizador
-     * @param email
-     * @param password
-     * @return
      */
     public Utilizador tryLogin(String email, String password){
         if(!this.users.containsKey(email)) return null;
@@ -139,7 +116,6 @@ public class BDUtilizador implements Serializable {
 
     /**
      * Método que atualiza um utilizador
-     * @param u
      */
     public void updateUser2(Utilizador u){
         this.users.put(u.getEmail(), u.clone());

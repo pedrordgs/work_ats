@@ -1,8 +1,5 @@
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class BDLojas implements Serializable {
@@ -18,11 +15,6 @@ public class BDLojas implements Serializable {
         this.codigos = new TreeSet<>();
     }
 
-    public BDLojas(Map<String, Loja> loja, Set<String> codigos){
-        setLojas(loja);
-        setCodigos(codigos);
-    }
-
     public BDLojas(BDLojas r){
         setLojas(r.getLojas());
         setCodigos(r.getCodigos());
@@ -31,22 +23,22 @@ public class BDLojas implements Serializable {
     //Getters
 
     public Map<String, Loja> getLojas() {
-        return this.lojas.entrySet().stream().collect(Collectors.toMap(r -> r.getKey(), r -> r.getValue().clone()));
+        return this.lojas.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, r -> r.getValue().clone()));
     }
 
     public Set<String> getCodigos() {
-        return this.codigos.stream().collect(Collectors.toSet());
+        return new HashSet<>(this.codigos);
     }
 
     //Setters
     public void setCodigos(Set<String> codigos) {
         this.codigos = new TreeSet<>();
-        for(String s: codigos) this.codigos.add(s);
+        this.codigos.addAll(codigos);
     }
 
     public void setLojas(Map<String, Loja> lojas) {
         this.lojas = new HashMap<>();
-        lojas.entrySet().forEach(e -> this.lojas.put(e.getKey(), e.getValue().clone()));
+        lojas.forEach((key, value) -> this.lojas.put(key, value.clone()));
     }
 
 
@@ -55,11 +47,8 @@ public class BDLojas implements Serializable {
     }
 
     public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("Total de Lojas: ").append("\n");
-        sb.append(this.lojas);
-
-        return sb.toString();
+        return "Total de Lojas: " + "\n" +
+                this.lojas;
     }
 
     public boolean equals(Object obj){
@@ -72,11 +61,11 @@ public class BDLojas implements Serializable {
     /**
      * Método que verifica se uma loja existe
      * @param v é a loja que se pretende saber se existe
-     * @return
+     * @return se a loja existe
      */
 
     public boolean existe(Loja v){
-        return this.lojas.keySet().contains(v.getEmail());
+        return this.lojas.containsKey(v.getEmail());
     }
 
     /**
@@ -102,7 +91,7 @@ public class BDLojas implements Serializable {
 
     /**
      * Método que atualiza uma loja
-     * @param j
+     * @param j loja
      */
     public void updateLoja3(Loja j){
         this.lojas.put(j.getEmail(), j);
@@ -110,17 +99,17 @@ public class BDLojas implements Serializable {
 
     /**
      * Método que verifica se um email já está registado
-     * @param email
-     * @return
+     * @param email email
+     * @return se existe o email
      */
     public boolean existeEmail(String email){
-        return this.lojas.keySet().contains(email);
+        return this.lojas.containsKey(email);
     }
 
     /**
      * Método que verifica se um código de uma loja existe
      * @param s é o código a verificar
-     * @return
+     * @return se existe o codigo
      */
 
    public boolean existeCodigo(String s){
@@ -129,7 +118,7 @@ public class BDLojas implements Serializable {
 
     /**
      * Método que adiciona uma loja
-     * @param l
+     * @param l loja
      */
 
     public void add(Loja l){
@@ -139,9 +128,9 @@ public class BDLojas implements Serializable {
 
     /**
      * Método que tenta efetuar o login de uma loja no sistema
-     * @param email
-     * @param password
-     * @return
+     * @param email email
+     * @param password password
+     * @return a loja em que foi feito o login
      */
     public Loja tryLogin(String email, String password){
         Loja aux = this.lojas.get(email);
@@ -156,13 +145,13 @@ public class BDLojas implements Serializable {
                 return null;
             }
         }
-        return aux;
+        return null;
     }
 
     /**
      * Método que imprime as lojas, indicando a distância a uma determinado utilizador doméstico
      * @param u é o utilizador que serve de referência
-     * @return
+     * @return lojas do utilizador
      */
     public String listLojasUser(Utilizador u){
         StringBuilder sb = new StringBuilder();
@@ -170,16 +159,16 @@ public class BDLojas implements Serializable {
         for(String s: this.lojas.keySet()){
             Loja j = this.lojas.get(s).clone();
             double dist = DistanceCalculator.distance(u.getLatitude(), j.getLatitude(), u.getLongitude(), j.getLongitude());
-            sb.append(this.lojas.get(s).getCodigo() + " --> " + this.lojas.get(s).getNome() + " ----> DIST:  " + dist +" KMS" +"\n");
+            sb.append(this.lojas.get(s).getCodigo()).append(" --> ").append(this.lojas.get(s).getNome()).append(" ----> DIST:  ").append(dist).append(" KMS").append("\n");
         }
         return sb.toString();
     }
 
     /**
      * Método que devolve o email de uma loja, quando lhe é fornecido o seu código
-     * @param cod
-     * @return
-     * @throws LojaNotFoundException
+     * @param cod codigo
+     * @return email
+     * @throws LojaNotFoundException caso nao exista a loja
      */
 
     public String getEmail(String cod) throws LojaNotFoundException{

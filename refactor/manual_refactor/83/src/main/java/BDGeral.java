@@ -1,14 +1,13 @@
 import java.io.*;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class BDGeral implements Serializable, BDGeralInterface {
-    private BDVoluntarios voluntarios;
-    private BDUtilizador utilizadores;
-    private BDLojas lojas;
-    private BDTransportes transportes;
-    private BDProdutos produtos;
+    private final BDVoluntarios voluntarios;
+    private final BDUtilizador utilizadores;
+    private final BDLojas lojas;
+    private final BDTransportes transportes;
+    private final BDProdutos produtos;
     private EncomendasAceites encomendasAceites;
 
     /**
@@ -23,15 +22,6 @@ public class BDGeral implements Serializable, BDGeralInterface {
         this.produtos = new BDProdutos();
     }
 
-    public BDGeral(BDVoluntarios v, BDUtilizador u, BDLojas l, BDTransportes t, BDProdutos p, EncomendasAceites ea){
-        this.voluntarios = v.clone();
-        this.utilizadores = u.clone();
-        this.lojas = l.clone();
-        this.transportes = t.clone();
-        this.produtos = p.clone();
-        this.encomendasAceites = ea.clone();
-    }
-
     public BDGeral(BDGeral b){
         this.voluntarios = b.getVoluntarios();
         this.utilizadores = b.getUtilizadores();
@@ -41,7 +31,7 @@ public class BDGeral implements Serializable, BDGeralInterface {
         this.encomendasAceites = b.getEncomendasAceites();
     }
 
-    //Getters
+    /* Getters */
     public BDLojas getLojas() {
         return this.lojas.clone();
     }
@@ -66,7 +56,7 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Setter de Encomendas Aceites
-     * @param encomendasAceites
+     * @param encomendasAceites encomendas que foram aceites
      */
 
     public void setEncomendasAceites(EncomendasAceites encomendasAceites) {
@@ -95,7 +85,7 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Método que atualiza uma empresa de transportes do sistema, tornando a disponível para entregar uma encomenda
-     * @param e
+     * @param e Empresa de transportes
      */
 
     public void addEmpresaDisponivel(EmpresaTransportes e){
@@ -148,20 +138,17 @@ public class BDGeral implements Serializable, BDGeralInterface {
     }
 
     public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("=================== TOTAL DE UTILIZADORES REGISTADOS NO SISTEMA ===================");
-        sb.append("-------------Utilizadores----------------------- \n");
-        sb.append(this.utilizadores.toString() + "\n");
-        sb.append("-------------Empresas de transportes------------ \n");
-        sb.append(this.transportes.toString() + "\n");
-        sb.append("-------------Voluntários------------------------ \n");
-        sb.append(this.voluntarios.toString() + "\n");
-        sb.append("-------------Lojas------------------------------\n");
-        sb.append(this.lojas.toString() + "\n");
-        sb.append("-------------Produtos------------------------------\n");
-        sb.append(this.produtos.toString() + "\n");
-
-        return sb.toString();
+        return "=================== TOTAL DE UTILIZADORES REGISTADOS NO SISTEMA ===================" +
+                "-------------Utilizadores----------------------- \n" +
+                this.utilizadores.toString() + "\n" +
+                "-------------Empresas de transportes------------ \n" +
+                this.transportes.toString() + "\n" +
+                "-------------Voluntários------------------------ \n" +
+                this.voluntarios.toString() + "\n" +
+                "-------------Lojas------------------------------\n" +
+                this.lojas.toString() + "\n" +
+                "-------------Produtos------------------------------\n" +
+                this.produtos.toString() + "\n";
     }
 
     /**
@@ -185,7 +172,7 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Método que atualiza uma loja
-     * @param j
+     * @param j loja
      */
     public void updateLoja3(Loja j){
         this.lojas.updateLoja3(j);
@@ -219,7 +206,7 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Método que atualiza um utilizador
-     * @param u
+     * @param u utilizador
      */
     public void updateUser2(Utilizador u){
         this.utilizadores.updateUser2(u);
@@ -269,10 +256,10 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Método que efetua a tentativa de login de um utilizador doméstico
-     * @param email
-     * @param password
+     * @param email email
+     * @param password password
      * @return Utilizador, caso o login tenha sido efetuado
-     * @throws UserNotFoundException
+     * @throws UserNotFoundException caso nao exista utilizador
      */
     public Utilizador loginUser(String email, String password) throws UserNotFoundException{
         Utilizador aux;
@@ -283,10 +270,10 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Método que efetua a tentativa de login de um Voluntário
-     * @param email
-     * @param password
+     * @param email email
+     * @param password password
      * @return Voluntario, caso o login tenha sido efetuado
-     * @throws UserNotFoundException
+     * @throws VoluntarioNotFoundException caso nao existam voluntarios
      */
 
     public Voluntario loginVoluntario(String email, String password) throws VoluntarioNotFoundException{
@@ -298,10 +285,10 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Método que efetua a tentativa de login de uma loja
-     * @param email
-     * @param password
+     * @param email email
+     * @param password password
      * @return Loja, caso o login tenha sido efetuado
-     * @throws UserNotFoundException
+     * @throws LojaNotFoundException caso nao exista loja
      */
 
     public Loja loginLoja(String email, String password) throws LojaNotFoundException{
@@ -313,10 +300,10 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Método que efetua a tentativa de login de uma empresa de transportes
-     * @param email
-     * @param password
+     * @param email email
+     * @param password password
      * @return Empresa de transportes, caso o login tenha sido efetuado
-     * @throws UserNotFoundException
+     * @throws TransporteNotFoundException caso nao exista transportes
      */
 
     public EmpresaTransportes loginEmpresa(String email, String password) throws TransporteNotFoundException{
@@ -328,7 +315,7 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Método que devolve os users que mais encomendas realizaram
-     * @return
+     * @return retorna as 10 encomendas do top
      */
     public Set<Pair> top10Encomendas(){
         Set<Pair> result = new TreeSet<>(new ComparaQuantidadePair());
@@ -357,7 +344,7 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Método que devolve as empresas que mais kms percorreram
-     * @return
+     * @return top 10 de kms percorridos
      */
     public Set<Pair> top10KmsPercorridos (){
         Set<Pair> result = new TreeSet<>(new ComparaQuantidadePair());
@@ -376,13 +363,12 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Método que grava os dados num ficheiro binário
-     * @param filename
-     * @throws IOException
-     * @throws FileNotFoundException
-     * @throws IOException
+     * @param filename nome do ficheiro
+     * @throws IOException exceçao de io
+     * @throws FileNotFoundException ficheiro nao existe
      */
 
-    public void gravarFicheiro(String filename) throws IOException, FileNotFoundException, IOException {
+    public void gravarFicheiro(String filename) throws IOException, FileNotFoundException {
         FileOutputStream fos = new FileOutputStream(filename);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(this);
@@ -392,10 +378,10 @@ public class BDGeral implements Serializable, BDGeralInterface {
 
     /**
      * Método que carrega os dados de um ficheiro binário
-     * @param filename
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * @param filename nome do ficheiro
+     * @return uma bd geral
+     * @throws IOException exceçao de io
+     * @throws ClassNotFoundException nao existe a classe
      */
     public BDGeral lerFicheiro(String filename) throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream(filename);

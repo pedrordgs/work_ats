@@ -168,10 +168,6 @@ public class TrazAquiView implements Serializable {
         System.out.println("Insira o seu NIF: ");
     }
 
-    public void nr_min_encomendas() {
-        System.out.println("Insira o número mínimo de encomendas: ");
-    }
-
     public void encomendas_medicas() {
         System.out.println("Aceita transportar encomendas médicas? (True/False) ");
     }

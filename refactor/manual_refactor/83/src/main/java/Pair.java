@@ -14,11 +14,6 @@ public class Pair implements Serializable {
         this.snd =  0;
     }
 
-    public Pair(String fst, int snd){
-        this.fst = fst;
-        this.snd = snd;
-    }
-
     public Pair(Pair a){
         this.fst = a.getFst();
         this.snd = a.getSnd();
@@ -61,10 +56,8 @@ public class Pair implements Serializable {
      * @return String com a informação textoal do objeto Pair
      */
     public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(getFst() + " ---> " + getSnd());
 
-        return sb.toString();
+        return getFst() + " ---> " + getSnd();
     }
 
     /**

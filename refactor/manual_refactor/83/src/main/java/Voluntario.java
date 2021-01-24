@@ -6,28 +6,14 @@ import java.util.*;
 public class Voluntario extends UtilizadorSistema implements Serializable {
     private boolean disponivel;
     private boolean transporteMedico;
-    private int velocidade;
+    private final int velocidade;
     private int minutosDeEspera;
-    private LocalDate horaDeRegisto;
-    private double raio_acao;
+    private final LocalDate horaDeRegisto;
+    private final double raio_acao;
     private double classificacao;
     private int avaliacoes;
     private List<Encomenda> historico;
 
-    //Construtores de classe
-    //Construtor de classe por omissão
-    public Voluntario(){
-        super();
-        this.disponivel = false;
-        this.horaDeRegisto = LocalDate.now();
-        this.raio_acao = 0;
-        this.classificacao = 0;
-        this.avaliacoes = 0;
-        this.historico = new ArrayList<>();
-        this.transporteMedico = false;
-        this.velocidade = 0;
-        this.minutosDeEspera = 0;
-    }
     //Construtor de classe por clone
     public Voluntario(Voluntario a){
         super(a);
@@ -124,18 +110,6 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
         this.minutosDeEspera = minutosDeEspera;
     }
 
-    public void setVelocidade(int velocidade) {
-        this.velocidade = velocidade;
-    }
-
-    public void setAvaliacoes(int avaliacoes) {
-        this.avaliacoes = avaliacoes;
-    }
-
-    public void setClassificacao(double classificacao) {
-        this.classificacao = classificacao;
-    }
-
     public void setCodigo(String a){
       super.setCodigo(a);
     }
@@ -150,14 +124,6 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
 
     public void setLongitude(double a){
         super.setLongitude(a);
-    }
-
-    public void setInicio_Transporte(LocalDate a){
-        this.horaDeRegisto = a;
-    }
-
-    public void setRaio_acao(double a){
-        this.raio_acao = a;
     }
 
     public void setHistorico(List<Encomenda> a){
@@ -183,32 +149,27 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
     }
 
     public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.toString());
-        sb.append("Nome: ");
-        sb.append(getNome() + "\n");
-        sb.append("Código de voluntário: ");
-        sb.append(getCodigo() + "\n");
-        sb.append("Disponível: ");
-        sb.append(this.disponivel + "\n");
-        sb.append("Latitude: ");
-        sb.append(getLatitude() + "\n");
-        sb.append("Longitude: ");
-        sb.append(getLongitude() + "\n");
-        sb.append("Hora de registo: ");
-        sb.append(this.horaDeRegisto + "\n");
-        sb.append("Raio de ação: ");
-        sb.append(this.raio_acao + "\n");
-        sb.append("Registos de encomendas: ");
-        sb.append(this.historico.toString());
-
-
-        return sb.toString();
+        return super.toString() +
+                "Nome: " +
+                getNome() + "\n" +
+                "Código de voluntário: " +
+                getCodigo() + "\n" +
+                "Disponível: " +
+                this.disponivel + "\n" +
+                "Latitude: " +
+                getLatitude() + "\n" +
+                "Longitude: " +
+                getLongitude() + "\n" +
+                "Hora de registo: " +
+                this.horaDeRegisto + "\n" +
+                "Raio de ação: " +
+                this.raio_acao + "\n" +
+                "Registos de encomendas: " +
+                this.historico.toString();
     }
 
     /**
      * Método que atualiza a classificação
-     * @param classificacao
      */
     public void updateRate(Double classificacao){
         double total = this.classificacao * this.avaliacoes + classificacao;
@@ -218,31 +179,13 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que adiciona uma encomenda
-     * @param e
      */
     public void addEncomenda (Encomenda e){
         this.historico.add(e.clone());
     }
 
     /**
-     * Método que remove uma encomenda
-     * @param cod
-     * @return
-     */
-    public Encomenda removeEncomenda(String cod){
-        for(Encomenda s: this.historico){
-            if(cod.equals(s.getCodigo())){
-                this.historico.remove(s);
-                return s;
-            }
-        }
-        return null;
-    }
-
-    /**
      * Método que devolve a encomenda com o código cod
-     * @param cod
-     * @return
      */
     public Encomenda getEncomenda(String cod) throws EncomendaNotFoundException{
         for(Encomenda s: this.historico){
@@ -253,7 +196,6 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que define uma encomenda como entregue
-     * @param enc
      */
     public void updateEncomenda(Encomenda enc){
        List<Encomenda> aux = new ArrayList<>();
@@ -269,7 +211,6 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que define uma encomenda como levantada de uma loja
-     * @param enc
      */
     public void updateEncomendaLoja(Encomenda enc){
         List<Encomenda> aux = new ArrayList<>();
@@ -285,7 +226,6 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que define uma encomenda como estando preparada
-     * @param enc
      */
     public void updateEncomendaPreparada(Encomenda enc){
         List<Encomenda> aux = new ArrayList<>();
@@ -302,7 +242,6 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que devolve as encomendas ainda não entregues, mas já levantas da loja
-     * @return
      */
     public String getNaoEntregue(){
         StringBuilder sb = new StringBuilder();
@@ -319,7 +258,6 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que devolve as encomendas prepradas e prontas a serem levantas
-     * @return
      */
     public String getPreparadas(){
         StringBuilder sb = new StringBuilder();
@@ -336,8 +274,6 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que verifica se uma encomenda existe num voluntário
-     * @param enc
-     * @return
      */
 
     public boolean existe(String enc){
@@ -349,9 +285,6 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que devolve o número de encomendas efetuadas pelo voluntário entre 2 datas
-     * @param d1
-     * @param d2
-     * @return
      */
     public String getInfoEncomendas(LocalDateTime d1, LocalDateTime d2){
         StringBuilder sb = new StringBuilder();
@@ -367,14 +300,13 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
         String s1 = d1.getDayOfMonth() + "/" + d1.getMonthValue() + "/" + d1.getYear();
         String s2 = d2.getDayOfMonth() + "/" + d2.getMonthValue() + "/" + d2.getYear();
 
-        sb.append("Entre as datas " + s1 + " e " + s2 + " foram realizadas " + count + " encomendas pelo voluntário " + getNome() +"\n");
-        sb.append("Efetuou encomendas em " + lojas.size() + " lojas");
+        sb.append("Entre as datas ").append(s1).append(" e ").append(s2).append(" foram realizadas ").append(count).append(" encomendas pelo voluntário ").append(getNome()).append("\n");
+        sb.append("Efetuou encomendas em ").append(lojas.size()).append(" lojas");
         return sb.toString();
     }
 
     /**
      * Retorna o número de encomendas por entregar
-     * @return
      */
 
     public int porEntregar(){
@@ -387,7 +319,6 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
 
     /**
      * Retorna o número de encomendas por levantar
-     * @return
      */
     public int porLevantar(){
         int i = 0;
@@ -399,7 +330,6 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que preve alguns atrasos, por causa das condições atmosféricas, e retorna, em minutos, o tempo perdido;
-     * @return
      */
     int calculaAtrasos(){
         Random random = new Random();
@@ -407,7 +337,7 @@ public class Voluntario extends UtilizadorSistema implements Serializable {
         if(clima <= 75){
             return 0;
         }
-        else if(clima > 75 && clima <= 94){
+        else if(clima <= 94){
             return 30;
         }
         return 60;

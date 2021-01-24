@@ -1,19 +1,10 @@
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 public class Loja extends UtilizadorSistema implements Serializable {
-    private double tempo_espera;
+    private final double tempo_espera;
     private int nrPessoasEmFila;
     private ArrayList<Encomenda> encomendas_recebidas;
-
-    public Loja (){
-        super();
-        this.tempo_espera = 0;
-        this.nrPessoasEmFila = 0;
-        this.encomendas_recebidas = new ArrayList<>();
-    }
 
     public Loja (String email, String password, String codigo, String nome, double tempo_espera, double latitude, double longitude, ArrayList<Encomenda> encomendas_recebidas, int nrPessoasEmFila){
         super(email, password, "Loja", codigo, nome, latitude, longitude);
@@ -73,10 +64,6 @@ public class Loja extends UtilizadorSistema implements Serializable {
         super.setNome(nome);
     }
 
-    public void setTempo_espera(double tempo_espera) {
-        this.tempo_espera = tempo_espera;
-    }
-
     public void setLatitude(double latitude) {
         super.setLatitude(latitude);
     }
@@ -113,14 +100,13 @@ public class Loja extends UtilizadorSistema implements Serializable {
         sb.append("Latitude: ").append(getLatitude()).append('\n');
         sb.append("Longitude: ").append(getLongitude()).append('\n');
         sb.append("Lista de encomendas recebidas: ");
-        this.encomendas_recebidas.forEach(e -> sb.append(e.toString() + "\n"));
+        this.encomendas_recebidas.forEach(e -> sb.append(e.toString()).append("\n"));
         sb.append(super.toString());
         return sb.toString();
     }
 
     /**
      * Método que adiciona uma nova encomenda a uma loja
-     * @param e
      */
     public void addEncomenda(Encomenda e){
         this.encomendas_recebidas.add(e.clone());
@@ -128,7 +114,6 @@ public class Loja extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que remove uma encomenda do stock
-     * @param e
      */
     public void removeEncomenda(Encomenda e){
         this.encomendas_recebidas.remove(e);
@@ -136,9 +121,6 @@ public class Loja extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que devolve uma encomenda com o código cod
-     * @param cod
-     * @return
-     * @throws EncomendaNotFoundException
      */
     public Encomenda getEnc(String cod) throws EncomendaNotFoundException{
         for(Encomenda e: this.encomendas_recebidas){
@@ -149,7 +131,6 @@ public class Loja extends UtilizadorSistema implements Serializable {
 
     /**
      * Método que devolve todas as encomendas que estão por preparar
-     * @return
      */
     public String getEncNotReady(){
         StringBuilder sb = new StringBuilder();

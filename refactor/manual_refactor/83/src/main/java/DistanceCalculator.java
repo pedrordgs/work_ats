@@ -6,11 +6,6 @@ class DistanceCalculator
 {
     /**
      * Método que calcula a distãncia entre 2 pontos
-     * @param lat1
-     * @param lat2
-     * @param lon1
-     * @param lon2
-     * @return
      */
     public static double distance(double lat1, double lat2, double lon1, double lon2)
     {

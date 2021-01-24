@@ -11,32 +11,27 @@ public class BDVoluntarios implements Serializable {
         this.codigos = new TreeSet<>();
     }
 
-    public BDVoluntarios(Map<String, Voluntario> voluntario, Set<String> codigos){
-        setVoluntarios(voluntario);
-        setCodigos(codigos);
-    }
-
     public BDVoluntarios(BDVoluntarios r){
         setVoluntarios(r.getVoluntarios());
         setCodigos(r.getCodigos());
     }
 
     public Map<String, Voluntario> getVoluntarios() {
-        return this.voluntarios.entrySet().stream().collect(Collectors.toMap(r -> r.getKey(), r -> r.getValue().clone()));
+        return this.voluntarios.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, r -> r.getValue().clone()));
     }
 
     public void setVoluntarios(Map<String, Voluntario> voluntarios) {
         this.voluntarios = new HashMap<>();
-        voluntarios.entrySet().forEach(e -> this.voluntarios.put(e.getKey(), e.getValue().clone()));
+        voluntarios.forEach((key, value) -> this.voluntarios.put(key, value.clone()));
     }
 
     public Set<String> getCodigos() {
-        return this.codigos.stream().collect(Collectors.toSet());
+        return new HashSet<>(this.codigos);
     }
 
     public void setCodigos(Set<String> codigos) {
         this.codigos = new TreeSet<>();
-        for(String s: codigos) this.codigos.add(s);
+        this.codigos.addAll(codigos);
     }
 
 
@@ -45,11 +40,8 @@ public class BDVoluntarios implements Serializable {
     }
 
     public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("Total de Voluntarios: ").append("\n");
-        sb.append(this.voluntarios);
-
-        return sb.toString();
+        return "Total de Voluntarios: " + "\n" +
+                this.voluntarios;
     }
 
     public boolean equals(Object obj){
@@ -60,16 +52,14 @@ public class BDVoluntarios implements Serializable {
     }
     /**
      * Método que verifica se um email já está registado
-     * @param email
-     * @return
      */
     public boolean existeEmail(String email){
-        return this.voluntarios.keySet().contains(email);
+        return this.voluntarios.containsKey(email);
     }
 
 
     public boolean existe(Voluntario v){
-        return this.voluntarios.keySet().contains(v.getEmail());
+        return this.voluntarios.containsKey(v.getEmail());
     }
     public boolean existeCodigo(String s){
         return this.codigos.contains(s);
@@ -77,7 +67,6 @@ public class BDVoluntarios implements Serializable {
 
     /**
      * Método que adiciona um voluntário
-     * @param v
      */
 
     public void add(Voluntario v){
@@ -87,9 +76,6 @@ public class BDVoluntarios implements Serializable {
 
     /**
      * Método que efetua o login de um voluntário
-     * @param email
-     * @param password
-     * @return
      */
     public Voluntario tryLogin(String email, String password){
         Voluntario aux = this.voluntarios.get(email);
@@ -104,50 +90,29 @@ public class BDVoluntarios implements Serializable {
                 return null;
             }
         }
-        return aux;
+        return null;
     }
 
     /**
      * Método que devolve os voluntário a imprimir
-     * @return
      */
     public String printVoluntario(){
         StringBuilder sb = new StringBuilder();
         for(String s: this.voluntarios.keySet()){
-            sb.append(this.voluntarios.get(s).clone().getCodigo() + " ---> " + this.voluntarios.get(s).clone().getNome() +" || RATE --> "+ this.voluntarios.get(s).clone().getClassificacao() + "\n" );
-        }
-        return sb.toString();
-    }
-
-    /**
-     * Métodos que devolve os voluntário disponíveis para se deslocarem a uma loja
-     * @param j
-     * @return
-     */
-
-    public String printVoluntarioLoja(Loja j){
-        StringBuilder sb = new StringBuilder();
-        for(String s: this.voluntarios.keySet()){
-            Voluntario v = this.voluntarios.get(s);
-            double dist = DistanceCalculator.distance(j.getLatitude(), v.getLatitude(), j.getLongitude(), v.getLongitude());
-            if(dist <= v.getRaio_acao()) {
-                sb.append(this.voluntarios.get(s).getCodigo() + " ---> " + this.voluntarios.get(s).getNome() + " RATE --> " + this.voluntarios.get(s).getClassificacao()+ " KMS: " + dist + "\n");
-            }
+            sb.append(this.voluntarios.get(s).clone().getCodigo()).append(" ---> ").append(this.voluntarios.get(s).clone().getNome()).append(" || RATE --> ").append(this.voluntarios.get(s).clone().getClassificacao()).append("\n");
         }
         return sb.toString();
     }
 
     /**
      * Método que devolve a lista de voluntário disponíveis para se deslocarem a uma determinada loja
-     * @param j
-     * @return
      */
-    public List<Voluntario> voluntariosDisponíveis(Loja j, Utilizador u) {
+    public List<Voluntario> voluntariosDisponiveis(Loja j, Utilizador u) {
         List<Voluntario> ret = new ArrayList<>();
         for (String s : this.voluntarios.keySet()) {
             Voluntario v = this.voluntarios.get(s).clone();
-            Double dist1 = DistanceCalculator.distance(j.getLatitude(), v.getLatitude(), j.getLongitude(), v.getLongitude());
-            Double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
+            double dist1 = DistanceCalculator.distance(j.getLatitude(), v.getLatitude(), j.getLongitude(), v.getLongitude());
+            double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
             if (dist1 <= v.getRaio_acao() && dist2 <= v.getRaio_acao() && v.getDisponibilidade()) {
                 ret.add(v.clone());
             }
@@ -155,12 +120,12 @@ public class BDVoluntarios implements Serializable {
         return ret;
     }
 
-    public List<Voluntario> voluntariosDisponíveisMed(Loja j , Utilizador u) {
+    public List<Voluntario> voluntariosDisponiveisMed(Loja j , Utilizador u) {
         List<Voluntario> ret = new ArrayList<>();
         for (String s : this.voluntarios.keySet()) {
             Voluntario v = this.voluntarios.get(s).clone();
-            Double dist1 = DistanceCalculator.distance(j.getLatitude(), v.getLatitude(), j.getLongitude(), v.getLongitude());
-            Double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
+            double dist1 = DistanceCalculator.distance(j.getLatitude(), v.getLatitude(), j.getLongitude(), v.getLongitude());
+            double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
             if (dist1 <= v.getRaio_acao() && dist2 <= v.getRaio_acao() && v.getDisponibilidade() && v.aceitoTransporteMedicamentos()) {
                 ret.add(v.clone());
             }
@@ -169,28 +134,7 @@ public class BDVoluntarios implements Serializable {
     }
 
     /**
-     * Lista de voluntários disponíveis para se deslocarem a uma loja, excetuando o voluntário passado como argumento
-     * @param j
-     * @param v
-     * @return
-     */
-    public List<Voluntario> voluntariosDisponíveis2(Loja j, Voluntario v) {
-        List<Voluntario> ret = new ArrayList<>();
-        for (String s : this.voluntarios.keySet()) {
-            Voluntario v2 = this.voluntarios.get(s).clone();
-            double dist = DistanceCalculator.distance(j.getLatitude(), v.getLatitude(), j.getLongitude(), v.getLongitude());
-            if (dist <= v2.getRaio_acao() && v2.getDisponibilidade() && !v.getCodigo().equals(v2.getCodigo())) {
-                ret.add(v2);
-            }
-        }
-        return ret;
-    }
-
-    /**
      * Método que devolve o email de um voluntário
-     * @param cod
-     * @return
-     * @throws VoluntarioNotFoundException
      */
     public String getEmail(String cod) throws VoluntarioNotFoundException{
         for(String s: this.voluntarios.keySet()){
@@ -201,8 +145,6 @@ public class BDVoluntarios implements Serializable {
 
     /**
      * Método que atualiza a classificação de um voluntário
-     * @param v
-     * @param classificao
      */
 
     public void updateVoluntario(Voluntario v, double classificao){
@@ -212,7 +154,6 @@ public class BDVoluntarios implements Serializable {
 
     /**
      * Método que atualiza o voluntário v
-     * @param v
      */
     public void updateVoluntario2(Voluntario v){
         this.voluntarios.put(v.getEmail(), v);
@@ -220,9 +161,6 @@ public class BDVoluntarios implements Serializable {
 
     /**
      * Método que devolve o voluntário que tem a encomenda com o código enc
-     * @param enc
-     * @return
-     * @throws EncomendaNotFoundException
      */
     public Voluntario encontraEnc(String enc) throws EncomendaNotFoundException{
         Voluntario aux;
@@ -235,8 +173,6 @@ public class BDVoluntarios implements Serializable {
 
     /**
      * Método que diz se a encomenda existe na BDVoluntários
-     * @param enc
-     * @return
      */
     public boolean existeEnc(String enc){
         Voluntario aux;

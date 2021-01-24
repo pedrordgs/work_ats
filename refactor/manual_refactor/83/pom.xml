@@ -23,7 +23,7 @@
         <target>11</target>
         <archive>
           <manifest>
-            <mainClass>Main</mainClass>
+            <mainClass>RAPL_Main</mainClass>
           </manifest>
         </archive>
       </configuration>

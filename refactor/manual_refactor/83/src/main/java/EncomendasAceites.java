@@ -1,7 +1,6 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class EncomendasAceites implements Serializable {
     private List<String> aceites;
@@ -23,13 +22,13 @@ public class EncomendasAceites implements Serializable {
 
     //Getters
     public List<String> getAceites(){
-        return this.aceites.stream().collect(Collectors.toList());
+        return new ArrayList<>(this.aceites);
     }
 
     //Setters
     public void setAceites(List<String> aceites){
         this.aceites = new ArrayList<>();
-        for(String l: aceites) this.aceites.add(l);
+        this.aceites.addAll(aceites);
     }
 
     //clone
@@ -56,7 +55,6 @@ public class EncomendasAceites implements Serializable {
 
     /**
      * Método que adiciona uma nova encomenda aceite
-     * @param cod
      */
     public void updateAceites(String cod){
         this.aceites.add(cod);

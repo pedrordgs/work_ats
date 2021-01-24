@@ -5,12 +5,11 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Parse {
-    private BDGeral baseGeral;
+    private final BDGeral baseGeral;
     private EncomendasAceites ea;
-    private List<Encomenda> encomendas;
+    private final List<Encomenda> encomendas;
 
 
     public Parse() {
@@ -19,42 +18,10 @@ public class Parse {
         this.ea = new EncomendasAceites();
     }
 
-    public Parse(BDGeral bd, List<Encomenda> encomendas, EncomendasAceites ea) {
-        this.baseGeral = bd.clone();
-        this.ea = ea.clone();
-        setEncomendas(encomendas);
-
-    }
-
-    public Parse(Parse a) {
-        this.baseGeral = a.getBaseGeral();
-        this.ea = a.getEa();
-        setEncomendas(a.getEncomendas());
-    }
-
     public BDGeral getBaseGeral() {
         return baseGeral.clone();
     }
 
-
-    public List<Encomenda> getEncomendas() {
-        return this.encomendas.stream().map(Encomenda::clone).collect(Collectors.toList());
-    }
-
-    public void setEncomendas(List<Encomenda> encomendas) {
-        this.encomendas = new ArrayList<>();
-        for (Encomenda e : encomendas) this.encomendas.add(e.clone());
-    }
-
-
-    public EncomendasAceites getEa() {
-        return new EncomendasAceites(this.ea.getAceites());
-    }
-
-    public void setEa(EncomendasAceites ea) {
-        this.ea = new EncomendasAceites();
-        this.ea.setAceites(ea.getAceites());
-    }
 
     /**
      * Método que faz a leitura do logs.txt e que depois cria todos os utilizadores do sistema
@@ -102,8 +69,6 @@ public class Parse {
     /**
      * Método que lê o logs.txt
      *
-     * @param nomeFich
-     * @return
      */
 
     public List<String> lerFicheiro(String nomeFich) {
@@ -119,9 +84,6 @@ public class Parse {
     /**
      * Método que faz o parse das encomendas aceites
      *
-     * @param linha
-     * @param ea
-     * @return
      */
     public EncomendasAceites parseEncomendasAceites(String linha, EncomendasAceites ea) {
         List<String> aux = ea.getAceites();
@@ -133,8 +95,6 @@ public class Parse {
     /**
      * Método que faz o parse das lojas
      *
-     * @param input
-     * @return
      */
 
     public Loja parseLojas(String input) {
@@ -153,8 +113,6 @@ public class Parse {
     /**
      * Método que faz o parse dos utilizadores domésticos
      *
-     * @param input
-     * @return
      */
 
     public Utilizador parseUtilizador(String input) {
@@ -171,8 +129,6 @@ public class Parse {
     /**
      * Método que faz o parse dos voluntários
      *
-     * @param input
-     * @return
      */
 
     public Voluntario parseVoluntarios(String input) {
@@ -195,8 +151,6 @@ public class Parse {
     /**
      * Método que faz o parse das empresas de transportes
      *
-     * @param input
-     * @return
      */
     public EmpresaTransportes parseEmpresaTransportes(String input) {
         String[] campos = input.split(",");
@@ -219,8 +173,6 @@ public class Parse {
     /**
      * Método que faz o parse das encomendas
      *
-     * @param input
-     * @return
      */
 
     public Encomenda parseEncomenda(String input) {
@@ -248,8 +200,6 @@ public class Parse {
     /**
      * Método que faz o parse das linhas de encomenda
      *
-     * @param input
-     * @return
      */
     public LinhaEncomenda parseLinhaEncomenda(String input) {
         String[] campos = input.split(",");
@@ -264,7 +214,6 @@ public class Parse {
     /**
      * Método que adiciona as encomendas às respetivas lojas
      *
-     * @param encomendas
      */
     public void addEncomendas(List<Encomenda> encomendas) {
         for (Encomenda e : encomendas) {
@@ -279,7 +228,6 @@ public class Parse {
     /**
      * Método que adiciona as encomendas aos users
      *
-     * @param encomendas
      */
     public void addEncomendasCliente(List<Encomenda> encomendas) {
         for (Encomenda e : encomendas) {
@@ -294,7 +242,6 @@ public class Parse {
     /**
      * Método que adiciona as encomendas aceites
      *
-     * @param ea
      */
     public void addEncomendasAceites(EncomendasAceites ea) {
         this.baseGeral.setEncomendasAceites(ea);
@@ -303,7 +250,6 @@ public class Parse {
     /**
      * Método que adicona as encomendas aos voluntários disponíveis
      *
-     * @param encomendas
      */
     public void addEncomendasVoluntariosETransportes(List<Encomenda> encomendas) {
         for (Encomenda e : encomendas) {
@@ -312,7 +258,7 @@ public class Parse {
                 Loja j = this.baseGeral.getLojas().getLojas().get(codigo_loja + "@gmail.com").clone();
                 try{
                 Utilizador u = this.baseGeral.getUtilizadores().getUsers().get(this.baseGeral.getUtilizadores().getEmail(e.getCodigo_user())).clone();
-                List<Voluntario> disponiveis = this.baseGeral.getVoluntarios().voluntariosDisponíveis(j, u);
+                List<Voluntario> disponiveis = this.baseGeral.getVoluntarios().voluntariosDisponiveis(j, u);
                 List<EmpresaTransportes> disponiveisTrans = this.baseGeral.getTransportes().transDisponiveis(j, u);
                 if (disponiveis.size() == 1) {
                     Voluntario v = disponiveis.get(0).clone();
@@ -335,7 +281,7 @@ public class Parse {
                     v.addEncomenda(e);
                     this.baseGeral.updateVoluntario2(v);
                 }
-            } catch (UserNotFoundException exp){
+            } catch (UserNotFoundException ignored){
 
                 }
             }
@@ -344,7 +290,7 @@ public class Parse {
                 try {
                     Utilizador u = this.baseGeral.getUtilizadores().getUsers().get(this.baseGeral.getUtilizadores().getEmail(e.getCodigo_user())).clone();
                     Loja j = this.baseGeral.getLojas().getLojas().get(codigo_loja + "@gmail.com").clone();
-                    List<Voluntario> disponiveis = this.baseGeral.getVoluntarios().voluntariosDisponíveisMed(j, u);
+                    List<Voluntario> disponiveis = this.baseGeral.getVoluntarios().voluntariosDisponiveisMed(j, u);
                     List<EmpresaTransportes> disponiveisTrans = this.baseGeral.getTransportes().transDisponiveisMedParse(j, u);
                     if (disponiveis.size() == 1) {
                         Voluntario v = disponiveis.get(0).clone();
@@ -367,7 +313,7 @@ public class Parse {
                         v.addEncomenda(e);
                         this.baseGeral.updateVoluntario2(v);
                     }
-                } catch (UserNotFoundException exp){
+                } catch (UserNotFoundException ignored){
 
                 }
             }

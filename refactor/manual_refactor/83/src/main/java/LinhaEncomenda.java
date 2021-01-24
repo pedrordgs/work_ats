@@ -2,16 +2,9 @@ import java.io.Serializable;
 
 public class LinhaEncomenda implements Serializable {
     private String codigo;
-    private String descricao;
-    private double quantidade;
-    private double preco;
-
-    public LinhaEncomenda(){
-        this.codigo = " ";
-        this.descricao = " ";
-        this.preco = 0;
-        this.quantidade = 0;
-    }
+    private final String descricao;
+    private final double quantidade;
+    private final double preco;
 
     public LinhaEncomenda(String codigo, String descricao, double quantidade, double  preco){
         this.codigo = codigo;
@@ -47,18 +40,6 @@ public class LinhaEncomenda implements Serializable {
         this.codigo = codigo;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
-    public void setQuantidade(double quantidade) {
-        this.quantidade = quantidade;
-    }
-
     public LinhaEncomenda clone(){
 
         return (new LinhaEncomenda(this));
@@ -79,23 +60,19 @@ public class LinhaEncomenda implements Serializable {
 
 
     public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n");
-        sb.append("Código de produto: ");
-        sb.append(this.codigo + "\n");
-        sb.append("Produto: ");
-        sb.append(this.descricao + "\n");
-        sb.append("Quantidade: ");
-        sb.append(this.quantidade+"\n");
-        sb.append("Preço: ");
-        sb.append(this.preco + "\n");
-
-        return sb.toString();
+        return "\n" +
+                "Código de produto: " +
+                this.codigo + "\n" +
+                "Produto: " +
+                this.descricao + "\n" +
+                "Quantidade: " +
+                this.quantidade + "\n" +
+                "Preço: " +
+                this.preco + "\n";
     }
 
     public boolean isMed(){
-        if(descricao.equals("Alcool") || descricao.equals("Desinfetante") || descricao.equals("Saco de lixo 30l") || descricao.equals("Saco de lixo de 50l")) return true;
-        else return false;
+        return descricao.equals("Alcool") || descricao.equals("Desinfetante") || descricao.equals("Saco de lixo 30l") || descricao.equals("Saco de lixo de 50l");
     }
 
 

@@ -4,9 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class TrazAquiController implements Serializable {
     private BDGeral bd;
@@ -14,14 +12,12 @@ public class TrazAquiController implements Serializable {
 
     /**
      * Método que define a view que o controlador irá conhecer
-     * @param view
      */
 
     public void setView(TrazAquiView view){this.view = view;}
 
     /**
      * Método que define o model, que , neste caso, é a BDGeral, que contém todos os users do sistema.
-     * @param bd
      */
 
     public void setBd(BDGeral bd){
@@ -35,18 +31,14 @@ public class TrazAquiController implements Serializable {
 
     /**
      * Método que define se é para carregar os ficheiros a partir de um ficheiro txt ou de um ficheiro binário
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
      */
 
-    public BDGeral readFlow() throws IOException, ClassNotFoundException {
+    public BDGeral readFlow() {
         int op;
-        Input input = new Input();
         clearScreen();
         this.view.loadMenu();
         do {
-            op = input.lerInt();
+            op = Input.lerInt();
             switch (op) {
                 case 1:
                     Parse ler = new Parse();
@@ -62,10 +54,7 @@ public class TrazAquiController implements Serializable {
                         BDGeral base2 = this.bd.lerFicheiro(aux);
                         System.out.println("DONE!");
                         return base2;
-                    } catch (IOException e){
-                        System.out.println("\nFicheiro inválido\n");
-                        this.view.loadMenu();
-                    } catch (ClassNotFoundException e){
+                    } catch (IOException | ClassNotFoundException e){
                         System.out.println("\nFicheiro inválido\n");
                         this.view.loadMenu();
                     }
@@ -79,18 +68,14 @@ public class TrazAquiController implements Serializable {
 
     /**
      * Método que controla a execucção de cada uma das opções do menu inicial
-     * @throws IOException
-     * @throws ClassNotFoundException
-     * @throws InterruptedException
      */
 
-    public void mainFlow() throws IOException, ClassNotFoundException, InterruptedException{
+    public void mainFlow() throws IOException {
         int op;
-        Input input = new Input();
         this.view.printHeader();
         this.view.showMenuInicial();
         do{
-            op = input.lerInt();
+            op = Input.lerInt();
             switch(op){
                 case 0:
                     break;
@@ -118,10 +103,7 @@ public class TrazAquiController implements Serializable {
                         BDGeral base2 = this.bd.lerFicheiro(aux);
                         this.bd = new BDGeral(base2);
                         System.out.println("DONE!");
-                    } catch (IOException e){
-                        System.out.println("\nFicheiro inválido\n");
-                        this.view.loadMenu();
-                    } catch (ClassNotFoundException e){
+                    } catch (IOException | ClassNotFoundException e){
                         System.out.println("\nFicheiro inválido\n");
                         this.view.loadMenu();
                     }
@@ -137,13 +119,11 @@ public class TrazAquiController implements Serializable {
         } while (op != 0);
         System.out.println("\nPRETENDE GRAVAR O ÚLTIMO ESTADO DA APLICAÇÃO?");
         System.out.println("NÃO -> 0 || SIM -> 1");
-        op = input.lerInt();
+        op = Input.lerInt();
         if(op == 1){
             this.bd.gravarFicheiro("update");
             System.out.println("O estado foi gravado no ficheiro update");
-            return;
         }
-        else return;
     }
 
     /**
@@ -153,16 +133,15 @@ public class TrazAquiController implements Serializable {
     private void registosFlow(){
         int op;
         Random random = new Random();
-        Input input = new Input();
         clearScreen();
         String password = "", nome = "", email = "", local = "";
-        Double latitude = 0.0, longitude = 0.0, raio = 0.0 ,tempo_espera = 0.0, custo = 0.0;
+        double latitude = 0.0, longitude = 0.0, raio = 0.0 ,tempo_espera = 0.0, custo = 0.0;
         String codigo = "";
-        int nif = 0, nrMinimo = 0, velocidade = 0;
+        int nif = 0, velocidade = 0;
         boolean medico = false;
         this.view.showMenuRegisto();
         do {
-            op = input.lerInt();
+            op = Input.lerInt();
             switch (op) {
                 case 0:
                     clearScreen();
@@ -174,23 +153,23 @@ public class TrazAquiController implements Serializable {
                         this.view.headRegistoUser();
                         this.view.preenchimentoObrg();
                         this.view.email();
-                        email = input.lerString();
+                        email = Input.lerString();
                         while (this.bd.getUtilizadores().existeEmail(email)){
                             System.out.println("Já existe esse email, selecione um email diferente");
-                            email = input.lerString();
+                            email = Input.lerString();
                         }
                         this.view.password();
-                        password = input.lerString();
+                        password = Input.lerString();
                         this.view.nome();
-                        nome = input.lerString();
+                        nome = Input.lerString();
                         this.view.latitude();
-                        latitude = input.lerDouble();
+                        latitude = Input.lerDouble();
                         this.view.longitude();
-                        longitude = input.lerDouble();
+                        longitude = Input.lerDouble();
                         codigo = "u" + random.nextInt(99);
                         while (this.bd.getUtilizadores().existeCodigo(codigo)) codigo = "u" + random.nextInt(99);
                     } catch (InputMismatchException e) {
-                        input.lerString();
+                        Input.lerString();
                         System.out.println("Input inválido");
                     }
                     bd.addUser(new Utilizador(email, password, codigo, nome, latitude, longitude, new ArrayList<>()).clone());
@@ -203,29 +182,29 @@ public class TrazAquiController implements Serializable {
                         this.view.headRegistoVoluntario();
                         this.view.preenchimentoObrg();
                         this.view.email();
-                        email = input.lerString();
+                        email = Input.lerString();
                         while (this.bd.getVoluntarios().existeEmail(email)){
                             System.out.println("Já existe esse email, selecione um email diferente");
-                            email = input.lerString();
+                            email = Input.lerString();
                         }
                         this.view.password();
-                        password = input.lerString();
+                        password = Input.lerString();
                         this.view.nome();
-                        nome = input.lerString();
+                        nome = Input.lerString();
                         this.view.latitude();
-                        latitude = input.lerDouble();
+                        latitude = Input.lerDouble();
                         this.view.longitude();
-                        longitude = input.lerDouble();
+                        longitude = Input.lerDouble();
                         this.view.raio_acao();
-                        raio = input.lerDouble();
+                        raio = Input.lerDouble();
                         codigo = "v" + random.nextInt(99);
                         this.view.encomendas_medicas();
-                        medico = input.lerBoolean();
+                        medico = Input.lerBoolean();
                         while (bd.getVoluntarios().existeCodigo(codigo)) codigo = "v" + random.nextInt(99);
                         System.out.println("Insira a velocidade a que se costuma deslocar");
-                        velocidade = input.lerInt();
+                        velocidade = Input.lerInt();
                     } catch (InputMismatchException e) {
-                        input.lerString();
+                        Input.lerString();
                         System.out.println("Input inválido");
                     }
                     bd.addVoluntario(new Voluntario(email, password, nome, codigo, true, latitude, longitude, LocalDate.now(), raio, new ArrayList<>(), 0, 0, medico, 0,0).clone());
@@ -238,25 +217,25 @@ public class TrazAquiController implements Serializable {
                         this.view.headRegistoLoja();
                         this.view.preenchimentoObrg();
                         this.view.email();
-                        email = input.lerString();
+                        email = Input.lerString();
                         while (this.bd.getLojas().existeEmail(email)){
                             System.out.println("Já existe esse email, selecione um email diferente");
-                            email = input.lerString();
+                            email = Input.lerString();
                         }
                         this.view.password();
-                        password = input.lerString();
+                        password = Input.lerString();
                         this.view.nome();
-                        nome = input.lerString();
+                        nome = Input.lerString();
                         this.view.latitude();
-                        latitude = input.lerDouble();
+                        latitude = Input.lerDouble();
                         this.view.longitude();
-                        longitude = input.lerDouble();
+                        longitude = Input.lerDouble();
                         this.view.tempo_espera();
-                        tempo_espera = input.lerDouble();
+                        tempo_espera = Input.lerDouble();
                         codigo = "l" + random.nextInt(99);
                         while (bd.getLojas().existeCodigo(codigo)) codigo = "l" + random.nextInt(99);
                     } catch (InputMismatchException e) {
-                        input.lerString();
+                        Input.lerString();
                         System.out.println("Input inválido");
                     }
                     bd.addLoja(new Loja(email, password, codigo, nome, tempo_espera, latitude, longitude, new ArrayList<>(), 0).clone());
@@ -269,36 +248,36 @@ public class TrazAquiController implements Serializable {
                         this.view.headRegistoEmpresa();
                         this.view.preenchimentoObrg();
                         this.view.email();
-                        email = input.lerString();
+                        email = Input.lerString();
                         while (this.bd.getTransportes().existeEmail(email)){
                             System.out.println("Já existe esse email, selecione um email diferente");
-                            email = input.lerString();
+                            email = Input.lerString();
                         }
                         this.view.password();
-                        password = input.lerString();
+                        password = Input.lerString();
                         this.view.nome();
-                        nome = input.lerString();
+                        nome = Input.lerString();
                         this.view.custo_km();
-                        custo = input.lerDouble();
+                        custo = Input.lerDouble();
                         this.view.latitude();
-                        latitude = input.lerDouble();
+                        latitude = Input.lerDouble();
                         this.view.longitude();
-                        longitude = input.lerDouble();
+                        longitude = Input.lerDouble();
                         this.view.local();
-                        local = input.lerString();
+                        local = Input.lerString();
                         this.view.raio_acao();
-                        raio = input.lerDouble();
+                        raio = Input.lerDouble();
                         this.view.nif();
-                        nif = input.lerInt();
+                        nif = Input.lerInt();
                         this.view.encomendas_medicas();
-                        medico = input.lerBoolean();
+                        medico = Input.lerBoolean();
                         System.out.println("Insira a velocidade a que se costuma deslocar");
-                        velocidade = input.lerInt();
+                        velocidade = Input.lerInt();
                         codigo = "t" + random.nextInt(99);
                         while (bd.getTransportes().existeCodigo(codigo)) codigo = "t" + random.nextInt(99);
                     }
                     catch(InputMismatchException e){
-                        input.lerString();
+                        Input.lerString();
                         System.out.println("Input inválido");
                     }
                     bd.addTransporte(new EmpresaTransportes(email, password, codigo, nome, nif,custo,local,latitude,longitude,raio, new ArrayList<>(), medico, 0, 0, false,0 , velocidade).clone());
@@ -310,21 +289,19 @@ public class TrazAquiController implements Serializable {
                     break;
             }
         }
-        while (op != 0);
+        while (true);
     }
 
     /**
      * Método que controla todas as ações do user, tendo este já efetuado o login no sistema
-     * @throws InterruptedException
      */
 
-    private void loginFlow() throws InterruptedException{
+    private void loginFlow(){
         int op;
-        Input input = new Input();
         clearScreen();
         this.view.showMenuLogin();
         do {
-            op = input.lerInt();
+            op = Input.lerInt();
             switch (op) {
                 case 0:
                     clearScreen();
@@ -347,7 +324,7 @@ public class TrazAquiController implements Serializable {
                     break;
             }
         }
-        while (op != 0);
+        while (true);
     }
 
     /**
@@ -356,22 +333,21 @@ public class TrazAquiController implements Serializable {
 
     private void empresaFlow(){
         int op;
-        Input input = new Input();
         clearScreen();
         this.view.headLoginEmpresa();
         this.view.email();
-        String email = input.lerString();
+        String email = Input.lerString();
         this.view.password();
-        String password = input.lerString();
+        String password = Input.lerString();
         try{
             EmpresaTransportes et = bd.loginEmpresa(email, password).clone();
             clearScreen();
-            this.view.showMenuTransportes();
+            TrazAquiView.showMenuTransportes();
             System.out.println("\n-> Tem " + et.porLevantar() + " encomendas por levantar.");
             System.out.println("\n-> Tem " + et.porEntregar() + " encomendas prontas a entregar\n");
             System.out.print("\nInsira uma opção --> ");
             do{
-                op = input.lerInt();
+                op = Input.lerInt();
                 switch (op){
                     case 0:
                         clearScreen();
@@ -406,7 +382,7 @@ public class TrazAquiController implements Serializable {
                     case 5:
                         System.out.println(et.getRegistos());
                         System.out.println("Insira o código da encomenda para o qual quer calcular o custo");
-                        String codCust = input.lerString();
+                        String codCust = Input.lerString();
                         try{
                             Encomenda encomendaCust = this.bd.getTransportes().getTransportes().get(et.getEmail()).getEncomenda(codCust);
                             Loja ljCust = this.bd.getLojas().getLojas().get(this.bd.getLojas().getEmail(encomendaCust.getCodigo_loja())).clone();
@@ -419,7 +395,7 @@ public class TrazAquiController implements Serializable {
                             System.out.println("Loja inválida");
                         } catch (EncomendaNotFoundException e) {
                             System.out.println("Encomenda Inválida");
-                        } catch (UserNotFoundException e){
+                        } catch (UserNotFoundException ignored){
                         }
                         System.out.println("Prima 11 para voltar ao menu");
                         break;
@@ -451,7 +427,7 @@ public class TrazAquiController implements Serializable {
                                 System.out.println("Loja inválida");
                             } catch (EncomendaNotFoundException e) {
                                 System.out.println("Encomenda Inválida");
-                            } catch (UserNotFoundException e){
+                            } catch (UserNotFoundException ignored){
 
                             }
                         }
@@ -591,7 +567,7 @@ public class TrazAquiController implements Serializable {
                         break;
                     case 11:
                         clearScreen();
-                        this.view.showMenuTransportes();
+                        TrazAquiView.showMenuTransportes();
                         System.out.println("\n-> Tem " + et.porLevantar() + " encomendas por levantar.");
                         System.out.println("\n-> Tem " + et.porEntregar() + " encomendas prontas a entregar\n");
                         System.out.print("\nInsira uma opção --> ");
@@ -601,7 +577,7 @@ public class TrazAquiController implements Serializable {
                         break;
                 }
 
-            } while (op != 0);
+            } while (true);
         } catch (TransporteNotFoundException e){
             clearScreen();
             System.out.println("Email ou password inválidos\n\n");
@@ -616,22 +592,21 @@ public class TrazAquiController implements Serializable {
 
     private void voluntarioFlow() {
         int op;
-        Input input = new Input();
         clearScreen();
         this.view.headLoginVoluntario();
         this.view.email();
-        String email = input.lerString();
+        String email = Input.lerString();
         this.view.password();
-        String password = input.lerString();
+        String password = Input.lerString();
         try {
             Voluntario v = bd.loginVoluntario(email, password).clone();
             clearScreen();
-            this.view.showMenuVoluntario();
+            TrazAquiView.showMenuVoluntario();
             System.out.println("\n-> Tem " + v.porLevantar() + " encomendas por levantar");
             System.out.println("\n-> Tem " + v.porEntregar() + " encomendas prontas a entregar\n");
             System.out.print("\nInsira uma opção --> ");
             do {
-                op = input.lerInt();
+                op = Input.lerInt();
                 switch (op) {
                     case 0:
                         clearScreen();
@@ -703,7 +678,7 @@ public class TrazAquiController implements Serializable {
                             } catch (EncomendaNotFoundException e) {
                                 System.out.println("Encomenda Inválida");
                                 System.out.println("Prima 8 para voltar ao menu");
-                            } catch (UserNotFoundException e){
+                            } catch (UserNotFoundException ignored){
 
                             }
                         }
@@ -756,7 +731,7 @@ public class TrazAquiController implements Serializable {
                         break;
                     case 8:
                         clearScreen();
-                        this.view.showMenuVoluntario();
+                        TrazAquiView.showMenuVoluntario();
                         System.out.println("\n-> Tem " + v.porLevantar() + " encomendas por levantar");
                         System.out.println("\n-> Tem " + v.porEntregar() + " encomendas prontas a entregar\n");
                         System.out.print("\nInsira uma opção --> ");
@@ -767,7 +742,7 @@ public class TrazAquiController implements Serializable {
                 }
 
 
-            } while (op != 0);
+            } while (true);
 
         } catch (VoluntarioNotFoundException e) {
             clearScreen();
@@ -783,20 +758,19 @@ public class TrazAquiController implements Serializable {
 
     private void lojaFlow(){
         int op;
-        Input input = new Input();
         clearScreen();
         this.view.headLoginLoja();
         this.view.email();
-        String email = input.lerString();
+        String email = Input.lerString();
         this.view.password();
-        String password = input.lerString();
+        String password = Input.lerString();
         try {
             Loja lj = bd.loginLoja(email, password).clone();
             clearScreen();
-            this.view.showMenuLoja();
-            System.out.print("\nInsira uma opção --> ");;
+            TrazAquiView.showMenuLoja();
+            System.out.print("\nInsira uma opção --> ");
             do {
-                op = input.lerInt();
+                op = Input.lerInt();
                 switch (op) {
                     case 0:
                         clearScreen();
@@ -811,7 +785,7 @@ public class TrazAquiController implements Serializable {
                             System.out.println("Lista de encomendas por preparar: ");
                             System.out.println(notReady);
                             System.out.println("Indique o código da encomenda que está pronta a ser levantada");
-                            String cod = input.lerString();
+                            String cod = Input.lerString();
                             try {
                                 Encomenda enc = this.bd.getLojas().getLojas().get(lj.getEmail()).getEnc(cod).clone();
                                 Utilizador u = this.bd.getUtilizadores().getUsers().get(this.bd.getUtilizadores().getEmail(enc.getCodigo_user())).clone();
@@ -829,7 +803,7 @@ public class TrazAquiController implements Serializable {
                                 }
                             } catch (EncomendaNotFoundException e) {
                                 System.out.println("Código de encomenda inválido");
-                            } catch (UserNotFoundException e){
+                            } catch (UserNotFoundException ignored){
 
                             }
                         }
@@ -844,21 +818,21 @@ public class TrazAquiController implements Serializable {
                         break;
                     case 3:
                         System.out.println("Insira quantas pessoas se encontram na fila");
-                        int fila = input.lerInt();
+                        int fila = Input.lerInt();
                         lj.setNrPessoasEmFila(fila);
                         this.bd.updateLoja3(lj);
                         System.out.println("Prima 4 para retroceder");
                         break;
                     case 4:
                         clearScreen();
-                        this.view.showMenuLoja();
+                        TrazAquiView.showMenuLoja();
                         System.out.print("\nInsira uma opção --> ");
                         break;
                     default:
                         System.out.println("Opção inválida");
                         break;
                 }
-            } while (op != 0);
+            } while (true);
 
         } catch (LojaNotFoundException e) {
             clearScreen();
@@ -872,31 +846,30 @@ public class TrazAquiController implements Serializable {
      * Método que controla as opções de um utilizador do Utilizador doméstico
      */
 
-    private void userFlow() throws InterruptedException{
+    private void userFlow() {
         int op;
-        Input input = new Input();
-        String email, password, produto = "";
+        String email, password, produto;
 
         clearScreen();
         this.view.headLoginUser();
         this.view.email();
-        email = input.lerString();
+        email = Input.lerString();
         this.view.password();
-        password = input.lerString();
+        password = Input.lerString();
         try {
             Utilizador u = bd.loginUser(email, password).clone();
             clearScreen();
-            this.view.showMenuUser();
+            TrazAquiView.showMenuUser();
             System.out.print("\nInsira uma opção --> ");
                 do {
-                    op = input.lerInt();
+                    op = Input.lerInt();
                     switch (op) {
                         case 0:
                             clearScreen();
                             this.view.showMenuLogin();
                             return;
                         case 1:
-                            int quantidade = 0;
+                            int quantidade;
                             double quantidadeTot = 0.0;
                             double custoTotal = 0.0;
                             produto = "";
@@ -907,14 +880,14 @@ public class TrazAquiController implements Serializable {
                             this.view.preenchimentoObrg();
                             System.out.println(this.bd.getLojas().listLojasUser(u));
                             System.out.println("Selecione o código de uma loja");
-                            loja = input.lerString();
+                            loja = Input.lerString();
                             try {
                                 String emailLoja = this.bd.getLojas().getEmail(loja);
                                 System.out.println(bd.getProdutos().listProdutosNormais());
                                 while (!produto.equals("0")) {
                                     System.out.println("Insira 0 para concluir a seleção de produtos");
                                     this.view.produto();
-                                    produto = input.lerString();
+                                    produto = Input.lerString();
                                     produtosSel.add(produto);
                                     System.out.println("\n");
                                 }
@@ -924,7 +897,7 @@ public class TrazAquiController implements Serializable {
                                         this.bd.getProdutos().existeProd(s);
                                         clearScreen();
                                         System.out.println("Insira a quantidade de " + s + " || Preço por unidade = " + bd.getProdutos().getProdutos().get(s).getPreco());
-                                        quantidade = input.lerInt();
+                                        quantidade = Input.lerInt();
                                         LinhaEncomenda enc = new LinhaEncomenda(bd.getProdutos().getProdutos().get(s).getCodigo(), s, quantidade, bd.getProdutos().getProdutos().get(s).getPreco()).clone();
                                         produtos.put(s, enc);
                                         quantidadeTot += quantidade;
@@ -942,7 +915,7 @@ public class TrazAquiController implements Serializable {
                                         cod = "e" + result;
                                     }
                                     Encomenda novaEnc = new Encomenda(cod, u.getCodigo(), loja, quantidadeTot, u.getNome(), this.bd.getLojas().getLojas().get(emailLoja).getNome(), produtos, false, LocalDateTime.now(), false, false, false);
-                                    List<Voluntario> disponiveis = this.bd.getVoluntarios().voluntariosDisponíveis(j, u);
+                                    List<Voluntario> disponiveis = this.bd.getVoluntarios().voluntariosDisponiveis(j, u);
 
                                     if(disponiveis.size() == 0){
                                         System.out.println("\nNão existem voluntários disponíveis perto da loja selecionada.");
@@ -952,12 +925,11 @@ public class TrazAquiController implements Serializable {
                                             System.out.println("\nNão existem empresas disponíveis...\n");
                                             System.out.println("A sua encomenda foi cancelada...\n");
                                             System.out.println("Prima 12 para voltar ao menu");
-                                            r = "";
                                             break;
                                         }
                                         System.out.println(this.bd.getTransportes().printEmpresas(u, j, novaEnc.getPeso()));
                                         System.out.println("Selecione o código de uma empresa ou 0 para cancelar a encomenda");
-                                        String opEmpresa = input.lerString();
+                                        String opEmpresa = Input.lerString();
                                         if(opEmpresa.equals("0")){
                                             System.out.println("\nA sua encomenda foi cancelada");
                                             System.out.println("\nPrima 12 para voltar ao menu");
@@ -1014,7 +986,7 @@ public class TrazAquiController implements Serializable {
                             break;
 
                         case 2:
-                            int quantidade2 = 0;
+                            int quantidade2;
                             double quantidadeTot2 = 0.0;
                             double custoTotal2 = 0.0;
                             String loja2;
@@ -1025,14 +997,14 @@ public class TrazAquiController implements Serializable {
                             this.view.preenchimentoObrg();
                             System.out.println(this.bd.getLojas().listLojasUser(u));
                             System.out.println("Selecione o código de uma loja");
-                            loja2 = input.lerString();
+                            loja2 = Input.lerString();
                             try {
                                 String emailLoja = this.bd.getLojas().getEmail(loja2);
                                 System.out.println(bd.getProdutos().listProdutosMedicos());
                                 while (!produto2.equals("0")) {
                                     this.view.produto();
                                     System.out.println("Insira 0 para concluir a seleção de produtos");
-                                    produto2 = input.lerString();
+                                    produto2 = Input.lerString();
                                     produtosSel2.add(produto2);
                                     System.out.println("\n");
                                 }
@@ -1044,7 +1016,7 @@ public class TrazAquiController implements Serializable {
                                 while (!produto.equals("0")) {
                                     System.out.println("Insira 0 para concluir a seleção de produtos");
                                     this.view.produto();
-                                    produto = input.lerString();
+                                    produto = Input.lerString();
                                     produtosSel2.add(produto);
                                     System.out.println("\n");
                                 }
@@ -1054,7 +1026,7 @@ public class TrazAquiController implements Serializable {
                                         this.bd.getProdutos().existeProd(s);
                                         clearScreen();
                                         System.out.println("Insira a quantidade de " + s + " || Preço por unidade = " + bd.getProdutos().getProdutos().get(s).getPreco());
-                                        quantidade2 = input.lerInt();
+                                        quantidade2 = Input.lerInt();
                                         LinhaEncomenda enc = new LinhaEncomenda(bd.getProdutos().getProdutos().get(s).getCodigo(), s, quantidade2, bd.getProdutos().getProdutos().get(s).getPreco());
                                         produtos2.put(s, enc);
                                         quantidadeTot2 += quantidade2;
@@ -1072,7 +1044,7 @@ public class TrazAquiController implements Serializable {
                                         cod = "e" + result;
                                     }
                                     Encomenda novaEnc = new Encomenda(cod, u.getCodigo(), loja2, quantidadeTot2, u.getNome(), this.bd.getLojas().getLojas().get(emailLoja).getNome(), produtos2, true, LocalDateTime.now(), false, false, false);
-                                    List<Voluntario> disponiveis = this.bd.getVoluntarios().voluntariosDisponíveisMed(j, u);
+                                    List<Voluntario> disponiveis = this.bd.getVoluntarios().voluntariosDisponiveisMed(j, u);
 
                                     if(disponiveis.size() == 0){
                                         System.out.println("\nNão existem voluntários disponíveis perto da loja selecionada.");
@@ -1082,12 +1054,11 @@ public class TrazAquiController implements Serializable {
                                             System.out.println("\nNão existem empresas disponíveis\n");
                                             System.out.println("A sua encomenda foi cancelada...\n");
                                             System.out.println("Prima 12 para voltar ao menu");
-                                            ret = "";
                                             break;
                                         }
                                         System.out.println(this.bd.getTransportes().printEmpresasMed(u, j, novaEnc.getPeso()));
                                         System.out.println("Selecione o código de uma empresa ou 0 para cancelar a encomenda");
-                                        String opEmpresa = input.lerString();
+                                        String opEmpresa = Input.lerString();
                                         if(opEmpresa.equals("0")){
                                             System.out.println("\nA sua encomenda foi cancelada");
                                             System.out.println("\nPrima 12 para voltar ao menu");
@@ -1158,7 +1129,7 @@ public class TrazAquiController implements Serializable {
                             else {
                                 System.out.println(u.getEncomendas());
                                 System.out.println("Insira o código da encomenda que pretende analisar");
-                                String cod1 = input.lerString();
+                                String cod1 = Input.lerString();
                                 try {
                                     Encomenda enc = u.devolveEncomenda(cod1);
                                     String one, two, three, four;
@@ -1203,7 +1174,7 @@ public class TrazAquiController implements Serializable {
                             try {
                                 String emailVol = this.bd.getVoluntarios().getEmail(cod);
                                 System.out.println("Insira a classificação de 1 a 10:");
-                                Double classificacao = Input.lerDouble();
+                                double classificacao = Input.lerDouble();
                                 if(classificacao >= 0 && classificacao <= 10) {
                                     Voluntario v = this.bd.getVoluntarios().getVoluntarios().get(emailVol).clone();
                                     this.bd.updateVoluntario(classificacao, v);
@@ -1223,7 +1194,7 @@ public class TrazAquiController implements Serializable {
                             try {
                                 String emailTrans = this.bd.getTransportes().getEmail(cod2);
                                 System.out.println("Insira a classificação de 1 a 10:");
-                                Double classificacao = Input.lerDouble();
+                                double classificacao = Input.lerDouble();
                                 if(classificacao >= 0 && classificacao <= 10) {
                                     EmpresaTransportes e = this.bd.getTransportes().getTransportes().get(emailTrans).clone();
                                     this.bd.updateTransportes(classificacao, e);
@@ -1306,7 +1277,7 @@ public class TrazAquiController implements Serializable {
                             break;
                         case 12:
                             clearScreen();
-                            this.view.showMenuUser();
+                            TrazAquiView.showMenuUser();
                             System.out.print("\nInsira uma opção --> ");
                             break;
                         default:
@@ -1314,7 +1285,7 @@ public class TrazAquiController implements Serializable {
                             break;
                     }
                 }
-                while (op != 0);
+                while (true);
 
             } catch (UserNotFoundException e){
             clearScreen();

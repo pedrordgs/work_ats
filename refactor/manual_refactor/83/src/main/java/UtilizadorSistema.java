@@ -83,11 +83,6 @@ public abstract class  UtilizadorSistema implements Serializable {
         this.email = email;
     }
 
-
-    public void setTypeUser(String typeUser) {
-        this.typeUser = typeUser;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -116,13 +111,9 @@ public abstract class  UtilizadorSistema implements Serializable {
     }
 
     public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(" <--- O utilizador é: ").append("\n");
-        sb.append(this.typeUser).append("\n");
-        sb.append("\n");
-
-
-        return sb.toString();
+        return " <--- O utilizador é: " + "\n" +
+                this.typeUser + "\n" +
+                "\n";
     }
 
 }

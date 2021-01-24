@@ -28,7 +28,7 @@ public interface BDGeralInterface {
     Voluntario loginVoluntario(String email, String password) throws VoluntarioNotFoundException;
     Loja loginLoja(String email, String password) throws LojaNotFoundException;
     EmpresaTransportes loginEmpresa(String email, String password) throws TransporteNotFoundException;
-    void gravarFicheiro(String filename) throws IOException, FileNotFoundException, IOException;
+    void gravarFicheiro(String filename) throws IOException;
     BDGeral lerFicheiro(String filename) throws IOException, ClassNotFoundException;
-    public Set<Pair> top10Encomendas();
+    Set<Pair> top10Encomendas();
 }

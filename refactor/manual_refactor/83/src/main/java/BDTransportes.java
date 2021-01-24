@@ -12,32 +12,27 @@ public class BDTransportes implements Serializable {
         this.codigos = new TreeSet<>();
     }
 
-    public BDTransportes(Map<String, EmpresaTransportes> transporte, Set<String> codigos){
-        setTransportes(transporte);
-        setCodigos(codigos);
-    }
-
     public BDTransportes(BDTransportes r){
         setTransportes(r.getTransportes());
         setCodigos(r.getCodigos());
     }
 
     public Map<String, EmpresaTransportes> getTransportes() {
-        return this.transportes.entrySet().stream().collect(Collectors.toMap(r -> r.getKey(), r -> r.getValue().clone()));
+        return this.transportes.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, r -> r.getValue().clone()));
     }
 
     public Set<String> getCodigos() {
-        return this.codigos.stream().collect(Collectors.toSet());
+        return new HashSet<>(this.codigos);
     }
 
     public void setCodigos(Set<String> codigos) {
         this.codigos = new TreeSet<>();
-        for(String s: codigos) this.codigos.add(s);
+        this.codigos.addAll(codigos);
     }
 
     public void setTransportes(Map<String, EmpresaTransportes> transportes) {
         this.transportes = new HashMap<>();
-        transportes.entrySet().forEach(e -> this.transportes.put(e.getKey(), e.getValue().clone()));
+        transportes.forEach((key, value) -> this.transportes.put(key, value.clone()));
     }
 
 
@@ -46,11 +41,8 @@ public class BDTransportes implements Serializable {
     }
 
     public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("Total de Empresas de transporte: ").append("\n");
-        sb.append(this.transportes);
-
-        return sb.toString();
+        return "Total de Empresas de transporte: " + "\n" +
+                this.transportes;
     }
 
     public boolean equals(Object obj){
@@ -62,27 +54,24 @@ public class BDTransportes implements Serializable {
 
     /**
      * Método que verifica se um dado email já está registado
-     * @param email
-     * @return
+     * @param email email
      */
 
     public boolean existeEmail(String email){
-        return this.transportes.keySet().contains(email);
+        return this.transportes.containsKey(email);
     }
 
     /**
      * Método que verifica se uma empresa de transportes existe
-     * @param v
-     * @return
+     * @param v empresa transportes
      */
     public boolean existe(EmpresaTransportes v){
-        return this.transportes.keySet().contains(v.getEmail());
+        return this.transportes.containsKey(v.getEmail());
     }
 
     /**
      * Método que verifica se o código de uma empresa existe
-     * @param s
-     * @return
+     * @param s codigo
      */
     public boolean existeCodigo(String s){
         return this.codigos.contains(s);
@@ -90,7 +79,7 @@ public class BDTransportes implements Serializable {
 
     /**
      * Método que adiciona uma empresa de transportes
-     * @param t
+     * @param t empresa de transportes
      */
 
     public void add(EmpresaTransportes t){
@@ -100,9 +89,6 @@ public class BDTransportes implements Serializable {
 
     /**
      * Método que tenta efetuar o login de uma empresa de transportes
-     * @param email
-     * @param password
-     * @return
      */
     public EmpresaTransportes tryLogin(String email, String password){
         EmpresaTransportes aux = this.transportes.get(email);
@@ -117,26 +103,23 @@ public class BDTransportes implements Serializable {
                 return null;
             }
         }
-        return aux;
+        return null;
     }
 
     /**
      * Método que devolve os transportes a serem impressos, bem como a sua classificação
-     * @return
      */
     public String printTransportes(){
         StringBuilder sb = new StringBuilder();
         for(String s: this.transportes.keySet()){
-            sb.append(this.transportes.get(s).clone().getCodigo() + " ---> " + this.transportes.get(s).clone().getNome() +" || RATE --> "+ this.transportes.get(s).clone().getClassificao() + "\n" );
+            sb.append(this.transportes.get(s).clone().getCodigo()).append(" ---> ").append(this.transportes.get(s).clone().getNome()).append(" || RATE --> ").append(this.transportes.get(s).clone().getClassificao()).append("\n");
         }
         return sb.toString();
     }
 
     /**
      * Método que devolve o email de uma empresa, dando lhe o seu código
-     * @param cod
-     * @return
-     * @throws TransporteNotFoundException
+     * @throws TransporteNotFoundException caso nao exista transporte
      */
     public String getEmail(String cod) throws TransporteNotFoundException{
         for(String s: this.transportes.keySet()){
@@ -147,8 +130,6 @@ public class BDTransportes implements Serializable {
 
     /**
      * Método que atualiza a calssificação de uma empresa de transportes
-     * @param e
-     * @param classificao
      */
     public void updateTransporte(EmpresaTransportes e, double classificao){
         e.updateRate(classificao);
@@ -157,21 +138,17 @@ public class BDTransportes implements Serializable {
 
     /**
      * Método que devolve as empresas de transportes disponíveis e o custo de efetuar a entrega da encomenda
-     * @param u
-     * @param j
-     * @param peso
-     * @return
      */
     public String printEmpresas(Utilizador u, Loja j, double peso) {
         StringBuilder sb = new StringBuilder();
         int count = 0;
         for (String s : this.transportes.keySet()) {
             EmpresaTransportes et = this.transportes.get(s).clone();
-            Double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
-            Double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
+            double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
+            double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
             if(dist1 <= et.getRaioDeAcao() && dist2 <= et.getRaioDeAcao() && et.isDisponivel()){
                 double custo = dist1 * et.getCusto_km() + dist2 *et.getCusto_km() + (peso * 0.2);
-                sb.append(et.getCodigo() + " ---> " + et.getNome() +" || RATE --> "+ et.getClassificao() + " || CUSTO: " + custo + "\n");
+                sb.append(et.getCodigo()).append(" ---> ").append(et.getNome()).append(" || RATE --> ").append(et.getClassificao()).append(" || CUSTO: ").append(custo).append("\n");
                 count++;
             }
         }
@@ -184,11 +161,11 @@ public class BDTransportes implements Serializable {
         int count = 0;
         for (String s : this.transportes.keySet()) {
             EmpresaTransportes et = this.transportes.get(s).clone();
-            Double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
-            Double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
+            double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
+            double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
             if(dist1 <= et.getRaioDeAcao() && dist2 <= et.getRaioDeAcao() && et.aceitoTransporteMedicamentos() && et.isDisponivel()){
                 double custo = dist1 * et.getCusto_km() + dist2 *et.getCusto_km() + (peso * 0.2);
-                sb.append(et.getCodigo() + " ---> " + et.getNome() +" || RATE --> "+ et.getClassificao() + " || CUSTO: " + custo + "\n");
+                sb.append(et.getCodigo()).append(" ---> ").append(et.getNome()).append(" || RATE --> ").append(et.getClassificao()).append(" || CUSTO: ").append(custo).append("\n");
                 count++;
             }
         }
@@ -204,8 +181,8 @@ public class BDTransportes implements Serializable {
         List<EmpresaTransportes> ret = new ArrayList<>();
         for (String s : this.transportes.keySet()) {
             EmpresaTransportes et = this.transportes.get(s).clone();
-            Double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
-            Double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
+            double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
+            double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
             if (dist1 <= et.getRaioDeAcao() && dist2 <= et.getRaioDeAcao() && et.isDisponivel()) {
                 ret.add(et.clone());
             }
@@ -217,8 +194,8 @@ public class BDTransportes implements Serializable {
         List<EmpresaTransportes> ret = new ArrayList<>();
         for (String s : this.transportes.keySet()) {
             EmpresaTransportes et = this.transportes.get(s).clone();
-            Double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
-            Double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
+            double dist1 = DistanceCalculator.distance(j.getLatitude(), et.getLatitude(), j.getLongitude(), et.getLongitude());
+            double dist2 = DistanceCalculator.distance(j.getLatitude(), u.getLatitude(), j.getLongitude(), u.getLongitude());
             if (dist1 <= et.getRaioDeAcao() && dist2 <= et.getRaioDeAcao() && et.aceitoTransporteMedicamentos() && et.isDisponivel()){
                 ret.add(et.clone());
             }
