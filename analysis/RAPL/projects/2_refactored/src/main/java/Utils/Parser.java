@@ -20,53 +20,54 @@ import java.nio.charset.StandardCharsets;
 public class Parser
 {
   String pwd = "default";
-  public  void parse(DataBase db) throws EncomendaJaExisteException {
-   List<String> linhas = lerFicheiro("logs.txt"); //alterar nome do ficheiro
-   String[] linhaPartida;
+
+    public  void parse(DataBase db) throws  EncomendaJaExisteException{
+        List<String> linhas = lerFicheiro("logs.txt"); //alterar nome do ficheiro
+        String[] linhaPartida;
         for (String linha : linhas) {
-                linhaPartida = linha.split(":", 2);
-                switch(linhaPartida[0]){
-                    case "Perfis":
-                        Utilizador u = parseUtilizador(linhaPartida[1]);// criar um Utilizador.Utilizador
-                        db.add(u);
-                        
-                        break;
-                      
-                    case "Utilizador.Loja":
-                        Loja l = parseLoja(linhaPartida[1]);
-                        db.add(l);
-                        break;
-                        
-                    case "Transportadora": 
-                        Empresa e = parseEmpresa(linhaPartida[1]);
-                        db.add(e);
-                        break;
-                        
-                    case "Transporte.Voluntario":
-                        Voluntario  v = parseVoluntario(linhaPartida[1]);
-                        db.add(v);
-                        break;
-                        
-                    case "Encomenda": 
-                        Encomenda enc = parseEncomenda(linhaPartida[1]);
-                        db.addEnc(enc);
-                        db.getUtilizador(enc.getUser()).incNumEnc();
-                        break;
-                        
-                    case "Aceite": 
-                        String encv = parseEncomendaAceite(linhaPartida[1]);
-                        db.addEncAceite(encv);
-                        break;
-                        
-                    default: 
-                        System.out.println("Linha invÃ¡lida.");
-                        break;
-                }
+            linhaPartida = linha.split(":", 2);
+            switch(linhaPartida[0]){
+                case "Utilizador":
+                    Utilizador u = parseUtilizador(linhaPartida[1]);// criar um Utilizador
+                    db.add(u);
+
+                    break;
+
+                case "Loja":
+                    Loja l = parseLoja(linhaPartida[1]);
+                    db.add(l);
+                    break;
+
+                case "Transportadora":
+                    Empresa e = parseEmpresa(linhaPartida[1]);
+                    db.add(e);
+                    break;
+
+                case "Voluntario":
+                    Voluntario  v = parseVoluntario(linhaPartida[1]);
+                    db.add(v);
+                    break;
+
+                case "Encomenda":
+                    Encomenda enc = parseEncomenda(linhaPartida[1]);
+                    db.addEnc(enc);
+                    db.getUtilizador(enc.getUser()).incNumEnc();
+                    break;
+
+                case "Aceite":
+                    String encv = parseEncomendaAceite(linhaPartida[1]);
+                    db.addEncAceite(encv);
+                    break;
+
+                default:
+                    System.out.println("Linha invÃ¡lida.");
+                    break;
+            }
 
         }
         System.out.println("done!");
-     }
-     
+    }
+
   public Utilizador parseUtilizador(String input){
         String[] campos = input.split(",");
         String email = campos[0]; 
