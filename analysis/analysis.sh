@@ -1,40 +1,49 @@
 #!/bin/bash
 
-# mkdir -p ../results/graphs
-# Rscript script.r ../results/sonarqube.csv ../results/graphs > ../results/metrics_analysis
+mkdir -p ../results/graphs
 
-# if [ $# -ne 0 ] && [ $1 == "refactor" ]; then
-#   mkdir -p ../results/graphs_refactor
-#   Rscript script.r ../results/sonarqube_refactor.csv ../results/graphs_refactor >> ../results/metrics_analysis
-# else
-#   echo "Skipping auto refactor analyze"
-# fi
+echo "==============================" > ../results/metrics_analysis
+echo "======= NO REFACTORING =======" >> ../results/metrics_analysis
+echo "==============================" >> ../results/metrics_analysis
 
-# mkdir projects
+Rscript script.r ../results/sonarqube.csv ../results/graphs >> ../results/metrics_analysis
 
-# cp -r ../projects_maven/67 projects
-# cp -r ../projects_maven/83 projects
-# cp -r ../projects_maven/2 projects
+if [ $# -ne 0 ] && [ $1 == "refactor" ]; then
+  mkdir -p ../results/graphs_refactor
 
-# cp pom.xml projects/67
-# cp pom.xml projects/83
-# cp pom.xml projects/2
+  echo "=============================" >> ../results/metrics_analysis
+  echo "======== REFACTORING ========" >> ../results/metrics_analysis
+  echo "=============================" >> ../results/metrics_analysis
+  Rscript script.r ../results/sonarqube_refactor.csv ../results/graphs_refactor >> ../results/metrics_analysis
+else
+  echo "Skipping auto refactor analyze"
+fi
 
-# ../helpers/javaswitcher.sh 8
+mkdir projects
 
-# for p in projects/*; do
-#   cd $p
-#   PROJECT=$(echo $p | awk -F '/' {'print $2'})
-#   CLASS=$(grep -RH "void main[^a-zA-Z]" * | awk -F ":" {'print $1'} | sed 's/src\/main\/java\///;s/\.java//;s/\//./g')
-#   sed -i "s/PROJECT_ID/$PROJECT/;s/CLASSE/$MainClass/" pom.xml 2> /dev/null
-#   mvn -DmemoryInMB=2000 -Dcores=4 evosuite:generate evosuite:export surefire-report:report
-#   mvn cobertura:cobertura
-#   mkdir -p ../../../results/tests/$PROJECT
-#   cp -r target/site/* ../../../results/tests/$PROJECT
-#   cd ../..
-# done
+cp -r ../projects_maven/67 projects
+cp -r ../projects_maven/83 projects
+cp -r ../projects_maven/2 projects
 
-# ../helpers/javaswitcher.sh 11
+cp pom.xml projects/67
+cp pom.xml projects/83
+cp pom.xml projects/2
+
+../helpers/javaswitcher.sh 8
+
+for p in projects/*; do
+  cd $p
+  PROJECT=$(echo $p | awk -F '/' {'print $2'})
+  CLASS=$(grep -RH "void main[^a-zA-Z]" * | awk -F ":" {'print $1'} | sed 's/src\/main\/java\///;s/\.java//;s/\//./g')
+  sed -i "s/PROJECT_ID/$PROJECT/;s/CLASSE/$MainClass/" pom.xml 2> /dev/null
+  mvn -DmemoryInMB=2000 -Dcores=4 evosuite:generate evosuite:export surefire-report:report
+  mvn cobertura:cobertura
+  mkdir -p ../../../results/tests/$PROJECT
+  cp -r target/site/* ../../../results/tests/$PROJECT
+  cd ../..
+done
+
+../helpers/javaswitcher.sh 11
 
 cd RAPL
 sudo modprobe msr

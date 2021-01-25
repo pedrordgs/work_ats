@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="TrazAquiView_ESTest" time="0.069" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="TrazAquiView_ESTest" time="0.016" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
@@ -64,10 +64,51 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="TrazAquiView_ESTest" name="test0" time="0.04"/>
-  <testcase classname="TrazAquiView_ESTest" name="test1" time="0.016"/>
-  <testcase classname="TrazAquiView_ESTest" name="test2" time="0.011"/>
-  <testcase classname="TrazAquiView_ESTest" name="test3" time="0"/>
-  <testcase classname="TrazAquiView_ESTest" name="test4" time="0"/>
-  <testcase classname="TrazAquiView_ESTest" name="test5" time="0.002"/>
+  <testcase classname="TrazAquiView_ESTest" name="TrazAquiView_ESTest" time="0.016">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at org.evosuite.runtime.System.restoreProperties(System.java:100)
+	at org.evosuite.runtime.System.resetRuntime(System.java:328)
+	at org.evosuite.runtime.Runtime.resetRuntime(Runtime.java:81)
+	at org.evosuite.runtime.classhandling.ClassStateSupport.loadClasses(ClassStateSupport.java:151)
+	at org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(ClassStateSupport.java:64)
+	at TrazAquiView_ESTest_scaffolding.initializeClasses(TrazAquiView_ESTest_scaffolding.java:86)
+	at TrazAquiView_ESTest_scaffolding.initEvoSuiteFramework(TrazAquiView_ESTest_scaffolding.java:38)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>[INFO] Seeing class for first time: TrazAquiView_ESTest
+[INFO] Instrumenting class &apos;TrazAquiView_ESTest&apos;.
+[INFO] Seeing class for first time: TrazAquiView_ESTest_scaffolding
+[INFO] Instrumenting class &apos;TrazAquiView_ESTest_scaffolding&apos;.
+[INFO] Keeping class: TrazAquiView_ESTest_scaffolding
+[INFO] Keeping class: TrazAquiView_ESTest
+[DEBUG] Adding privileged thread: &quot;Reference Handler&quot;
+[DEBUG] Adding privileged thread: &quot;Finalizer&quot;
+[DEBUG] Adding privileged thread: &quot;Signal Dispatcher&quot;
+[DEBUG] Adding privileged thread: &quot;Java2D Disposer&quot;
+[DEBUG] Adding privileged thread: &quot;AWT-XAWT&quot;
+[DEBUG] Adding privileged thread: &quot;process reaper&quot;
+[DEBUG] Adding privileged thread: &quot;main&quot;
+</system-out>
+  </testcase>
 </testsuite>

@@ -10,15 +10,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/UserNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/UserNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/UserNotFoundException/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/UserNotFoundException/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/UserNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/UserNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/UserNotFoundException/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/UserNotFoundException/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/UserNotFoundException_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/UserNotFoundException_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>1</totalNumberOfStatements>
-                <totalEffortInSeconds>11</totalEffortInSeconds>
+                <totalEffortInSeconds>20</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -71,39 +71,39 @@
             <modified>true</modified>
             <timeBudgetInSeconds>176</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDVoluntarios/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDVoluntarios/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDVoluntarios/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDVoluntarios/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDVoluntarios/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDVoluntarios/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDVoluntarios/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDVoluntarios/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/BDVoluntarios_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>63</numberOfTests>
-                <totalNumberOfStatements>998</totalNumberOfStatements>
-                <totalEffortInSeconds>142</totalEffortInSeconds>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/BDVoluntarios_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>28</numberOfTests>
+                <totalNumberOfStatements>66</totalNumberOfStatements>
+                <totalEffortInSeconds>126</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
-                    <coverageValue>0.98</coverageValue>
-                    <coverageBitString>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111011111111011</coverageBitString>
+                    <coverageValue>0.58</coverageValue>
+                    <coverageBitString>11111111111110011000111111111000111001111001110000011111111111110000011001011000000111000001110000001</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>BranchCoverage</criterion>
-                    <coverageValue>0.9</coverageValue>
-                    <coverageBitString>1111111111111111111111110111111111111111111111111100011111110111111101110</coverageBitString>
+                    <coverageValue>0.4</coverageValue>
+                    <coverageBitString>1111111111110111111100010010010100010000000100000000010000000100010001000</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>ExceptionCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
-                    <coverageBitString>11111111111111</coverageBitString>
+                    <coverageBitString>1111111111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>WeakMutationScore</criterion>
-                    <coverageValue>0.82</coverageValue>
-                    <coverageBitString>111111111110111101101001111111011111111101111111110111011111011101101111110111111000111110111111111101</coverageBitString>
+                    <coverageValue>0.25</coverageValue>
+                    <coverageBitString>111111111010010000001001111000000100010000000001000000000100000000001000000000000000100000011000100001</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>OutputCoverage</criterion>
-                    <coverageValue>0.39</coverageValue>
-                    <coverageBitString>1000000000000000000000000000111110111011011010011011011011001010010001100010010010010011110110010010010010</coverageBitString>
+                    <coverageValue>0.19</coverageValue>
+                    <coverageBitString>1000000000000000000000000000110010101001001000001001010010001000000000000000000000000001010010010010010010</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>MethodCoverage</criterion>
@@ -112,13 +112,13 @@
                 </coverage>
                 <coverage>
                     <criterion>MethodNoExceptionCoverage</criterion>
-                    <coverageValue>0.96</coverageValue>
-                    <coverageBitString>1111101111111111111111111</coverageBitString>
+                    <coverageValue>0.76</coverageValue>
+                    <coverageBitString>1110101011110111111100111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>CBranchCoverage</criterion>
-                    <coverageValue>0.9</coverageValue>
-                    <coverageBitString>1111111111111111111111101111111111111111111111110001111110111111111011101</coverageBitString>
+                    <coverageValue>0.4</coverageValue>
+                    <coverageBitString>1111111111110111111010001100001010010000000100000000001000000010001000100</coverageBitString>
                 </coverage>
             </suite>
         </generation>
@@ -132,39 +132,39 @@
             <modified>true</modified>
             <timeBudgetInSeconds>218</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Parse/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Parse/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Parse/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Parse/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Parse/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Parse/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Parse/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Parse/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/Parse_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>32</numberOfTests>
-                <totalNumberOfStatements>95</totalNumberOfStatements>
-                <totalEffortInSeconds>151</totalEffortInSeconds>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/Parse_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>29</numberOfTests>
+                <totalNumberOfStatements>85</totalNumberOfStatements>
+                <totalEffortInSeconds>159</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
-                    <coverageValue>0.37</coverageValue>
-                    <coverageBitString>111111111111111100000111110001111000000000000000000000000000011000000000000000000000001011111111101110000000000000000000001111111110000000000011111000000000000011111110001110000000111000001110000000000111111</coverageBitString>
+                    <coverageValue>0.36</coverageValue>
+                    <coverageBitString>111111111111111110001111110001110000000000000000000000000000000000000000000000000000000001111111101110000000000000000000001111111100000000000011111000000000000011111111001110000000111100001110000000000111111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>BranchCoverage</criterion>
                     <coverageValue>0.25</coverageValue>
-                    <coverageBitString>111111111111111111000000000000000000000000000000000000000000000100000111000111000000000000000000000</coverageBitString>
+                    <coverageBitString>111111111111111111000000000000000000000000000000000000000000000111000111000100000000000000000000000</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>ExceptionCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
-                    <coverageBitString>111111111111111111111</coverageBitString>
+                    <coverageBitString>1111111111111111111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>WeakMutationScore</criterion>
-                    <coverageValue>0.08</coverageValue>
-                    <coverageBitString>11100000000000000000000000000000000000000000000000000000001111100000000000000000000000000000000000000000011100000000000000000000000000000000011100000000000000000000000000000000000000000000000000000000000000000000000000000000001111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111100000000000000000000000000000000000000000000000000000000000001110000000000000000010000110001100000000000000000</coverageBitString>
+                    <coverageValue>0.09</coverageValue>
+                    <coverageBitString>11100000000000000000000000000000000000000000000000000000001111100000000000000000000000000000000000000000011111110000000000000000000000000000011100000000000000000000000000000000000000000000000000000000000000000000000000000000001110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111100000000000000000000000000000000000000000000000000000000000001111111000000000000011000110001000000000000000000</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>OutputCoverage</criterion>
-                    <coverageValue>0.08</coverageValue>
-                    <coverageBitString>101011011001001000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000</coverageBitString>
+                    <coverageValue>0.06</coverageValue>
+                    <coverageBitString>101001001001001000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>MethodCoverage</criterion>
@@ -179,7 +179,7 @@
                 <coverage>
                     <criterion>CBranchCoverage</criterion>
                     <coverageValue>0.25</coverageValue>
-                    <coverageBitString>111111111111111111000000000000000000000000000000000000000000000100000111000111000000000000000000000</coverageBitString>
+                    <coverageBitString>111111111111111111000000000000000000000000000000000000000000000110100111000100000000000000000000000</coverageBitString>
                 </coverage>
             </suite>
         </generation>
@@ -193,15 +193,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/VoluntarioNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/VoluntarioNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/VoluntarioNotFoundException/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/VoluntarioNotFoundException/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/VoluntarioNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/VoluntarioNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/VoluntarioNotFoundException/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/VoluntarioNotFoundException/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/VoluntarioNotFoundException_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/VoluntarioNotFoundException_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>1</totalNumberOfStatements>
-                <totalEffortInSeconds>14</totalEffortInSeconds>
+                <totalEffortInSeconds>19</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -254,10 +254,10 @@
             <modified>true</modified>
             <timeBudgetInSeconds>248</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EmpresaTransportes/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EmpresaTransportes/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EmpresaTransportes/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EmpresaTransportes/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EmpresaTransportes/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EmpresaTransportes/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EmpresaTransportes/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EmpresaTransportes/std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -269,15 +269,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>63</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/ComparaQuantidadePair/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/ComparaQuantidadePair/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/ComparaQuantidadePair/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/ComparaQuantidadePair/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/ComparaQuantidadePair/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/ComparaQuantidadePair/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/ComparaQuantidadePair/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/ComparaQuantidadePair/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/ComparaQuantidadePair_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>5</numberOfTests>
-                <totalNumberOfStatements>18</totalNumberOfStatements>
-                <totalEffortInSeconds>28</totalEffortInSeconds>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/ComparaQuantidadePair_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>4</numberOfTests>
+                <totalNumberOfStatements>14</totalNumberOfStatements>
+                <totalEffortInSeconds>41</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -295,13 +295,13 @@
                 </coverage>
                 <coverage>
                     <criterion>WeakMutationScore</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>1111111111111</coverageBitString>
+                    <coverageValue>0.85</coverageValue>
+                    <coverageBitString>1111111110101</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>OutputCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>111</coverageBitString>
+                    <coverageValue>0.67</coverageValue>
+                    <coverageBitString>011</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>MethodCoverage</criterion>
@@ -330,10 +330,10 @@
             <modified>true</modified>
             <timeBudgetInSeconds>105</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDLojas/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDLojas/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDLojas/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDLojas/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDLojas/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDLojas/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDLojas/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDLojas/std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -345,15 +345,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>82</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Input/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Input/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Input/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Input/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Input/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Input/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Input/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Input/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/Input_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/Input_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>9</numberOfTests>
                 <totalNumberOfStatements>16</totalNumberOfStatements>
-                <totalEffortInSeconds>58</totalEffortInSeconds>
+                <totalEffortInSeconds>62</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>0.81</coverageValue>
@@ -406,15 +406,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>82</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/UtilizadorSistema/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/UtilizadorSistema/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/UtilizadorSistema/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/UtilizadorSistema/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/UtilizadorSistema/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/UtilizadorSistema/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/UtilizadorSistema/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/UtilizadorSistema/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/UtilizadorSistema_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>22</numberOfTests>
-                <totalNumberOfStatements>61</totalNumberOfStatements>
-                <totalEffortInSeconds>65</totalEffortInSeconds>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/UtilizadorSistema_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>17</numberOfTests>
+                <totalNumberOfStatements>44</totalNumberOfStatements>
+                <totalEffortInSeconds>61</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>0.93</coverageValue>
@@ -437,23 +437,23 @@
                 </coverage>
                 <coverage>
                     <criterion>OutputCoverage</criterion>
-                    <coverageValue>0.48</coverageValue>
-                    <coverageBitString>101001010100100011101100101110010</coverageBitString>
+                    <coverageValue>0.33</coverageValue>
+                    <coverageBitString>101101010000100001001000100010010</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>MethodCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>11111111111111111</coverageBitString>
+                    <coverageValue>0.88</coverageValue>
+                    <coverageBitString>11011101111111111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>MethodNoExceptionCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>11111111111111111</coverageBitString>
+                    <coverageValue>0.88</coverageValue>
+                    <coverageBitString>11011101111111111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>CBranchCoverage</criterion>
-                    <coverageValue>0.27</coverageValue>
-                    <coverageBitString>001000101001101011000000000000</coverageBitString>
+                    <coverageValue>0.23</coverageValue>
+                    <coverageBitString>001000100001101011000000000000</coverageBitString>
                 </coverage>
             </suite>
         </generation>
@@ -467,15 +467,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TransporteNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TransporteNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TransporteNotFoundException/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TransporteNotFoundException/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TransporteNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TransporteNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TransporteNotFoundException/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TransporteNotFoundException/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/TransporteNotFoundException_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/TransporteNotFoundException_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>1</totalNumberOfStatements>
-                <totalEffortInSeconds>18</totalEffortInSeconds>
+                <totalEffortInSeconds>31</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -528,15 +528,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/LojaNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/LojaNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/LojaNotFoundException/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/LojaNotFoundException/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/LojaNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/LojaNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/LojaNotFoundException/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/LojaNotFoundException/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/LojaNotFoundException_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/LojaNotFoundException_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>1</totalNumberOfStatements>
-                <totalEffortInSeconds>16</totalEffortInSeconds>
+                <totalEffortInSeconds>27</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -589,15 +589,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/ProductNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/ProductNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/ProductNotFoundException/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/ProductNotFoundException/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/ProductNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/ProductNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/ProductNotFoundException/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/ProductNotFoundException/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/ProductNotFoundException_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/ProductNotFoundException_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>1</totalNumberOfStatements>
-                <totalEffortInSeconds>13</totalEffortInSeconds>
+                <totalEffortInSeconds>24</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -650,15 +650,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>131</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDProdutos/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDProdutos/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDProdutos/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDProdutos/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDProdutos/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDProdutos/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDProdutos/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDProdutos/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/BDProdutos_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>38</numberOfTests>
-                <totalNumberOfStatements>730</totalNumberOfStatements>
-                <totalEffortInSeconds>102</totalEffortInSeconds>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/BDProdutos_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>30</numberOfTests>
+                <totalNumberOfStatements>565</totalNumberOfStatements>
+                <totalEffortInSeconds>105</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -666,23 +666,23 @@
                 </coverage>
                 <coverage>
                     <criterion>BranchCoverage</criterion>
-                    <coverageValue>0.91</coverageValue>
-                    <coverageBitString>11111111111011101111011111111111111011111111111</coverageBitString>
+                    <coverageValue>0.89</coverageValue>
+                    <coverageBitString>11111111111111101111011111111110101011111111111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>ExceptionCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
-                    <coverageBitString>1111111111</coverageBitString>
+                    <coverageBitString>111111111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>WeakMutationScore</criterion>
-                    <coverageValue>0.81</coverageValue>
-                    <coverageBitString>1110101110101011101111111111111101111110111010101110111111111101111</coverageBitString>
+                    <coverageValue>0.79</coverageValue>
+                    <coverageBitString>1111101110101011101111111111111101111010101010101110111111111101111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>OutputCoverage</criterion>
-                    <coverageValue>0.49</coverageValue>
-                    <coverageBitString>10111101010010000110110110010010010</coverageBitString>
+                    <coverageValue>0.46</coverageValue>
+                    <coverageBitString>10111101010010000010110110010010010</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>MethodCoverage</criterion>
@@ -696,8 +696,8 @@
                 </coverage>
                 <coverage>
                     <criterion>CBranchCoverage</criterion>
-                    <coverageValue>0.89</coverageValue>
-                    <coverageBitString>11111111111110100111011111111111111110111111111</coverageBitString>
+                    <coverageValue>0.72</coverageValue>
+                    <coverageBitString>11111111101000000001011111111111010110111111111</coverageBitString>
                 </coverage>
             </suite>
         </generation>
@@ -711,15 +711,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>71</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Pair/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Pair/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Pair/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Pair/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Pair/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Pair/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Pair/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Pair/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/Pair_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>17</numberOfTests>
-                <totalNumberOfStatements>37</totalNumberOfStatements>
-                <totalEffortInSeconds>49</totalEffortInSeconds>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/Pair_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>15</numberOfTests>
+                <totalNumberOfStatements>35</totalNumberOfStatements>
+                <totalEffortInSeconds>53</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -772,15 +772,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/DistanceCalculator/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/DistanceCalculator/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/DistanceCalculator/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/DistanceCalculator/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/DistanceCalculator/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/DistanceCalculator/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/DistanceCalculator/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/DistanceCalculator/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/DistanceCalculator_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/DistanceCalculator_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>4</numberOfTests>
                 <totalNumberOfStatements>4</totalNumberOfStatements>
-                <totalEffortInSeconds>34</totalEffortInSeconds>
+                <totalEffortInSeconds>40</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -833,10 +833,10 @@
             <modified>true</modified>
             <timeBudgetInSeconds>116</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDGeral/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDGeral/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDGeral/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDGeral/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDGeral/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDGeral/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDGeral/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDGeral/std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -848,15 +848,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EncomendaNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EncomendaNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EncomendaNotFoundException/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EncomendaNotFoundException/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EncomendaNotFoundException/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EncomendaNotFoundException/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EncomendaNotFoundException/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EncomendaNotFoundException/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/EncomendaNotFoundException_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/EncomendaNotFoundException_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>1</numberOfTests>
                 <totalNumberOfStatements>1</totalNumberOfStatements>
-                <totalEffortInSeconds>16</totalEffortInSeconds>
+                <totalEffortInSeconds>25</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -909,15 +909,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>105</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDUtilizador/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDUtilizador/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDUtilizador/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDUtilizador/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDUtilizador/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDUtilizador/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDUtilizador/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDUtilizador/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/BDUtilizador_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/BDUtilizador_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>21</numberOfTests>
                 <totalNumberOfStatements>48</totalNumberOfStatements>
-                <totalEffortInSeconds>73</totalEffortInSeconds>
+                <totalEffortInSeconds>78</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>0.75</coverageValue>
@@ -966,60 +966,14 @@
         <fullNameOfTestSuite>LinhaEncomenda_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
-            <failed>false</failed>
+            <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>101</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/LinhaEncomenda/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/LinhaEncomenda/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/LinhaEncomenda/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/LinhaEncomenda/std_out_MASTER.log</std_out_MASTER>
-            <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/LinhaEncomenda_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>48</numberOfTests>
-                <totalNumberOfStatements>588</totalNumberOfStatements>
-                <totalEffortInSeconds>81</totalEffortInSeconds>
-                <coverage>
-                    <criterion>LineCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>111111111111111111111111111111111111111111111111111</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>BranchCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>11111111111111111111111111111111111</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>ExceptionCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>111</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>WeakMutationScore</criterion>
-                    <coverageValue>0.9</coverageValue>
-                    <coverageBitString>1111111111110111011111111111111111111111111011101110111011</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>OutputCoverage</criterion>
-                    <coverageValue>0.89</coverageValue>
-                    <coverageBitString>1111111101111111111111111010</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>MethodCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>111111111111111</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>MethodNoExceptionCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>111111111111111</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>CBranchCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>11111111111111111111111111111111111</coverageBitString>
-                </coverage>
-            </suite>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/LinhaEncomenda/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/LinhaEncomenda/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/LinhaEncomenda/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/LinhaEncomenda/std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -1031,39 +985,39 @@
             <modified>true</modified>
             <timeBudgetInSeconds>221</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Voluntario/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Voluntario/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Voluntario/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Voluntario/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Voluntario/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Voluntario/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Voluntario/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Voluntario/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/Voluntario_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>88</numberOfTests>
-                <totalNumberOfStatements>1504</totalNumberOfStatements>
-                <totalEffortInSeconds>177</totalEffortInSeconds>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/Voluntario_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>69</numberOfTests>
+                <totalNumberOfStatements>1130</totalNumberOfStatements>
+                <totalEffortInSeconds>188</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>0.97</coverageValue>
-                    <coverageBitString>1111111111111111111111111111111111111111110001111111111111111111111111111111111111111111111111111111111111111111111111110011111111111111111111111111111111111111111111111111111111111111111111111111111</coverageBitString>
+                    <coverageBitString>1111111111111111111111111111111111111111110001111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111101111111111111111101111111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>BranchCoverage</criterion>
-                    <coverageValue>0.92</coverageValue>
-                    <coverageBitString>111111111111111111111111111111111111111110111111101111011101111111111111111111111111111111111111111111111111111010000</coverageBitString>
+                    <coverageValue>0.85</coverageValue>
+                    <coverageBitString>111111111111111111111111111111111111111111101010101111111101110111111101111111111111111111110110101111101110111010000</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>ExceptionCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
-                    <coverageBitString>111111111111</coverageBitString>
+                    <coverageBitString>1111111111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>WeakMutationScore</criterion>
-                    <coverageValue>0.8</coverageValue>
-                    <coverageBitString>1111111111111111111111111111111111111111111111111011111111111111111111111111111111111111111111101010101111110111111101111111011111111110111111111110111101111111011111101011111111010111111111111111111111111111111111111100100000000000000000000000000000000</coverageBitString>
+                    <coverageValue>0.75</coverageValue>
+                    <coverageBitString>1111111111111111111111111111111111101111111111110011111111111111111111111111111111111111111111111010101111100011111101111110001111111110111111111110110100111111000111100010101001010111111111111111111111111111111111111100100000000000000000000000000000000</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>OutputCoverage</criterion>
-                    <coverageValue>0.65</coverageValue>
-                    <coverageBitString>110011111111111111111111111111011111111111101100000000000011011001011111111101010111010111111011011000000000001010</coverageBitString>
+                    <coverageValue>0.68</coverageValue>
+                    <coverageBitString>110011111111111111111111111111011101111111111000000000000011011001010111111111010111010101111011011001011010101010</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>MethodCoverage</criterion>
@@ -1077,8 +1031,8 @@
                 </coverage>
                 <coverage>
                     <criterion>CBranchCoverage</criterion>
-                    <coverageValue>0.92</coverageValue>
-                    <coverageBitString>111111111111111111111111111111111111111110111111110110111101111111111111111111111111111111111111111111111111111100000</coverageBitString>
+                    <coverageValue>0.85</coverageValue>
+                    <coverageBitString>111111111111111111111111111111111111111111110011010111111101101111111011111111111111111111110110011111110111110100000</coverageBitString>
                 </coverage>
             </suite>
         </generation>
@@ -1088,60 +1042,14 @@
         <fullNameOfTestSuite>Encomenda_ESTest</fullNameOfTestSuite>
         <generation>
             <id>0</id>
-            <failed>false</failed>
+            <failed>true</failed>
             <modified>true</modified>
             <timeBudgetInSeconds>101</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Encomenda/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Encomenda/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Encomenda/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Encomenda/std_out_MASTER.log</std_out_MASTER>
-            <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/Encomenda_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>57</numberOfTests>
-                <totalNumberOfStatements>735</totalNumberOfStatements>
-                <totalEffortInSeconds>86</totalEffortInSeconds>
-                <coverage>
-                    <criterion>LineCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>BranchCoverage</criterion>
-                    <coverageValue>0.96</coverageValue>
-                    <coverageBitString>111111111111111111111111111111111111111110111110111</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>ExceptionCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>1111</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>WeakMutationScore</criterion>
-                    <coverageValue>0.9</coverageValue>
-                    <coverageBitString>11111111111111111111111111011101110110011101110111111111111111111111</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>OutputCoverage</criterion>
-                    <coverageValue>0.84</coverageValue>
-                    <coverageBitString>111111111110111111101111111111101001011111111111010</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>MethodCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>111111111111111111111111111111</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>MethodNoExceptionCoverage</criterion>
-                    <coverageValue>1.0</coverageValue>
-                    <coverageBitString>111111111111111111111111111111</coverageBitString>
-                </coverage>
-                <coverage>
-                    <criterion>CBranchCoverage</criterion>
-                    <coverageValue>0.96</coverageValue>
-                    <coverageBitString>111111111111111111111111111111111111111111011111011</coverageBitString>
-                </coverage>
-            </suite>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Encomenda/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Encomenda/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Encomenda/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Encomenda/std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -1153,15 +1061,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>105</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Utilizador/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Utilizador/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Utilizador/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Utilizador/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Utilizador/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Utilizador/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Utilizador/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Utilizador/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/Utilizador_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>43</numberOfTests>
-                <totalNumberOfStatements>603</totalNumberOfStatements>
-                <totalEffortInSeconds>86</totalEffortInSeconds>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/Utilizador_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>31</numberOfTests>
+                <totalNumberOfStatements>382</totalNumberOfStatements>
+                <totalEffortInSeconds>88</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>0.63</coverageValue>
@@ -1214,15 +1122,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>75</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EncomendasAceites/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EncomendasAceites/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EncomendasAceites/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/EncomendasAceites/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EncomendasAceites/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EncomendasAceites/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EncomendasAceites/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/EncomendasAceites/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/EncomendasAceites_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>11</numberOfTests>
-                <totalNumberOfStatements>26</totalNumberOfStatements>
-                <totalEffortInSeconds>50</totalEffortInSeconds>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/EncomendasAceites_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>12</numberOfTests>
+                <totalNumberOfStatements>28</totalNumberOfStatements>
+                <totalEffortInSeconds>55</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -1275,15 +1183,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>188</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDTransportes/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDTransportes/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDTransportes/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/BDTransportes/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDTransportes/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDTransportes/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDTransportes/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/BDTransportes/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/BDTransportes_ESTest.java</fullPathOfTestSuite>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/BDTransportes_ESTest.java</fullPathOfTestSuite>
                 <numberOfTests>27</numberOfTests>
-                <totalNumberOfStatements>68</totalNumberOfStatements>
-                <totalEffortInSeconds>135</totalEffortInSeconds>
+                <totalNumberOfStatements>67</totalNumberOfStatements>
+                <totalEffortInSeconds>136</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>0.58</coverageValue>
@@ -1336,15 +1244,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TrazAquiView/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TrazAquiView/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TrazAquiView/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TrazAquiView/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TrazAquiView/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TrazAquiView/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TrazAquiView/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TrazAquiView/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/TrazAquiView_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>6</numberOfTests>
-                <totalNumberOfStatements>74</totalNumberOfStatements>
-                <totalEffortInSeconds>18</totalEffortInSeconds>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/TrazAquiView_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>5</numberOfTests>
+                <totalNumberOfStatements>99</totalNumberOfStatements>
+                <totalEffortInSeconds>29</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
@@ -1397,10 +1305,10 @@
             <modified>true</modified>
             <timeBudgetInSeconds>508</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TrazAquiController/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TrazAquiController/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TrazAquiController/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/TrazAquiController/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TrazAquiController/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TrazAquiController/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TrazAquiController/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/TrazAquiController/std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -1412,10 +1320,10 @@
             <modified>true</modified>
             <timeBudgetInSeconds>60</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Main/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Main/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Main/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Main/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Main/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Main/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Main/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Main/std_out_MASTER.log</std_out_MASTER>
         </generation>
     </cut>
     <cut>
@@ -1427,15 +1335,15 @@
             <modified>true</modified>
             <timeBudgetInSeconds>116</timeBudgetInSeconds>
             <memoryInMB>500</memoryInMB>
-            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Loja/std_err_CLIENT.log</std_err_CLIENT>
-            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Loja/std_out_CLIENT.log</std_out_CLIENT>
-            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Loja/std_err_MASTER.log</std_err_MASTER>
-            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/logs/Loja/std_out_MASTER.log</std_out_MASTER>
+            <std_err_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Loja/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Loja/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Loja/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/logs/Loja/std_out_MASTER.log</std_out_MASTER>
             <suite>
-                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_23_21_36_49/tests/Loja_ESTest.java</fullPathOfTestSuite>
-                <numberOfTests>51</numberOfTests>
-                <totalNumberOfStatements>505</totalNumberOfStatements>
-                <totalEffortInSeconds>92</totalEffortInSeconds>
+                <fullPathOfTestSuite>/home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests/Loja_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>47</numberOfTests>
+                <totalNumberOfStatements>589</totalNumberOfStatements>
+                <totalEffortInSeconds>96</totalEffortInSeconds>
                 <coverage>
                     <criterion>LineCoverage</criterion>
                     <coverageValue>0.79</coverageValue>
@@ -1449,7 +1357,7 @@
                 <coverage>
                     <criterion>ExceptionCoverage</criterion>
                     <coverageValue>1.0</coverageValue>
-                    <coverageBitString>111111</coverageBitString>
+                    <coverageBitString>1111111</coverageBitString>
                 </coverage>
                 <coverage>
                     <criterion>WeakMutationScore</criterion>

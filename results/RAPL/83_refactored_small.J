@@ -1,11 +1,11 @@
 Program, Package , Core(s) , GPU , DRAM? , Time (sec) 
-java -jar projects/83_refactored/target/83-1.0.jar , 34.613647 , 23.912537 , 0.000000 , 0.000000 ,  3.43375 
-java -jar projects/83_refactored/target/83-1.0.jar , 38.371582 , 26.496094 , 0.000000 , 0.000000 ,  3.79387 
-java -jar projects/83_refactored/target/83-1.0.jar , 39.705872 , 27.308105 , 0.000000 , 0.000000 ,  3.94085 
-java -jar projects/83_refactored/target/83-1.0.jar , 38.657776 , 26.620422 , 0.000000 , 0.000000 ,  3.82572 
-java -jar projects/83_refactored/target/83-1.0.jar , 41.553894 , 28.590698 , 0.000000 , 0.000000 ,  4.12527 
-java -jar projects/83_refactored/target/83-1.0.jar , 35.723022 , 24.655396 , 0.000000 , 0.000000 ,  3.54156 
-java -jar projects/83_refactored/target/83-1.0.jar , 36.543579 , 25.182922 , 0.000000 , 0.000000 ,  3.62033 
-java -jar projects/83_refactored/target/83-1.0.jar , 40.629944 , 28.081726 , 0.000000 , 0.000000 ,  4.02552 
-java -jar projects/83_refactored/target/83-1.0.jar , 38.426270 , 26.462585 , 0.000000 , 0.000000 ,  3.80724 
-java -jar projects/83_refactored/target/83-1.0.jar , 39.424133 , 27.076355 , 0.000000 , 0.000000 ,  3.911 
+java -jar projects/83_refactored/target/83-1.0.jar , 30.163269 , 22.250244 , 0.000000 , 0.000000 ,  2.7891 
+java -jar projects/83_refactored/target/83-1.0.jar , 25.076416 , 18.601624 , 0.000000 , 0.000000 ,  2.3227 
+java -jar projects/83_refactored/target/83-1.0.jar , 23.853455 , 17.801941 , 0.000000 , 0.000000 ,  2.19163 
+java -jar projects/83_refactored/target/83-1.0.jar , 25.756226 , 19.148865 , 0.000000 , 0.000000 ,  2.37916 
+java -jar projects/83_refactored/target/83-1.0.jar , 23.600830 , 17.560974 , 0.000000 , 0.000000 ,  2.17967 
+java -jar projects/83_refactored/target/83-1.0.jar , 27.124023 , 20.194336 , 0.000000 , 0.000000 ,  2.5034 
+java -jar projects/83_refactored/target/83-1.0.jar , 25.427429 , 18.942810 , 0.000000 , 0.000000 ,  2.33884 
+java -jar projects/83_refactored/target/83-1.0.jar , 27.185059 , 20.183411 , 0.000000 , 0.000000 ,  2.5145 
+java -jar projects/83_refactored/target/83-1.0.jar , 26.898621 , 19.981445 , 0.000000 , 0.000000 ,  2.48551 
+java -jar projects/83_refactored/target/83-1.0.jar , 23.894409 , 17.825684 , 0.000000 , 0.000000 ,  2.19557 

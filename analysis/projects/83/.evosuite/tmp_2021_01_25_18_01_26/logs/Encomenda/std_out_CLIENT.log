@@ -1,0 +1,79 @@
+* Starting client
+* Connecting to master process on port 11393
+* Analyzing classpath: 
+  - /home/pbr/work_ats/analysis/projects/83/target/classes
+  - /home/pbr/.m2/repository/junit/junit/4.12/junit-4.12.jar
+  - /home/pbr/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+* Finished analyzing classpath
+* Generating tests for class Encomenda
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+  - Mutation testing (weak)
+  - Method-Output Coverage
+  - Top-Level Method Coverage
+  - No-Exception Top-Level Method Coverage
+  - Context Branch Coverage
+* Setting up search algorithm for whole suite generation
+[MASTER] 18:08:10.168 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: /home/pbr/work_ats/analysis/projects/83/.evosuite/evosuite-seeds/Encomenda.seed
+* Loaded 0 tests from /home/pbr/work_ats/analysis/projects/83/.evosuite/evosuite-seeds/Encomenda.seed
+* Total number of test goals: 
+  - Line 110
+  - Branch 51
+  - Exception 0
+  - MutationFactory 68
+  - Output 51
+  - Method 30
+  - MethodNoException 30
+  - CBranchFitnessFactory 51
+* Using seed 1611598070108
+* Starting evolution
+[MASTER] 18:08:10.677 [pool-2-thread-1] WARN  TimeController - Phase INITIALIZATION lasted too long, 11 seconds more than allowed.
+* Search finished after 55s and 18 generations, 14298 statements, best individual has fitness: 14.699999967406782
+* Writing sequences to pool
+* Minimizing test suite
+[MASTER] 18:09:17.341 [pool-2-thread-1] WARN  TestSuiteMinimizer - Minimization timeout. Roll back to original test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 100%
+* Total number of goals: 110
+* Number of covered goals: 110
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 98%
+* Total number of goals: 51
+* Number of covered goals: 50
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 4
+* Number of covered goals: 4
+* Coverage analysis for criterion WEAKMUTATION
+* Coverage of criterion WEAKMUTATION: 93%
+* Total number of goals: 68
+* Number of covered goals: 63
+* Coverage analysis for criterion OUTPUT
+* Coverage of criterion OUTPUT: 86%
+* Total number of goals: 51
+* Number of covered goals: 44
+* Coverage analysis for criterion METHOD
+* Coverage of criterion METHOD: 100%
+* Total number of goals: 30
+* Number of covered goals: 30
+* Coverage analysis for criterion METHODNOEXCEPTION
+* Coverage of criterion METHODNOEXCEPTION: 100%
+* Total number of goals: 30
+* Number of covered goals: 30
+* Coverage analysis for criterion CBRANCH
+* Coverage of criterion CBRANCH: 98%
+* Total number of goals: 51
+* Number of covered goals: 50
+* Generated 48 tests with total length 690
+* Resulting test suite's coverage: 97% (average coverage for all fitness functions)
+* Generating assertions
+[MASTER] 18:09:25.802 [pool-2-thread-1] WARN  SimpleMutationAssertionGenerator - Assertion minimization is taking too long (0.987125% of time used, but only 1/48 tests minimized), falling back to using all assertions
+[MASTER] 18:09:26.209 [pool-2-thread-1] WARN  SimpleMutationAssertionGenerator - Reached maximum time to generate assertions, aborting assertion generation
+* Resulting test suite's mutation score: 24%
+* Compiling and checking tests
+[MASTER] 18:09:26.437 [pool-2-thread-1] WARN  TimeController - Current phase JUNIT_CHECK could run up to 8s, but only 5s are left
+[MASTER] 18:09:32.344 [pool-2-thread-1] WARN  TimeController - Current phase WRITING_TESTS could run up to 8s, but only 0s are left
+* Writing JUnit test case 'Encomenda_ESTest' to /home/pbr/work_ats/analysis/projects/83/.evosuite/tmp_2021_01_25_18_01_26/tests

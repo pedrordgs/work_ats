@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: MVC.Models.Catalogs.Transportadoras_ESTest
 -------------------------------------------------------------------------------
-Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.195 sec
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.161 sec

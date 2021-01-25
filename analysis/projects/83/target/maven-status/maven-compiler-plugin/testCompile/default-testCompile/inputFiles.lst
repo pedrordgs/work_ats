@@ -6,11 +6,9 @@
 /home/pbr/work_ats/analysis/projects/83/src/test/java/UtilizadorSistema_ESTest.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/Input_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/VoluntarioNotFoundException_ESTest.java
-/home/pbr/work_ats/analysis/projects/83/src/test/java/Encomenda_ESTest.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/Loja_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/VoluntarioNotFoundException_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/ComparaQuantidadePair_ESTest_scaffolding.java
-/home/pbr/work_ats/analysis/projects/83/src/test/java/LinhaEncomenda_ESTest.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/Parse_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/EncomendasAceites_ESTest.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/TransporteNotFoundException_ESTest.java
@@ -35,8 +33,6 @@
 /home/pbr/work_ats/analysis/projects/83/src/test/java/DistanceCalculator_ESTest.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/ComparaQuantidadePair_ESTest.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/Voluntario_ESTest.java
-/home/pbr/work_ats/analysis/projects/83/src/test/java/LinhaEncomenda_ESTest_scaffolding.java
-/home/pbr/work_ats/analysis/projects/83/src/test/java/Encomenda_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/ProductNotFoundException_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/Utilizador_ESTest.java
 /home/pbr/work_ats/analysis/projects/83/src/test/java/Voluntario_ESTest_scaffolding.java

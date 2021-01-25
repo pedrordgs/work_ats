@@ -1,14 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: BDUtilizador_ESTest
 -------------------------------------------------------------------------------
-Tests run: 21, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.087 sec <<< FAILURE!
-test10(BDUtilizador_ESTest)  Time elapsed: 0.003 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.007 sec <<< FAILURE!
+BDUtilizador_ESTest  Time elapsed: 0.007 sec  <<< ERROR!
 java.lang.NullPointerException
-	at java.util.TreeMap.getEntry(TreeMap.java:347)
-	at java.util.TreeMap.containsKey(TreeMap.java:232)
-	at java.util.TreeSet.contains(TreeSet.java:234)
-	at BDUtilizador.existeCodigo(BDUtilizador.java:99)
-	at BDUtilizador_ESTest.test10(BDUtilizador_ESTest.java:149)
+	at org.evosuite.runtime.System.restoreProperties(System.java:100)
+	at org.evosuite.runtime.System.resetRuntime(System.java:328)
+	at org.evosuite.runtime.Runtime.resetRuntime(Runtime.java:81)
+	at org.evosuite.runtime.classhandling.ClassStateSupport.loadClasses(ClassStateSupport.java:151)
+	at org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(ClassStateSupport.java:64)
+	at BDUtilizador_ESTest_scaffolding.initializeClasses(BDUtilizador_ESTest_scaffolding.java:88)
+	at BDUtilizador_ESTest_scaffolding.initEvoSuiteFramework(BDUtilizador_ESTest_scaffolding.java:39)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -16,9 +18,19 @@ java.lang.NullPointerException
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
-	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.lang.Thread.run(Thread.java:748)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
