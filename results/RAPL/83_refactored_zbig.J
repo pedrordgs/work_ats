@@ -1,11 +1,11 @@
 Program, Package , Core(s) , GPU , DRAM? , Time (sec) 
-java -jar projects/83_refactored/target/83-1.0.jar , 3.942017 , 2.909607 , 0.000000 , 0.000000 ,  0.362227 
-java -jar projects/83_refactored/target/83-1.0.jar , 4.969360 , 3.676392 , 0.000000 , 0.000000 ,  0.45923 
-java -jar projects/83_refactored/target/83-1.0.jar , 4.120483 , 3.054810 , 0.000000 , 0.000000 ,  0.378969 
-java -jar projects/83_refactored/target/83-1.0.jar , 3.225708 , 2.380432 , 0.000000 , 0.000000 ,  0.295866 
-java -jar projects/83_refactored/target/83-1.0.jar , 3.365112 , 2.482910 , 0.000000 , 0.000000 ,  0.310768 
-java -jar projects/83_refactored/target/83-1.0.jar , 2.777344 , 2.041626 , 0.000000 , 0.000000 ,  0.260806 
-java -jar projects/83_refactored/target/83-1.0.jar , 2.700867 , 1.996948 , 0.000000 , 0.000000 ,  0.24499 
-java -jar projects/83_refactored/target/83-1.0.jar , 2.734253 , 2.005981 , 0.000000 , 0.000000 ,  0.254806 
-java -jar projects/83_refactored/target/83-1.0.jar , 3.898682 , 2.874695 , 0.000000 , 0.000000 ,  0.360926 
-java -jar projects/83_refactored/target/83-1.0.jar , 2.971558 , 2.178894 , 0.000000 , 0.000000 ,  0.27275 
+java -jar projects/83_refactored/target/83-1.0.jar , 0.155212 , 0.113708 , 0.000000 , 0.000000 ,  0.015404 
+java -jar projects/83_refactored/target/83-1.0.jar , 0.151855 , 0.111694 , 0.000000 , 0.000000 ,  0.0154 
+java -jar projects/83_refactored/target/83-1.0.jar , 0.444397 , 0.313477 , 0.000000 , 0.000000 ,  0.046069 
+java -jar projects/83_refactored/target/83-1.0.jar , 0.246521 , 0.184570 , 0.000000 , 0.000000 ,  0.022089 
+java -jar projects/83_refactored/target/83-1.0.jar , 0.420410 , 0.294495 , 0.000000 , 0.000000 ,  0.044268 
+java -jar projects/83_refactored/target/83-1.0.jar , 0.232056 , 0.172607 , 0.000000 , 0.000000 ,  0.021345 
+java -jar projects/83_refactored/target/83-1.0.jar , 0.142151 , 0.104919 , 0.000000 , 0.000000 ,  0.014339 
+java -jar projects/83_refactored/target/83-1.0.jar , 0.400940 , 0.284485 , 0.000000 , 0.000000 ,  0.03845 
+java -jar projects/83_refactored/target/83-1.0.jar , 0.282288 , 0.202332 , 0.000000 , 0.000000 ,  0.027838 
+java -jar projects/83_refactored/target/83-1.0.jar , 0.436157 , 0.311157 , 0.000000 , 0.000000 ,  0.041615 

@@ -1,11 +1,11 @@
 Program, Package , Core(s) , GPU , DRAM? , Time (sec) 
-java -jar projects/67_refactored/target/67-1.0.jar , 0.716003 , 0.541016 , 0.000000 , 0.000000 ,  0.064363 
-java -jar projects/67_refactored/target/67-1.0.jar , 0.845947 , 0.643982 , 0.000000 , 0.000000 ,  0.071809 
-java -jar projects/67_refactored/target/67-1.0.jar , 0.742371 , 0.538147 , 0.000000 , 0.000000 ,  0.072821 
-java -jar projects/67_refactored/target/67-1.0.jar , 0.601868 , 0.433289 , 0.000000 , 0.000000 ,  0.060791 
-java -jar projects/67_refactored/target/67-1.0.jar , 0.722534 , 0.542847 , 0.000000 , 0.000000 ,  0.064878 
-java -jar projects/67_refactored/target/67-1.0.jar , 0.784607 , 0.603943 , 0.000000 , 0.000000 ,  0.065512 
-java -jar projects/67_refactored/target/67-1.0.jar , 1.162537 , 0.873230 , 0.000000 , 0.000000 ,  0.104468 
-java -jar projects/67_refactored/target/67-1.0.jar , 0.763245 , 0.550476 , 0.000000 , 0.000000 ,  0.074377 
-java -jar projects/67_refactored/target/67-1.0.jar , 0.712646 , 0.521423 , 0.000000 , 0.000000 ,  0.069073 
-java -jar projects/67_refactored/target/67-1.0.jar , 0.712952 , 0.522522 , 0.000000 , 0.000000 ,  0.06784 
+java -jar projects/67_refactored/target/67-1.0.jar , 22.941162 , 16.665771 , 0.000000 , 0.000000 ,  2.27128 
+java -jar projects/67_refactored/target/67-1.0.jar , 23.359924 , 16.926941 , 0.000000 , 0.000000 ,  2.32008 
+java -jar projects/67_refactored/target/67-1.0.jar , 21.601074 , 15.656189 , 0.000000 , 0.000000 ,  2.15822 
+java -jar projects/67_refactored/target/67-1.0.jar , 21.471375 , 15.656982 , 0.000000 , 0.000000 ,  2.1078 
+java -jar projects/67_refactored/target/67-1.0.jar , 23.281067 , 16.821716 , 0.000000 , 0.000000 ,  2.31262 
+java -jar projects/67_refactored/target/67-1.0.jar , 23.066772 , 16.731079 , 0.000000 , 0.000000 ,  2.27732 
+java -jar projects/67_refactored/target/67-1.0.jar , 24.373169 , 17.735229 , 0.000000 , 0.000000 ,  2.4197 
+java -jar projects/67_refactored/target/67-1.0.jar , 25.030212 , 18.101685 , 0.000000 , 0.000000 ,  2.50028 
+java -jar projects/67_refactored/target/67-1.0.jar , 22.889221 , 16.616943 , 0.000000 , 0.000000 ,  2.25277 
+java -jar projects/67_refactored/target/67-1.0.jar , 24.344421 , 17.665955 , 0.000000 , 0.000000 ,  2.41512 

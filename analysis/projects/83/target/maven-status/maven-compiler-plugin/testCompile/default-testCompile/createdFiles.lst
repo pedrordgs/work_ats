@@ -11,7 +11,9 @@ Parse_ESTest.class
 Input_ESTest.class
 BDTransportes_ESTest.class
 BDVoluntarios_ESTest_scaffolding.class
+LinhaEncomenda_ESTest_scaffolding.class
 UtilizadorSistema_ESTest_scaffolding.class
+Encomenda_ESTest_scaffolding.class
 EncomendaNotFoundException_ESTest.class
 BDVoluntarios_ESTest.class
 Parse_ESTest_scaffolding.class
@@ -25,6 +27,7 @@ Voluntario_ESTest.class
 TransporteNotFoundException_ESTest_scaffolding.class
 ComparaQuantidadePair_ESTest.class
 UserNotFoundException_ESTest.class
+Encomenda_ESTest.class
 BDUtilizador_ESTest_scaffolding.class
 VoluntarioNotFoundException_ESTest_scaffolding.class
 TrazAquiView_ESTest_scaffolding.class
@@ -36,6 +39,7 @@ BDUtilizador_ESTest.class
 Input_ESTest_scaffolding.class
 VoluntarioNotFoundException_ESTest.class
 Voluntario_ESTest_scaffolding.class
+LinhaEncomenda_ESTest.class
 BDProdutos_ESTest_scaffolding.class
 TrazAquiView_ESTest.class
 LojaNotFoundException_ESTest.class

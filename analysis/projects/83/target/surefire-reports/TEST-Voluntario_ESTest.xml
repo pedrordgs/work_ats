@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="Voluntario_ESTest" time="0.067" errors="1" skipped="0">
+<testsuite tests="98" failures="0" name="Voluntario_ESTest" time="0.276" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
@@ -64,51 +64,102 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="Voluntario_ESTest" name="Voluntario_ESTest" time="0.067">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at org.evosuite.runtime.System.restoreProperties(System.java:100)
-	at org.evosuite.runtime.System.resetRuntime(System.java:328)
-	at org.evosuite.runtime.Runtime.resetRuntime(Runtime.java:81)
-	at org.evosuite.runtime.classhandling.ClassStateSupport.loadClasses(ClassStateSupport.java:151)
-	at org.evosuite.runtime.classhandling.ClassStateSupport.initializeClasses(ClassStateSupport.java:64)
-	at Voluntario_ESTest_scaffolding.initializeClasses(Voluntario_ESTest_scaffolding.java:86)
-	at Voluntario_ESTest_scaffolding.initEvoSuiteFramework(Voluntario_ESTest_scaffolding.java:38)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-</error>
-    <system-out>[INFO] Seeing class for first time: Voluntario_ESTest
-[INFO] Instrumenting class &apos;Voluntario_ESTest&apos;.
-[INFO] Seeing class for first time: Voluntario_ESTest_scaffolding
-[INFO] Instrumenting class &apos;Voluntario_ESTest_scaffolding&apos;.
-[INFO] Keeping class: Voluntario_ESTest_scaffolding
-[INFO] Keeping class: Voluntario_ESTest
-[DEBUG] Adding privileged thread: &quot;Reference Handler&quot;
-[DEBUG] Adding privileged thread: &quot;Finalizer&quot;
-[DEBUG] Adding privileged thread: &quot;Signal Dispatcher&quot;
-[DEBUG] Adding privileged thread: &quot;Java2D Disposer&quot;
-[DEBUG] Adding privileged thread: &quot;AWT-XAWT&quot;
-[DEBUG] Adding privileged thread: &quot;process reaper&quot;
-[DEBUG] Adding privileged thread: &quot;main&quot;
-</system-out>
-  </testcase>
+  <testcase classname="Voluntario_ESTest" name="test48" time="0.004"/>
+  <testcase classname="Voluntario_ESTest" name="test49" time="0.003"/>
+  <testcase classname="Voluntario_ESTest" name="test46" time="0.007"/>
+  <testcase classname="Voluntario_ESTest" name="test47" time="0.003"/>
+  <testcase classname="Voluntario_ESTest" name="test44" time="0.004"/>
+  <testcase classname="Voluntario_ESTest" name="test45" time="0.007"/>
+  <testcase classname="Voluntario_ESTest" name="test42" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test43" time="0.011"/>
+  <testcase classname="Voluntario_ESTest" name="test40" time="0.004"/>
+  <testcase classname="Voluntario_ESTest" name="test41" time="0.014"/>
+  <testcase classname="Voluntario_ESTest" name="test59" time="0.009"/>
+  <testcase classname="Voluntario_ESTest" name="test57" time="0.012"/>
+  <testcase classname="Voluntario_ESTest" name="test58" time="0.01"/>
+  <testcase classname="Voluntario_ESTest" name="test55" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test56" time="0.01"/>
+  <testcase classname="Voluntario_ESTest" name="test53" time="0.003"/>
+  <testcase classname="Voluntario_ESTest" name="test54" time="0.006"/>
+  <testcase classname="Voluntario_ESTest" name="test51" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test52" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test50" time="0.003"/>
+  <testcase classname="Voluntario_ESTest" name="test68" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test69" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test66" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test67" time="0.005"/>
+  <testcase classname="Voluntario_ESTest" name="test64" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test65" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test62" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test63" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test60" time="0"/>
+  <testcase classname="Voluntario_ESTest" name="test61" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test79" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test77" time="0.009"/>
+  <testcase classname="Voluntario_ESTest" name="test78" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test75" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test76" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test73" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test74" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test71" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test72" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test70" time="0.005"/>
+  <testcase classname="Voluntario_ESTest" name="test04" time="0.003"/>
+  <testcase classname="Voluntario_ESTest" name="test05" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test02" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test03" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test00" time="0.016"/>
+  <testcase classname="Voluntario_ESTest" name="test88" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test01" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test89" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test86" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test87" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test08" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test09" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test06" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test07" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test84" time="0"/>
+  <testcase classname="Voluntario_ESTest" name="test85" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test82" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test83" time="0.009"/>
+  <testcase classname="Voluntario_ESTest" name="test80" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test81" time="0"/>
+  <testcase classname="Voluntario_ESTest" name="test15" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test16" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test13" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test14" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test11" time="0.005"/>
+  <testcase classname="Voluntario_ESTest" name="test12" time="0.006"/>
+  <testcase classname="Voluntario_ESTest" name="test97" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test10" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test19" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test17" time="0.005"/>
+  <testcase classname="Voluntario_ESTest" name="test18" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test95" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test96" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test93" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test94" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test91" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test92" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test90" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test26" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test27" time="0"/>
+  <testcase classname="Voluntario_ESTest" name="test24" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test25" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test22" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test23" time="0"/>
+  <testcase classname="Voluntario_ESTest" name="test20" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test21" time="0"/>
+  <testcase classname="Voluntario_ESTest" name="test28" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test29" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test37" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test38" time="0.004"/>
+  <testcase classname="Voluntario_ESTest" name="test35" time="0"/>
+  <testcase classname="Voluntario_ESTest" name="test36" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test33" time="0.003"/>
+  <testcase classname="Voluntario_ESTest" name="test34" time="0.003"/>
+  <testcase classname="Voluntario_ESTest" name="test31" time="0.001"/>
+  <testcase classname="Voluntario_ESTest" name="test32" time="0.002"/>
+  <testcase classname="Voluntario_ESTest" name="test39" time="0"/>
+  <testcase classname="Voluntario_ESTest" name="test30" time="0.011"/>
 </testsuite>

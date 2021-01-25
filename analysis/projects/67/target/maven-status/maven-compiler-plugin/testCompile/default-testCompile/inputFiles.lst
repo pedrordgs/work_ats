@@ -7,6 +7,7 @@
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Controller/Controller_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Views/MessageView_ESTest.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/BaseModels/GPS_ESTest.java
+/home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/BaseModels/Transportadora_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/Catalogs/Utilizadores_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Comparators/NumeroVendasComparator_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/SistemaApp_ESTest_scaffolding.java
@@ -23,6 +24,7 @@
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Exceptions/NaoExisteException_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/Catalogs/Voluntarios_ESTest.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/Catalogs/Lojas_ESTest.java
+/home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/BaseModels/VoluntarioMed_ESTest.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Comparators/NumeroVendasComparator_ESTest.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/Catalogs/Transportadoras_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/Model_ESTest.java
@@ -36,6 +38,7 @@
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/SistemaApp_ESTest.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Views/MenuView_ESTest.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/Catalogs/Encomendas_ESTest.java
+/home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/BaseModels/VoluntarioMed_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/BaseModels/Produto_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/BaseModels/Loja_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Input_ESTest_scaffolding.java
@@ -43,6 +46,7 @@
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/Catalogs/Encomendas_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Comparators/DistanciaLojaComparator_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/BaseModels/Loja_ESTest.java
+/home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/BaseModels/Transportadora_ESTest.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Views/ListView_ESTest_scaffolding.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/BaseModels/Voluntario_ESTest.java
 /home/pbr/work_ats/analysis/projects/67/src/test/java/MVC/Models/Catalogs/Lojas_ESTest_scaffolding.java

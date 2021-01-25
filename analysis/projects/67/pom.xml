@@ -23,7 +23,7 @@
         <target>1.8</target>
         <archive>
           <manifest>
-            <mainClass></mainClass>
+            <mainClass>MVC.SistemaApp</mainClass>
           </manifest>
         </archive>
       </configuration>

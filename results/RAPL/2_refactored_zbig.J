@@ -1,11 +1,11 @@
 Program, Package , Core(s) , GPU , DRAM? , Time (sec) 
-java -jar projects/2_refactored/target/2-1.0.jar , 1.122009 , 0.809875 , 0.000000 , 0.000000 ,  0.110546 
-java -jar projects/2_refactored/target/2-1.0.jar , 0.910339 , 0.657227 , 0.000000 , 0.000000 ,  0.090786 
-java -jar projects/2_refactored/target/2-1.0.jar , 0.828186 , 0.623779 , 0.000000 , 0.000000 ,  0.07478 
-java -jar projects/2_refactored/target/2-1.0.jar , 0.879944 , 0.669067 , 0.000000 , 0.000000 ,  0.075942 
-java -jar projects/2_refactored/target/2-1.0.jar , 0.940002 , 0.700989 , 0.000000 , 0.000000 ,  0.091528 
-java -jar projects/2_refactored/target/2-1.0.jar , 0.920715 , 0.690308 , 0.000000 , 0.000000 ,  0.080478 
-java -jar projects/2_refactored/target/2-1.0.jar , 0.932373 , 0.689575 , 0.000000 , 0.000000 ,  0.088911 
-java -jar projects/2_refactored/target/2-1.0.jar , 0.889099 , 0.673157 , 0.000000 , 0.000000 ,  0.078779 
-java -jar projects/2_refactored/target/2-1.0.jar , 0.919556 , 0.687988 , 0.000000 , 0.000000 ,  0.084223 
-java -jar projects/2_refactored/target/2-1.0.jar , 0.913757 , 0.673889 , 0.000000 , 0.000000 ,  0.086239 
+java -jar projects/2_refactored/target/2-1.0.jar , 7.420898 , 5.402344 , 0.000000 , 0.000000 ,  0.731869 
+java -jar projects/2_refactored/target/2-1.0.jar , 8.342773 , 6.088013 , 0.000000 , 0.000000 ,  0.823657 
+java -jar projects/2_refactored/target/2-1.0.jar , 6.909119 , 5.030518 , 0.000000 , 0.000000 ,  0.689498 
+java -jar projects/2_refactored/target/2-1.0.jar , 8.143005 , 5.955322 , 0.000000 , 0.000000 ,  0.806647 
+java -jar projects/2_refactored/target/2-1.0.jar , 7.758484 , 5.671875 , 0.000000 , 0.000000 ,  0.768974 
+java -jar projects/2_refactored/target/2-1.0.jar , 7.463013 , 5.436096 , 0.000000 , 0.000000 ,  0.741301 
+java -jar projects/2_refactored/target/2-1.0.jar , 8.831421 , 6.448792 , 0.000000 , 0.000000 ,  0.874038 
+java -jar projects/2_refactored/target/2-1.0.jar , 7.457458 , 5.448425 , 0.000000 , 0.000000 ,  0.73718 
+java -jar projects/2_refactored/target/2-1.0.jar , 9.566284 , 6.982117 , 0.000000 , 0.000000 ,  0.944395 
+java -jar projects/2_refactored/target/2-1.0.jar , 6.961121 , 5.077881 , 0.000000 , 0.000000 ,  0.696417 

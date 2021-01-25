@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: MVC.Models.Catalogs.Voluntarios_ESTest
 -------------------------------------------------------------------------------
-Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.237 sec
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.234 sec

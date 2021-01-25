@@ -1,11 +1,11 @@
 Program, Package , Core(s) , GPU , DRAM? , Time (sec) 
-java -jar projects/2/target/2-1.0.jar , 2.302979 , 1.724182 , 0.000000 , 0.000000 ,  0.206165 
-java -jar projects/2/target/2-1.0.jar , 2.368469 , 1.767212 , 0.000000 , 0.000000 ,  0.215534 
-java -jar projects/2/target/2-1.0.jar , 1.978638 , 1.467163 , 0.000000 , 0.000000 ,  0.182092 
-java -jar projects/2/target/2-1.0.jar , 2.259521 , 1.676147 , 0.000000 , 0.000000 ,  0.208558 
-java -jar projects/2/target/2-1.0.jar , 1.881165 , 1.405823 , 0.000000 , 0.000000 ,  0.177595 
-java -jar projects/2/target/2-1.0.jar , 2.075867 , 1.545654 , 0.000000 , 0.000000 ,  0.191887 
-java -jar projects/2/target/2-1.0.jar , 2.564941 , 1.882812 , 0.000000 , 0.000000 ,  0.251963 
-java -jar projects/2/target/2-1.0.jar , 1.887146 , 1.450378 , 0.000000 , 0.000000 ,  0.159822 
-java -jar projects/2/target/2-1.0.jar , 1.943726 , 1.449707 , 0.000000 , 0.000000 ,  0.175607 
-java -jar projects/2/target/2-1.0.jar , 2.042969 , 1.517334 , 0.000000 , 0.000000 ,  0.191474 
+java -jar projects/2/target/2-1.0.jar , 3.717041 , 2.639648 , 0.000000 , 0.000000 ,  0.368329 
+java -jar projects/2/target/2-1.0.jar , 1.805908 , 1.293884 , 0.000000 , 0.000000 ,  0.181143 
+java -jar projects/2/target/2-1.0.jar , 2.763000 , 1.976501 , 0.000000 , 0.000000 ,  0.270778 
+java -jar projects/2/target/2-1.0.jar , 2.177734 , 1.553345 , 0.000000 , 0.000000 ,  0.221493 
+java -jar projects/2/target/2-1.0.jar , 2.109680 , 1.524048 , 0.000000 , 0.000000 ,  0.204326 
+java -jar projects/2/target/2-1.0.jar , 3.059143 , 2.216003 , 0.000000 , 0.000000 ,  0.300402 
+java -jar projects/2/target/2-1.0.jar , 2.793152 , 2.007141 , 0.000000 , 0.000000 ,  0.279331 
+java -jar projects/2/target/2-1.0.jar , 3.456482 , 2.461060 , 0.000000 , 0.000000 ,  0.342657 
+java -jar projects/2/target/2-1.0.jar , 2.018677 , 1.449158 , 0.000000 , 0.000000 ,  0.200027 
+java -jar projects/2/target/2-1.0.jar , 2.602478 , 1.870972 , 0.000000 , 0.000000 ,  0.258685 

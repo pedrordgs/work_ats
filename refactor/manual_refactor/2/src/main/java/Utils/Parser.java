@@ -13,8 +13,8 @@ import java.nio.file.Paths;
 import java.nio.charset.StandardCharsets;
 /**
  * Escreva a descrição da classe Utils.Parser aqui.
- * 
- * @author (seu nome) 
+ *
+ * @author (seu nome)
  * @version (número de versão ou data)
  */
 public class Parser
@@ -26,39 +26,39 @@ public class Parser
         for (String linha : linhas) {
                 linhaPartida = linha.split(":", 2);
                 switch(linhaPartida[0]){
-                    case "Perfis":
-                        Utilizador u = parseUtilizador(linhaPartida[1]);// criar um Utilizador.Utilizador
+                    case "Utilizador":
+                        Utilizador u = parseUtilizador(linhaPartida[1]);// criar um Utilizador
                         db.add(u);
-                        
+
                         break;
-                      
-                    case "Utilizador.Loja":
+
+                    case "Loja":
                         Loja l = parseLoja(linhaPartida[1]);
                         db.add(l);
                         break;
-                        
-                    case "Transportadora": 
+
+                    case "Transportadora":
                         Empresa e = parseEmpresa(linhaPartida[1]);
                         db.add(e);
                         break;
-                        
-                    case "Transporte.Voluntario":
+
+                    case "Voluntario":
                         Voluntario  v = parseVoluntario(linhaPartida[1]);
                         db.add(v);
                         break;
-                        
-                    case "Encomenda": 
+
+                    case "Encomenda":
                         Encomenda enc = parseEncomenda(linhaPartida[1]);
                         db.addEnc(enc);
                         db.getUtilizador(enc.getUser()).incNumEnc();
                         break;
-                        
-                    case "Aceite": 
+
+                    case "Aceite":
                         String encv = parseEncomendaAceite(linhaPartida[1]);
                         db.addEncAceite(encv);
                         break;
-                        
-                    default: 
+
+                    default:
                         System.out.println("Linha invÃ¡lida.");
                         break;
                 }
@@ -66,10 +66,10 @@ public class Parser
         }
         System.out.println("done!");
      }
-     
+
   public Utilizador parseUtilizador(String input){
         String[] campos = input.split(",");
-        String email = campos[0]; 
+        String email = campos[0];
         String nome = campos[1];
         String password= this.pwd;
         double gpsx = Double.parseDouble(campos[2]);
@@ -80,10 +80,10 @@ public class Parser
         int numEnc=0;
        return new Utilizador(email,nome,password,a,numEnc);
     }
-    
+
   public Loja parseLoja(String input){
         String[] campos = input.split(",");
-        String email = campos[0]; 
+        String email = campos[0];
         String nome = campos[1];
         String password= this.pwd;
         double gpsx = Double.parseDouble(campos[2]);
@@ -93,14 +93,14 @@ public class Parser
         a.setY(gpsy);
         int espera=0;
         String morada="default";
-        
-       
+
+
         return new Loja(email,nome,password,a,espera,morada);
     }
-    
+
   public Empresa parseEmpresa(String input){
         String[] campos = input.split(",");
-        String email = campos[0]; 
+        String email = campos[0];
         String nomeEmpresa = campos[1];
          String password= this.pwd;
         double gpsx = Double.parseDouble(campos[2]);
@@ -114,13 +114,13 @@ public class Parser
         int licMedicamentos=0;//Se pode transportar medicamentos
         String nif=campos[4];
         float precoKg=0;
-        
+
         return new Empresa(email,nomeEmpresa,password,a,raio,velmed,licMedicamentos,nif,precoKg,precoKm);
     }
-    
+
   public Voluntario parseVoluntario(String input){
         String[] campos = input.split(",");
-        String email = campos[0]; 
+        String email = campos[0];
         String nome = campos[1];
         String password= this.pwd;
         double gpsx = Double.parseDouble(campos[2]);
@@ -134,42 +134,42 @@ public class Parser
 
       return new Voluntario (email,nome,password,a,raio,velmed,licMedicamentos, false);
     }
-    
+
   public Encomenda parseEncomenda(String input){
         Encomenda enc= new Encomenda();
         String[] campos = input.split(",");
         int tamanho= campos.length;
-        
+
         String ref= campos[0];
         String user=campos[1];
         String loja=campos[2];
         double peso= Double.parseDouble(campos[3]);
-        
+
         enc.setEnc(ref);
         enc.setUser(user);
         enc.setLoja(loja);
         enc.setPeso(peso);
-      
+
         int i=4;
-       
+
         while(i<tamanho){
             LinhaEncomenda a= new LinhaEncomenda();
-            
+
             String codPro=campos[i];
             String desc =campos[i+1];
             double valUni=Double.parseDouble(campos[i+2]);
             double qtd=Double.parseDouble(campos[i+3]);
-            
+
             a.setReferencia(codPro);
             a.setDescricao(desc);
             a.setValorUni(valUni);
             a.setQuantidade(qtd);
-            
+
             i+=4;
             enc.addLinhaEncomenda(a);
         }
-       
-        
+
+
         int aceitaCusto=0;// 0-nao respondeu,1-sim,-1-nao
         int medicamentos=0;//se e de medicamentos
         int estado=0;//0->encomenda nao pronta//->1 encomenda pronta//-1 encomenda entregue
@@ -177,7 +177,7 @@ public class Parser
         float tempo=0;
         double custo=0;
         double classificacao=0;
-        
+
         enc.setAceitaCusto(aceitaCusto);
         enc.setMedicamentos(medicamentos);
         enc.setEstado(estado);
@@ -185,15 +185,15 @@ public class Parser
         enc.setTempo(tempo);
         enc.setCusto(custo);
         enc.setClassificacao(classificacao);
-    
+
         return enc;
     }
-    
+
   public String parseEncomendaAceite(String input){
        String[] campos = input.split(",");
       return campos[0];
    }
-    
+
   public List<String> lerFicheiro(String nomeFich) {
         List<String> lines = new ArrayList<>();
         try { lines = Files.readAllLines(Paths.get(nomeFich), StandardCharsets.UTF_8);

@@ -23,7 +23,7 @@
         <target>1.8</target>
         <archive>
           <manifest>
-            <mainClass></mainClass>
+            <mainClass>Main</mainClass>
           </manifest>
         </archive>
       </configuration>
