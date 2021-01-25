@@ -22,15 +22,7 @@ public class DataBase implements Serializable
        encomendas =new HashMap<String,Encomenda>();
        perfis = new HashMap<String,Perfil>();
        encomendasAceites = new ArrayList<String>();
-       Encomenda e1=new Encomenda(1,LocalDateTime.of(2008,8,2,0,0),10,1,"t9");
-       Encomenda e2=new Encomenda(1,LocalDateTime.of(2018,8,2,0,0),7,1,"t9");
-       Encomenda e3=new Encomenda(1,LocalDateTime.of(2013,8,2,0,0),5,1,"t9");
-       Encomenda e4=new Encomenda(1,LocalDateTime.of(2020,8,2,0,0),20,1,"t9");
-       encomendas.put("e3482",e1);
-       encomendas.put("e3400",e2);
-       encomendas.put("e3411",e3);
-       encomendas.put("e3422",e4);
-    }    
+    }
      
     
     /**
