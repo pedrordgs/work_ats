@@ -28,7 +28,7 @@ public class Parse {
      * @param eas Lista de Códigos de Encomendas Aceites.
      */
     public void parse(Utilizadores us, Voluntarios vs, Transportadoras ts, Lojas ls, Encomendas es, List<String> eas){
-        List<String> linhas = lerFicheiro("dados/logs.txt"); //alterar nome do ficheiro
+        List<String> linhas = lerFicheiro("logs.txt"); //alterar nome do ficheiro
         String[] linhaPartida;
         for (String linha : linhas) {
                 linhaPartida = linha.split(":", 2);
