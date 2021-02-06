@@ -24,119 +24,70 @@
                 <section>
                     <h2> Estruturação dos projetos </h2>
                     <section>
-                        De maneira a podermos importar todos os projetos para o sonarqube, foi necessário reestruturamos os mesmos, ficando assim sempre prefixados de <b>/src/main/java</b>.
+                        Após uma breve análise reparamos que a estrutura dos projetos não era homogénea, o que não facilitava a utilização de ferramentas como por exemplo o maven.
                     </section>
                     <section>
-                        Esta reestruturação foi necessária para podermos automatizar o processo de envio dos projetos para o sonarqube através da ferramenta <b>maven</b>.
+                        <img src="images/tree_antes.png"  height="500">
                     </section>
                     <section>
-                        Primeiramente, começamos por criar um programa que nos desse os comandos <i>bash</i> necessários para esta reestruturação.
-                        O programa consiste em procurar todos os ficheiros com a extensão <b>java</b> e ler as respetivas <i>packages</i> a que estes pertencem.
+                        Decidimos então homogenizar a estrutura dos projetos
                     </section>
                     <section>
-                        Após isso, são criados todos os comandos necessários para copiar os ficheiros de cada projeto para uma diretoria estuturada de acordo com um projeto maven.
-                        O código do programa pode ser consultado <a href="https://github.com/pedrordgs/work_ats/blob/master/ats.hs">aqui</a>.
-                    </section>
-                    <section>
-                        Tendo agora os comandos para copiar os ficheiros, precisamos agora de uma <b>pom.xml</b>. Para isso, recorremos a um simples script de <b>bash</b>.
-                    </section>
-                    <section>
-                        <pre class="bash" data-id="code-animation">
-                            <code style="font-size: 15px" data-trim data-line-numbers="1|6-8|9|11|1-13">
-echo projects_maven/* | xargs -n 1 cp pom.xml
-
-# get the main class
-for p in projects_maven/*; do
-  cd $p
-  MainClass=$(grep -RH "void main[^a-zA-Z]" *
-      \| awk -F ":" {'print $1'}
-      \| sed 's/src\/main\/java\///;s/\.java//;s/\//./g')
-  Project=$(echo $p | awk -F / '{print $2}')
-  # Replace mainclass with each projects main class
-  sed -i "s/TrazAqui/$Project/;s/&lt;mainClass&gt;/&lt;mainClass&gt;$MainClass/" pom.xml 2&gt; /dev/null
-  cd ../..
-done
-
-                            </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <pre class="bash" data-id="code-animation">
-                        <code style="font-size: 15px" data-trim data-line-numbers="3-4|1-8">
-cd projects_maven
-echo ""
-echo "It was impossible to determine the main class of the following projects:"
-DELETE=$(grep -RH "<mainClass></mainClass>" * | awk -F / '{print $1}')
-echo $DELETE
-echo ""
-echo "$(echo $DELETE | wc -w) projects were deleted"
-rm -rf $DELETE
-                        </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <img
-                            style='vertical-align:middle;margin:5%;'
-                            src="images/tree_antes.png"
-                            width="300"
-                            heigth="100">
-                        <img
-                            style='vertical-align:middle;margin:5%'
-                            src="images/tree_depois.png"
-                            width="300"
-                            heigth="100">
+                        <img src="images/tree_depois.png" height="500">
                     </section>
                 </section>
                 <!------------------------------------------------------------------------>
                 <section>
                     <h2>Qualidade do Código Fonte</h2>
                     <section>
-                        De modo a testarmos a qualidade do código dos projetos, recorremos ao uso da ferramenta <b>Sonarqube</b>.
-                    </section>
-                    <section>
-                        <pre class="bash" data-id="code-animation">
-                        <code style="font-size: 15px" data-trim data-line-numbers="3-7|9|9-13|1-13">
-echo "Running sonarqube on background"
-
-for p in projects_maven/*; do
-  cd $p
-  mvn clean verify sonar:sonar
-  cd ../..
-done
-
-echo "It was impossible to generate a .jar file for the following projects:"
-
-cd projects_maven
-comm -3 &lt;(find . -iname '*.jar' | awk -F / '{print $2}' | sort) &gt;(ls | sort)
-    \| awk '{print $1}'
-                        </code>
-                        </pre>
-                    </section>
-
-                    <section>
-                        Agora com os projetos no sonarqube, precisamos de obter o resultado das análises. De modo a automatizar o processo e não recolher os dados de cada projeto individualmente, criamos um ficheiro em <a href="https://github.com/pedrordgs/work_ats/blob/master/extract_sonarqube.py"><b>python</b></a>, que nos exporta as métricas para um ficheiro <b>csv</b>.
-                    </section>
-                    <section>
-                        Que métricas consideramos importantes?
+                        De modo a avaliar cada trabalho, foram usadas as seguintes métricas:
+                        <p></p>
                         <ul>
-                            <li class="fragment" data-fragment-index="1">Bugs</li>
-                            <li class="fragment" data-fragment-index="2">Code Smells</li>
-                            <li class="fragment" data-fragment-index="3">Technical Debt</li>
-                            <li class="fragment" data-fragment-index="4">Duplicated Blocks</li>
-                            <li class="fragment" data-fragment-index="5">Percentage of duplicated lines of code</li>
+                            <li>Bugs</li>
+                            <li>Code Smells</li>
+                            <li>Technical Debt</li>
+                            <li>Blocos duplicados</li>
+                            <li>Percentagem de linhas duplicadas</li>
+                            <li>Complexidade ciclomática</li>
                         </ul>
                     </section>
+                    <section>
+                        <p>De modo a automatizar a avaliação do código dos trabalhos, usamos o plugin do maven que envia automaticamente os trabalhos para o sonarqube. </p>
+                        <p>Após ter sido realizada a avaliação pelo sonarqube, usamos então um script escrito em python para coletar os dados para um ficheiro csv.</p>
+                    </section>
+                    <section>
+                        Tendo agora um ficheiro csv com os dados dos projetos, criamos um script em R que cria os gráficos contendo as métricas previamente anunicadas.
+                        <p> Através deste script, escolhemos também 3 projetos, sendos estes, o melhor, o pior e o que mais se aproxima da média das métricas.
+                    </section>
 
+                    <section>
+                        <img src="images/bugs.png">
+                    </section>
+                    <section>
+                        <img src="images/complexity.png">
+                    </section>
+                    <section>
+                        <img src="images/code_smells.png">
+                    </section>
+                    <section>
+                        <img src="images/technical_debt.png">
+                    </section>
+                    <section>
+                        <img src="images/duplicated_blocks.png">
+                    </section>
+                    <section>
+                        <img src="images/duplicated_lines_density.png">
+                    </section>
                 </section>
-
                 <!------------------------------------------------------------------------>
                 <section>
                     <h2>Refactoring</h2>
                     <section>
-                        ola
+                        Numa primeira abordagem, tentamos fazer um refactoring automático, no entanto, sem sucesso.
+                        <p> Por essa razão, fizemos refactor para os 3 projetos previamente escolhidos.
                     </section>
                     <section>
-                        Slide 3
+                        O refactoring dos projetos foi feito com recurso ao IDE intelliJ, que disponibiliza alguns refactorings automáticos e também com recurso ao sonarqube, tendo posteriormente de alterar o código manualmente.
                     </section>
                 </section>
 
@@ -144,20 +95,145 @@ comm -3 &lt;(find . -iname '*.jar' | awk -F / '{print $2}' | sort) &gt;(ls | sor
                 <section>
                     <h2>Testes</h2>
                     <section>
-                        ola
+                        De modo a automatizar o processo de criação e cobertura de testes, foram utilizados os plugins EvoSuite e cobertura do maven.
                     </section>
                     <section>
-                        Slide 3
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Testes</th>
+                                    <th scope="col">Sucesso</th>
+                                    <th scope="col">Cobertura</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>282</td>
+                                    <td>100%</td>
+                                    <td>46%</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">67</th>
+                                    <td>550</td>
+                                    <td>100%</td>
+                                    <td>62%</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">83</th>
+                                    <td>592</td>
+                                    <td>99.8%</td>
+                                    <td>45%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        Usamos o quickcheck com o objetivo de criar ficheiros de input para testar os projetos. Cumprimos também o requisito de variar o tamanho dos logs gerados tendo criado três inputs diferentes, de carga baixa, média e alta, respetivamente.
                     </section>
                 </section>
                 <!------------------------------------------------------------------------>
                 <section>
                     <h2>Análise de Desempenho</h2>
                     <section>
-                        ola
+                        De maneira a analisar o desempenho dos projetos, recorremos ao uso da ferramenta RAPL.
                     </section>
                     <section>
-                        Slide 3
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">2 | 2-refactored </th>
+                                    <th scope="col">Energia (J)</th>
+                                    <th scope="col">% CPU</th>
+                                    <th scope="col">Tempo (seg)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">small</th>
+                                    <td>2.65 | 2.94</td>
+                                    <td>1.9 | 2.1</td>
+                                    <td>0.26 | 0.29</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">medium</th>
+                                    <td>4.04 | 4.32</td>
+                                    <td>3.44 | 3.65</td>
+                                    <td>0.23 | 0.26</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">big</th>
+                                    <td>8.11 | 7.89</td>
+                                    <td>5.88 | 5.75</td>
+                                    <td>0.8 | 0.78</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">67 | 67-refactored </th>
+                                    <th scope="col">Energia (J)</th>
+                                    <th scope="col">% CPU</th>
+                                    <th scope="col">Tempo (seg)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">small</th>
+                                    <td>2.31 | 1.99</td>
+                                    <td>1.66 | 1.44</td>
+                                    <td>0.23 | 0.197</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">medium</th>
+                                    <td>6.28 | 6.04</td>
+                                    <td>5.19 | 4.94</td>
+                                    <td>0.42 | 0.42</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">big</th>
+                                    <td>24.48 | 23.24</td>
+                                    <td>17.8 | 16.86</td>
+                                    <td>2.43 | 2.3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">83 | 83-refactored </th>
+                                    <th scope="col">Energia (J)</th>
+                                    <th scope="col">% CPU</th>
+                                    <th scope="col">Tempo (seg)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">small</th>
+                                    <td>29.22 | 26.24</td>
+                                    <td>21.07 | 18.96</td>
+                                    <td>2.89 | 2.6</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">medium</th>
+                                    <td>389.01 | 422.53</td>
+                                    <td>293.78 | 311.18</td>
+                                    <td>34.977 | 39.975</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section>
+                        Analisando os resultados, podemos concluir que os refactorings diminuem o consumo de energia, sendo notável que, quanto maior a carga, maior a melhoria ao nível do consumo de energia.
                     </section>
                 </section>
 
